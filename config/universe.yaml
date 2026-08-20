@@ -209,3 +209,31 @@ securities:
     bottleneck_score: 83.0
     elite_alignment: 80.0
     governance_score: 81.0
+
+  - symbol: 'AAPL'
+    name: 'Apple Inc.'
+    sector: 'Technology'
+    category: 'GLOBAL'
+    baseline_pe: 30.0
+    baseline_pb: 40.0
+    baseline_roe: 150.0
+    debt_to_equity: 1.5
+    route_eligibility: ['Route Alpha']
+    bottleneck_score: 95.0
+    elite_alignment: 90.0
+    governance_score: 95.0
+    asset_class: 'EQUITY_GLOBAL'
+
+  - symbol: 'GC=F'
+    name: 'Gold Futures'
+    sector: 'Precious Metals'
+    category: 'COMMODITY'
+    route_eligibility: ['Route Beta']
+    asset_class: 'COMMODITY'
+
+  - symbol: 'BTC-USD'
+    name: 'Bitcoin'
+    sector: 'Cryptocurrency'
+    category: 'CRYPTO'
+    route_eligibility: ['Route Gamma']
+    asset_class: 'CRYPTO'

@@ -8,7 +8,7 @@ from src.data.models import Stock, Transaction, ActionType, StrategicRoute
 
 def test_balance_sheet_identity():
     policy = InvestmentPolicy()
-    portfolio = PortfolioEngine(policy, initial_cash=100000000.0)
+    portfolio = PortfolioEngine(policy, profile_id="P1_DOMESTIC_EQUITY", initial_cash=100000000.0)
     
     bs = portfolio.get_balance_sheet("2026-08-20")
     # Total Assets = Liabilities + Shareholder Equity

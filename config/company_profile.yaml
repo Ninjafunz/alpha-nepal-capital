@@ -1,15 +1,30 @@
-name: "Alpha Nepal Capital"
-entity_type: "Virtual AI-Managed Investment Company"
-founded_date: "2026-08-20"
-founder_role: "Founder / Chief Investment Strategist"
-ai_management_role: "Autonomous Operating Committee"
-starting_capital_npr: 100000000.0
-total_shares_issued: 10000000.0
-par_value_npr: 10.0
-headquarters: "Kathmandu, Nepal (Virtual Operations Domicile)"
-base_currency: "NPR"
-exchange: "Nepal Stock Exchange (NEPSE)"
-operating_regime: "ASA-V1.ethics"
-status: "FLOURISHING"
-github_repo: "https://github.com/username/alpha-nepal-capital"
-website_url: "https://username.github.io/alpha-nepal-capital"
+company:
+  name: "Alpha Global Capital"
+  founded: "2026-08-20"
+  autonomy_level: 3
+  total_shares_issued: 10000000.0
+
+profiles:
+  - id: "P1_DOMESTIC_EQUITY"
+    name: "Alpha Domestic Equities"
+    currency: "NPR"
+    starting_capital: 100000000.0
+    asset_class: "EQUITY_DOMESTIC"
+    
+  - id: "P2_GLOBAL_EQUITY"
+    name: "Alpha Global Equities"
+    currency: "USD"
+    starting_capital: 1000000.0
+    asset_class: "EQUITY_GLOBAL"
+    
+  - id: "P3_COMMODITIES"
+    name: "Alpha Commodities"
+    currency: "USD"
+    starting_capital: 1000000.0
+    asset_class: "COMMODITY"
+    
+  - id: "P4_CRYPTO"
+    name: "Alpha Crypto"
+    currency: "USD"
+    starting_capital: 1000000.0
+    asset_class: "CRYPTO"

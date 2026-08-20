@@ -6,7 +6,7 @@ from src.governance.compliance import ComplianceMonitor
 
 def test_compliance_fresh_portfolio():
     policy = InvestmentPolicy()
-    portfolio = PortfolioEngine(policy, initial_cash=100000000.0)
+    portfolio = PortfolioEngine(policy, profile_id="P1_DOMESTIC_EQUITY", initial_cash=100000000.0)
     monitor = ComplianceMonitor(policy)
 
     checks, score = monitor.check_compliance("2026-08-20", portfolio)

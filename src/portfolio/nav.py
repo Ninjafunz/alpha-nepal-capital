@@ -9,9 +9,9 @@ class NAVEngine:
 
     def __init__(self, policy: InvestmentPolicy):
         self.policy = policy
-        self.shares_outstanding = policy.company.shares_outstanding
-        self.starting_capital = policy.company.starting_capital
-        self.starting_nav = policy.company.starting_nav
+        self.shares_outstanding = policy.company.company.total_shares_issued
+        self.starting_capital = sum(p.starting_capital for p in policy.company.profiles)
+        self.starting_nav = 10.0
 
     def calculate_nav(self, total_assets: float, liabilities: float = 0.0) -> Dict[str, float]:
         equity = total_assets - liabilities

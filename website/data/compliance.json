@@ -8,31 +8,31 @@
       "rule_id": "RULE-POS-01",
       "rule_name": "Max Single Position Exposure",
       "threshold": "<= 25.0%",
-      "current_value": 10.01,
+      "current_value": 0.0,
       "limit_value": 25.0,
       "passed": true,
       "severity": "PASS",
-      "message": "Highest single stock weight is 10.0% (Limit: 25.0%)"
+      "message": "Highest single stock weight is 0.0% (Limit: 25.0%)"
     },
     {
       "rule_id": "RULE-SEC-02",
       "rule_name": "Max Sector Concentration",
       "threshold": "<= 40.0%",
-      "current_value": 17.01,
+      "current_value": 0.0,
       "limit_value": 40.0,
       "passed": true,
       "severity": "PASS",
-      "message": "Highest sector concentration is 17.0% (Limit: 40.0%)"
+      "message": "Highest sector concentration is 0.0% (Limit: 40.0%)"
     },
     {
       "rule_id": "RULE-CASH-03",
       "rule_name": "Minimum Cash Liquidity Reserve",
       "threshold": ">= 5.0%",
-      "current_value": 82.99,
+      "current_value": 100.0,
       "limit_value": 5.0,
       "passed": true,
       "severity": "PASS",
-      "message": "Cash balance at 83.0% of total assets (Floor: 5.0%)"
+      "message": "Cash balance at 100.0% of total assets (Floor: 5.0%)"
     },
     {
       "rule_id": "RULE-DD-04",
@@ -58,12 +58,12 @@
       "rule_id": "RULE-HOLD-06",
       "rule_name": "Max Position Diversification Cap",
       "threshold": "<= 15 holdings",
-      "current_value": 2.0,
+      "current_value": 0.0,
       "limit_value": 15.0,
       "passed": true,
       "severity": "PASS",
-      "message": "Active holdings count is 2 (Cap: 15)"
+      "message": "Active holdings count is 0 (Cap: 15)"
     }
   ],
-  "last_updated": "2026-08-20T13:59:59.733065"
+  "last_updated": "2026-08-20T15:25:55.274424"
 }

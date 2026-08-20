@@ -11,6 +11,7 @@ from src.portfolio.engine import PortfolioEngine
 
 
 class JsonBridge:
+
     """Exports structured data to website/data/*.json."""
 
     def __init__(self, policy: InvestmentPolicy, store: DataStore, output_dir: Optional[str] = None):
@@ -58,18 +59,18 @@ class JsonBridge:
         alpha = round(latest_snapshot.cumulative_return_pct - nepse_ret, 2)
         
         # Calculate days since inception (Aug 20, 2026)
-        incept_date = datetime.strptime(self.policy.company.founded, "%Y-%m-%d")
+        incept_date = datetime.strptime(self.policy.company.company.founded, "%Y-%m-%d")
         curr_dt = datetime.strptime(trade_date, "%Y-%m-%d") if "-" in trade_date else datetime.now()
         days_active = max(1, (curr_dt - incept_date).days + 1)
 
         self._write_json("company.json", {
-            "name": self.policy.company.name,
-            "founded": self.policy.company.founded,
-            "currency": self.policy.company.currency,
-            "starting_capital": self.policy.company.starting_capital,
+            "name": self.policy.company.company.name,
+            "founded": self.policy.company.company.founded,
+            "currency": "NPR",
+            "starting_capital": 100000000.0,
             "current_total_assets": balance_sheet.total_assets,
             "current_nav_per_share": latest_snapshot.nav_per_share,
-            "shares_outstanding": self.policy.company.shares_outstanding,
+            "shares_outstanding": self.policy.company.company.total_shares_issued,
             "total_return_pct": latest_snapshot.cumulative_return_pct,
             "nepse_index_return_pct": nepse_ret,
             "alpha_pct": alpha,
@@ -79,7 +80,7 @@ class JsonBridge:
                 if latest_snapshot.status == CompanyStatus.FLOURISHING
                 else "Operating within Predefined Strategic Thresholds"
             ),
-            "autonomy_level": self.policy.company.autonomy_level,
+            "autonomy_level": self.policy.company.company.autonomy_level,
             "autonomy_level_desc": "Level 3: Fully Autonomous Execution within Constitutional Rules",
             "operating_regime": self.policy.kondratiev.active_phase,
             "governing_strategy": "ASA-V1.ethics",
@@ -335,4 +336,37 @@ class JsonBridge:
         self._write_json("timeline.json", {
             "events": timeline_events,
             "last_updated": now_iso,
+        })
+
+    def export_journal(self, reflections: list, win_rate: dict):
+        self._write_json('journal.json', {
+            'entries': reflections,
+            'win_rate': win_rate,
+            'last_updated': datetime.now().isoformat()
+        })
+
+    def export_profile_race(self, portfolios: dict, profiles: list):
+        race_data = []
+        for profile in profiles:
+            p_engine = portfolios.get(profile.id)
+            if not p_engine:
+                continue
+            starting_cap = profile.starting_capital
+            current_assets = p_engine.get_total_assets()
+            total_return = round(((current_assets - starting_cap) / starting_cap) * 100, 2) if starting_cap > 0 else 0.0
+            race_data.append({
+                'profile_id': profile.id,
+                'name': profile.name,
+                'currency': profile.currency,
+                'asset_class': profile.asset_class,
+                'starting_capital': starting_cap,
+                'current_assets': current_assets,
+                'equity': p_engine.get_equity(),
+                'liabilities': p_engine.liabilities,
+                'total_return_pct': total_return,
+                'holdings_count': len(p_engine.holdings),
+            })
+        self._write_json('profile_race.json', {
+            'profiles': race_data,
+            'last_updated': datetime.now().isoformat()
         })

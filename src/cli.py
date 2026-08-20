@@ -13,6 +13,8 @@ from src.data.models import Stock, PriceBar, Fundamental, PortfolioSnapshot, Com
 from src.data.nepse_client import NepseClient
 from src.data.sharesansar import ShareSansarScraper
 from src.portfolio.engine import PortfolioEngine
+from src.data.global_markets import GlobalMarketsAPI
+from src.governance.reflection import ReflectionEngine
 from src.decision.pipeline import DecisionPipeline
 from src.governance.compliance import ComplianceMonitor
 from src.benchmarks.tracker import BenchmarkTracker
@@ -63,52 +65,80 @@ def run_daily_command(trade_date: Optional[str] = None, use_live: bool = True):
     store.save_stocks(universe_stocks)
     metadata_dict = _load_universe_metadata()
 
+    
     # 2. Ingest Market Data
-    print("\n[1/6] Ingesting NEPSE market prices and index...")
+    print("\n[1/7] Ingesting NEPSE and Global market prices...")
     client = NepseClient(use_live=use_live)
     bars = client.fetch_today_prices(universe_stocks, trade_date)
+    
+    # Global Prices
+    from src.data.global_markets import GlobalMarketsAPI
+    global_api = GlobalMarketsAPI()
+    global_bars = global_api.fetch_global_prices(universe_stocks)
+    bars.extend(global_bars)
+    
     store.save_price_bars(bars)
     price_dict = {b.symbol: b for b in bars}
 
-    # Fetch Fundamentals
-    print("[2/6] Ingesting audited company fundamentals...")
+    # Fetch Fundamentals (Domestic Only)
+    print("[2/7] Ingesting audited company fundamentals...")
     scraper = ShareSansarScraper()
-    funds = scraper.fetch_fundamentals(universe_stocks, trade_date)
+    domestic_stocks = [s for s in universe_stocks if s.asset_class == "EQUITY_DOMESTIC"]
+    funds = scraper.fetch_fundamentals(domestic_stocks, trade_date)
     store.save_fundamentals(funds)
     fund_dict = {f.symbol: f for f in funds}
 
-    # 3. Load Portfolio State (Economic Memory) - Replay from Genesis Capital
-    portfolio = PortfolioEngine(policy, initial_cash=policy.company.starting_capital)
-
-    # Restore holdings and cash from immutable transaction ledger
+    # 3. Load Portfolio State for 4 Profiles
+    from src.portfolio.engine import PortfolioEngine
+    from src.decision.pipeline import DecisionPipeline
+    portfolios = {}
+    for p in policy.company.profiles:
+        portfolios[p.id] = PortfolioEngine(policy, profile_id=p.id)
+        
     all_txs = store.get_all_transactions()
     for tx in all_txs:
-        stk = next((s for s in universe_stocks if s.symbol == tx.symbol), None)
-        if stk:
-            portfolio.execute_transaction(tx, stk)
+        p_id = getattr(tx, 'profile_id', 'P1_DOMESTIC_EQUITY')
+        if p_id in portfolios:
+            stk = next((s for s in universe_stocks if s.symbol == tx.symbol), None)
+            portfolios[p_id].execute_transaction(tx, stk)
+            
+    for p_id, p_engine in portfolios.items():
+        p_engine.mark_to_market(price_dict, {s.symbol: s for s in universe_stocks})
 
-    # Mark to market with today's price
-    portfolio.mark_to_market(price_dict, {s.symbol: s for s in universe_stocks})
+    # 4. Run Multi-Profile Pipeline
+    print("[3/7] Executing AI Pipeline (Macro and Cognitive Delta + Leverage)...")
+    pipeline = DecisionPipeline(policy, store)
+    decisions = pipeline.run_cycle(trade_date, universe_stocks, price_dict, fund_dict, portfolios)
+    for d in decisions: store.record_decision(d)
+    
+    # 5. Financial Accounting
+    total_assets = sum(p.get_total_assets() for p in portfolios.values())
+    balance_sheet = portfolios['P1_DOMESTIC_EQUITY'].get_balance_sheet(trade_date)
+    balance_sheet.total_assets = total_assets
 
-    # 4. Run Staged Decision Hierarchy Pipeline
-    print("[3/6] Executing ASA-V1.ethics Decision Pipeline (Structural -> Literature -> Cognitive Delta -> Sizing)...")
-    pipeline = DecisionPipeline(policy, store, portfolio)
-    cycle_res = pipeline.run_cycle(trade_date, universe_stocks, price_dict, fund_dict, metadata_dict)
+    income_stmt = portfolios["P1_DOMESTIC_EQUITY"].get_income_statement("Daily", trade_date, [])
 
-    # 5. Financial Accounting & Balance Sheet
-    balance_sheet = portfolio.get_balance_sheet(trade_date)
-    income_stmt = portfolio.get_income_statement("Daily", trade_date, cycle_res["transactions"])
-
+    
+    # 5.5 Reflection & Journaling
+    print("[4/7] Generating Self-Reflection Post-Mortems and Win-Rate analytics...")
+    from src.governance.reflection import ReflectionEngine
+    reflection_engine = ReflectionEngine(policy)
+    
+    reflections = []
+    for p_engine in portfolios.values():
+        reflections.extend(reflection_engine.evaluate_holdings(p_engine.holdings))
+    
     # 6. Compliance & Governance Verification
-    print("[4/6] Verifying Constitutional Strategy Compliance...")
+    print("[5/7] Verifying Constitutional Strategy Compliance...")
+
     compliance_mon = ComplianceMonitor(policy)
-    checks, compliance_score = compliance_mon.check_compliance(trade_date, portfolio)
+    checks, compliance_score = compliance_mon.check_compliance(trade_date, portfolios["P1_DOMESTIC_EQUITY"])
     store.record_compliance_checks(checks)
 
     # 7. Benchmark Portfolios Update
     print("[5/6] Calculating 4-Portfolio Comparative Benchmarks...")
     index_data = client.fetch_nepse_index(trade_date)
-    bm_tracker = BenchmarkTracker(store, policy.company.starting_capital)
+    bm_tracker = BenchmarkTracker(store, 100000000.0)
     bm_tracker.update_daily_benchmarks(
         trade_date=trade_date,
         ai_current_nav=balance_sheet.nav_per_share,
@@ -118,7 +148,7 @@ def run_daily_command(trade_date: Optional[str] = None, use_live: bool = True):
 
     # 8. Snapshot Portfolio State
     snapshots = store.get_all_snapshots()
-    nav_calc = portfolio.nav_engine.calculate_nav(balance_sheet.total_assets)
+    nav_calc = portfolios["P1_DOMESTIC_EQUITY"].nav_engine.calculate_nav(balance_sheet.total_assets)
     prev_nav_history = [s.total_nav for s in snapshots] + [balance_sheet.total_assets]
     from src.strategy.risk import RiskManager
     risk_mgr = RiskManager(policy)
@@ -142,7 +172,7 @@ def run_daily_command(trade_date: Optional[str] = None, use_live: bool = True):
         cash=balance_sheet.cash_and_equivalents,
         invested_value=balance_sheet.equity_investments_market_value,
         cash_weight_pct=round((balance_sheet.cash_and_equivalents / max(1.0, balance_sheet.total_assets)) * 100.0, 2),
-        shares_outstanding=policy.company.shares_outstanding,
+        shares_outstanding=policy.company.company.total_shares_issued,
         nav_per_share=balance_sheet.nav_per_share,
         total_nav=balance_sheet.total_assets,
         daily_return_pct=daily_ret,
@@ -154,20 +184,28 @@ def run_daily_command(trade_date: Optional[str] = None, use_live: bool = True):
         compliance_score_pct=compliance_score,
         status=status,
         market_regime=regime,
-        holdings_count=len(portfolio.holdings),
+        holdings_count=len(portfolios["P1_DOMESTIC_EQUITY"].holdings),
     )
     store.save_snapshot(snapshot)
 
     # 9. Export State to Static Website Bridge
     print("[6/6] Exporting system state to JSON bridge for GitHub Pages website...")
     bridge = JsonBridge(policy, store)
-    bridge.export_all(portfolio, snapshot, balance_sheet, income_stmt, index_data)
+    bridge.export_all(portfolios["P1_DOMESTIC_EQUITY"], snapshot, balance_sheet, income_stmt, index_data)
+    
+    # Export Journal and Profile Race
+    from src.governance.reflection import ReflectionEngine
+    reflection_engine = ReflectionEngine(policy)
+    all_txs_for_wr = store.get_all_transactions()
+    win_rate = reflection_engine.calculate_win_rate(all_txs_for_wr)
+    bridge.export_journal(reflections, win_rate)
+    bridge.export_profile_race(portfolios, policy.company.profiles)
 
     print("\n" + "=" * 80)
     print(f"[OK] Daily Simulation Cycle Complete for {trade_date}!")
     print(f"Company Status: {status.value} | NAV: NPR {snapshot.nav_per_share:.4f} | Total Assets: NPR {balance_sheet.total_assets:,.2f}")
     print(f"Cumulative Return: {snapshot.cumulative_return_pct:+.2f}% | Strategy Compliance: {compliance_score:.1f}%")
-    print(f"Decisions Generated: {len(cycle_res['decisions'])} | Executed Orders: {len(cycle_res['transactions'])}")
+    print(f"Decisions Generated: {len(decisions)} | Profiles Active: {len(portfolios)}")
     print("=" * 80)
 
 
@@ -192,14 +230,14 @@ def status_command():
     for tx in store.get_all_transactions():
         stk = next((s for s in universe_stocks if s.symbol == tx.symbol), None)
         if stk:
-            portfolio.execute_transaction(tx, stk)
+            portfolios["P1_DOMESTIC_EQUITY"].execute_transaction(tx, stk)
 
     prices = store.get_latest_prices()
-    portfolio.mark_to_market(prices, {s.symbol: s for s in universe_stocks})
+    portfolios["P1_DOMESTIC_EQUITY"].mark_to_market(prices, {s.symbol: s for s in universe_stocks})
 
     print(f"\n{'Symbol':<8} {'Sector':<20} {'Quantity':>10} {'Avg Price':>12} {'Current':>12} {'Market Val (NPR)':>18} {'Weight':>8} {'P&L %':>10}")
     print("-" * 102)
-    for h in portfolio.holdings.values():
+    for h in portfolios["P1_DOMESTIC_EQUITY"].holdings.values():
         print(f"{h.symbol:<8} {h.sector[:19]:<20} {h.quantity:>10,d} {h.avg_buy_price:>12,.2f} {h.current_price:>12,.2f} {h.current_value:>18,.2f} {h.weight_pct:>7.1f}% {h.unrealized_pnl_pct:>+9.1f}%")
     print("-" * 102)
 
@@ -305,12 +343,12 @@ def report_monthly_command(period_str: str = "2026-08"):
     for tx in store.get_all_transactions():
         stk = next((s for s in universe_stocks if s.symbol == tx.symbol), None)
         if stk:
-            portfolio.execute_transaction(tx, stk)
+            portfolios["P1_DOMESTIC_EQUITY"].execute_transaction(tx, stk)
 
     prices = store.get_latest_prices()
-    portfolio.mark_to_market(prices, {s.symbol: s for s in universe_stocks})
-    balance_sheet = portfolio.get_balance_sheet(latest.trade_date)
-    income_stmt = portfolio.get_income_statement(period_str, latest.trade_date, store.get_all_transactions())
+    portfolios["P1_DOMESTIC_EQUITY"].mark_to_market(prices, {s.symbol: s for s in universe_stocks})
+    balance_sheet = portfolios["P1_DOMESTIC_EQUITY"].get_balance_sheet(latest.trade_date)
+    income_stmt = portfolios["P1_DOMESTIC_EQUITY"].get_income_statement(period_str, latest.trade_date, store.get_all_transactions())
 
     report_dict = MonthlyReporter.generate_monthly_report(
         period_str=period_str,

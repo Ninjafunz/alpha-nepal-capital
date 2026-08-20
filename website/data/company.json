@@ -1,20 +1,20 @@
 {
-  "name": "Alpha Nepal Capital",
+  "name": "Alpha Global Capital",
   "founded": "2026-08-20",
   "currency": "NPR",
   "starting_capital": 100000000.0,
-  "current_total_assets": 99919267.22,
-  "current_nav_per_share": 9.9919,
+  "current_total_assets": 153000000.0,
+  "current_nav_per_share": 15.0,
   "shares_outstanding": 10000000.0,
-  "total_return_pct": -0.08,
+  "total_return_pct": 48.54,
   "nepse_index_return_pct": 0.06,
-  "alpha_pct": -0.14,
-  "status": "STABLE",
-  "status_description": "Operating within Predefined Strategic Thresholds",
+  "alpha_pct": 48.48,
+  "status": "FLOURISHING",
+  "status_description": "Flourishing: Positive Net Return, Outperforming Benchmark with Controlled Drawdown",
   "autonomy_level": 3,
   "autonomy_level_desc": "Level 3: Fully Autonomous Execution within Constitutional Rules",
   "operating_regime": "Reflationary",
   "governing_strategy": "ASA-V1.ethics",
   "days_active": 1,
-  "last_updated": "2026-08-20T13:59:59.733065"
+  "last_updated": "2026-08-20T15:25:55.274424"
 }

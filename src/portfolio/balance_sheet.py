@@ -14,7 +14,7 @@ class BalanceSheetEngine:
 
     def __init__(self, policy: InvestmentPolicy):
         self.policy = policy
-        self.shares_outstanding = policy.company.shares_outstanding
+        self.shares_outstanding = policy.company.company.total_shares_issued
 
     def generate_balance_sheet(
         self,

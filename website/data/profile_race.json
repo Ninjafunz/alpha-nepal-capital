@@ -1,0 +1,53 @@
+{
+  "profiles": [
+    {
+      "profile_id": "P1_DOMESTIC_EQUITY",
+      "name": "Alpha Domestic Equities",
+      "currency": "NPR",
+      "asset_class": "EQUITY_DOMESTIC",
+      "starting_capital": 100000000.0,
+      "current_assets": 150000000.0,
+      "equity": 100000000.0,
+      "liabilities": 50000000.0,
+      "total_return_pct": 50.0,
+      "holdings_count": 0
+    },
+    {
+      "profile_id": "P2_GLOBAL_EQUITY",
+      "name": "Alpha Global Equities",
+      "currency": "USD",
+      "asset_class": "EQUITY_GLOBAL",
+      "starting_capital": 1000000.0,
+      "current_assets": 1000000.0,
+      "equity": 1000000.0,
+      "liabilities": 0.0,
+      "total_return_pct": 0.0,
+      "holdings_count": 0
+    },
+    {
+      "profile_id": "P3_COMMODITIES",
+      "name": "Alpha Commodities",
+      "currency": "USD",
+      "asset_class": "COMMODITY",
+      "starting_capital": 1000000.0,
+      "current_assets": 1000000.0,
+      "equity": 1000000.0,
+      "liabilities": 0.0,
+      "total_return_pct": 0.0,
+      "holdings_count": 0
+    },
+    {
+      "profile_id": "P4_CRYPTO",
+      "name": "Alpha Crypto",
+      "currency": "USD",
+      "asset_class": "CRYPTO",
+      "starting_capital": 1000000.0,
+      "current_assets": 1000000.0,
+      "equity": 1000000.0,
+      "liabilities": 0.0,
+      "total_return_pct": 0.0,
+      "holdings_count": 0
+    }
+  ],
+  "last_updated": "2026-08-20T15:25:55.288613"
+}

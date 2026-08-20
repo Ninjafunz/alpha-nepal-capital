@@ -143,3 +143,15 @@ company_status_thresholds:
     max_return_pct: 0.0
   critical:
     max_return_pct: -10.0
+
+# 6. GLOBAL ASSET & LEVERAGE CONSTRAINTS
+global_constraints:
+  max_crypto_pct: 15.0
+  max_commodity_pct: 20.0
+  max_forex_pct: 15.0
+
+leverage:
+  enabled: true
+  max_leverage_ratio: 1.5
+  margin_call_trigger_pct: -10.0
+  borrowing_rate_spread_pct: 2.0

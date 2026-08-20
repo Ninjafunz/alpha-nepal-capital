@@ -1,40 +1,11 @@
 {
   "as_of_date": "2026-08-20",
-  "total_assets": 99919267.22,
-  "cash_npr": 82922892.69,
-  "cash_weight_pct": 82.99,
-  "invested_npr": 16996374.53,
-  "holdings_count": 2,
-  "holdings": [
-    {
-      "symbol": "GBIME",
-      "sector": "Commercial Bank",
-      "quantity": 46285,
-      "avg_buy_price": 216.05,
-      "current_price": 216.05,
-      "cost_basis": 10047373.65,
-      "current_value": 9999874.25,
-      "weight_pct": 10.01,
-      "unrealized_pnl": -47499.4,
-      "unrealized_pnl_pct": -0.47,
-      "route": "Route Alpha (Defensive Moat)"
-    },
-    {
-      "symbol": "NICA",
-      "sector": "Commercial Bank",
-      "quantity": 15554,
-      "avg_buy_price": 449.82,
-      "current_price": 449.82,
-      "cost_basis": 7029733.66,
-      "current_value": 6996500.28,
-      "weight_pct": 7.0,
-      "unrealized_pnl": -33233.38,
-      "unrealized_pnl_pct": -0.47,
-      "route": "Route Beta (Contra-Cyclical Raid)"
-    }
-  ],
-  "sector_exposures": {
-    "Commercial Bank": 17.01
-  },
-  "last_updated": "2026-08-20T13:59:59.733065"
+  "total_assets": 153000000.0,
+  "cash_npr": 150000000.0,
+  "cash_weight_pct": 98.04,
+  "invested_npr": 0,
+  "holdings_count": 0,
+  "holdings": [],
+  "sector_exposures": {},
+  "last_updated": "2026-08-20T15:25:55.274424"
 }

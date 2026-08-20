@@ -71,7 +71,7 @@ class TransactionEngine:
             post_cash = round(pre_cash + costs["net_value"], 2)
 
         # NAV post trade reflects transaction friction incurred
-        post_nav = round(pre_nav - (costs["total_cost"] / self.policy.company.shares_outstanding), 4)
+        post_nav = round(pre_nav - (costs["total_cost"] / self.policy.company.company.total_shares_issued), 4)
 
         tx_id = f"TX-{datetime.now().strftime('%Y%m%d')}-{uuid.uuid4().hex[:6].upper()}"
 

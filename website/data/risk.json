@@ -1,5 +1,5 @@
 {
-  "current_volatility_pct": 23.88,
+  "current_volatility_pct": 25.34,
   "volatility_limit_pct": 20.0,
   "current_drawdown_pct": 0.0,
   "drawdown_defensive_trigger_pct": 15.0,
@@ -7,12 +7,10 @@
   "market_regime": "BEAR",
   "kondratiev_phase": "Reflationary",
   "historical_twin": "1945-1950",
-  "sector_exposures": {
-    "Commercial Bank": 17.01
-  },
+  "sector_exposures": {},
   "sector_limit_pct": 40.0,
   "single_stock_limit_pct": 25.0,
-  "cash_reserve_pct": 82.99,
+  "cash_reserve_pct": 98.04,
   "cash_floor_pct": 5.0,
-  "last_updated": "2026-08-20T13:59:59.733065"
+  "last_updated": "2026-08-20T15:25:55.274424"
 }

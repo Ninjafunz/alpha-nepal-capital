@@ -27,7 +27,7 @@ class VirtualExecutor:
 
         pre_cash = self.portfolio.cash
         total_assets = self.portfolio.get_total_assets()
-        pre_nav = round(total_assets / self.policy.company.shares_outstanding, 4)
+        pre_nav = round(total_assets / self.policy.company.company.total_shares_issued, 4)
 
         tx = self.tx_engine.build_transaction(
             trade_date=decision.trade_date,

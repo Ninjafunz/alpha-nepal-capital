@@ -5,11 +5,21 @@ from typing import List, Dict, Optional, Any
 from enum import Enum
 
 
+
+class AssetClass(str, Enum):
+    EQUITY_DOMESTIC = "EQUITY_DOMESTIC"
+    EQUITY_GLOBAL = "EQUITY_GLOBAL"
+    COMMODITY = "COMMODITY"
+    CRYPTO = "CRYPTO"
+    FOREX = "FOREX"
+
 class ActionType(str, Enum):
     BUY = "BUY"
     SELL = "SELL"
     HOLD = "HOLD"
     REBALANCE = "REBALANCE"
+    BORROW = "BORROW"
+    REPAY = "REPAY"
 
 
 class StrategicRoute(str, Enum):
@@ -43,6 +53,7 @@ class Stock:
     listed_shares: int = 0
     security_id: Optional[int] = None
     is_active: bool = True
+    asset_class: AssetClass = AssetClass.EQUITY_DOMESTIC
 
 
 @dataclass
@@ -102,51 +113,53 @@ class Transaction:
     confidence_pct: float
     decision_id: str
 
+    profile_id: str = "P1_DOMESTIC_EQUITY"
 
 @dataclass
 class Decision:
-    id: str
-    timestamp: str
-    trade_date: str
-    symbol: str
-    action: ActionType
-    confidence_pct: float
-    target_quantity: int
-    estimated_price: float
-    capital_allocation_npr: float
-    route: StrategicRoute
+    id: str = ""
+    timestamp: str = ""
+    trade_date: str = ""
+    symbol: str = ""
+    action: ActionType = ActionType.HOLD
+    confidence_pct: float = 0.0
+    target_quantity: int = 0
+    estimated_price: float = 0.0
+    capital_allocation_npr: float = 0.0
+    route: StrategicRoute = StrategicRoute.UNASSIGNED
     
     # Layer 1: Structural
-    structural_score: float
-    capital_velocity_score: float
-    physical_risk_score: float
-    regulatory_risk_score: float
-    bottleneck_score: float
+    structural_score: float = ""
+    capital_velocity_score: float = 0.0
+    physical_risk_score: float = 0.0
+    regulatory_risk_score: float = 0.0
+    bottleneck_score: float = 0.0
     
     # Layer 2: Literature Audit
-    literature_score: float
-    elite_alignment_score: float
-    sentiment_score: float
-    optionality_score: float
-    golden_zone_score: float
+    literature_score: float = 0.0
+    elite_alignment_score: float = 0.0
+    sentiment_score: float = 0.0
+    optionality_score: float = 0.0
+    golden_zone_score: float = 0.0
     
     # Layer 3: Cognitive Delta
-    cognitive_delta_score: float
-    narrative_bias_score: float
-    anchoring_bias_score: float
-    recency_bias_score: float
-    intrinsic_value_est: float
-    delta_pct: float
+    cognitive_delta_score: float = 0.0
+    narrative_bias_score: float = 0.0
+    anchoring_bias_score: float = 0.0
+    recency_bias_score: float = 0.0
+    intrinsic_value_est: float = 0.0
+    delta_pct: float = 0.0
     
     # Combined Composite Score
-    final_score: float
+    final_score: float = 0.0
     
     # Reasoning & Invalidation Condition
-    reason_summary: str
-    applied_rules: List[str]
-    invalidation_condition: str
+    reason_summary: str = ""
+    applied_rules: List[str] = ""
+    invalidation_condition: str = ""
     executed: bool = False
 
+    profile_id: str = "P1_DOMESTIC_EQUITY"
 
 @dataclass
 class PortfolioHolding:
@@ -162,6 +175,7 @@ class PortfolioHolding:
     unrealized_pnl_pct: float
     route: StrategicRoute
 
+    profile_id: str = "P1_DOMESTIC_EQUITY"
 
 @dataclass
 class BalanceSheet:
@@ -175,6 +189,7 @@ class BalanceSheet:
     shares_outstanding: float
     nav_per_share: float
 
+    profile_id: str = "P1_DOMESTIC_EQUITY"
 
 @dataclass
 class IncomeStatement:
@@ -189,6 +204,7 @@ class IncomeStatement:
     net_profit: float
     net_margin_pct: float
 
+    profile_id: str = "P1_DOMESTIC_EQUITY"
 
 @dataclass
 class ComplianceRecord:

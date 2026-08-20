@@ -13,7 +13,7 @@ def test_json_bridge_export(tmp_path):
     policy = InvestmentPolicy()
     db_file = tmp_path / "test.db"
     store = DataStore(db_path=str(db_file))
-    portfolio = PortfolioEngine(policy, initial_cash=100000000.0)
+    portfolio = PortfolioEngine(policy, profile_id="P1_DOMESTIC_EQUITY", initial_cash=100000000.0)
     
     bs = portfolio.get_balance_sheet("2026-08-20")
     inc = portfolio.get_income_statement("Daily", "2026-08-20", [])
@@ -52,5 +52,5 @@ def test_json_bridge_export(tmp_path):
 
     with open(export_dir / "company.json", "r", encoding="utf-8") as f:
         comp_data = json.load(f)
-        assert comp_data["name"] == "Alpha Nepal Capital"
+        assert comp_data["name"] == "Alpha Global Capital"
         assert comp_data["status"] == "FLOURISHING"
