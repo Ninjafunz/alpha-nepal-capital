@@ -2,17 +2,17 @@
   "time_series": [
     {
       "date": "2026-08-20",
-      "nav": 15.0,
-      "total_nav": 153000000.0,
+      "nav": 14.9431,
+      "total_nav": 152431045.5,
       "daily_return_pct": 0.0,
-      "cumulative_return_pct": 48.54,
+      "cumulative_return_pct": 47.99,
       "drawdown_pct": 0.0
     }
   ],
-  "current_nav": 15.0,
-  "high_water_mark": 153000000.0,
+  "current_nav": 14.9431,
+  "high_water_mark": 152431045.5,
   "current_drawdown_pct": 0.0,
   "annualized_volatility_pct": 25.34,
-  "sharpe_ratio": 1.68,
-  "last_updated": "2026-08-20T10:11:43.082783"
+  "sharpe_ratio": 1.66,
+  "last_updated": "2026-08-20T16:49:08.165732"
 }

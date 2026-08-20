@@ -2,8 +2,8 @@
   "time_series": [
     {
       "date": "2026-08-20",
-      "ai_nav": 15.0,
-      "ai_return_pct": 50.0,
+      "ai_nav": 14.9431,
+      "ai_return_pct": 49.43,
       "human_nav": 9.9719,
       "human_return_pct": -0.28,
       "nepse_index": 2151.35,
@@ -16,9 +16,9 @@
     {
       "name": "Alpha Nepal Capital (AI)",
       "category": "Autonomous AI Strategy",
-      "return_pct": 48.54,
+      "return_pct": 47.99,
       "volatility_pct": 25.34,
-      "sharpe_ratio": 1.68,
+      "sharpe_ratio": 1.66,
       "max_drawdown_pct": 0.0
     },
     {
@@ -46,5 +46,5 @@
       "max_drawdown_pct": 9.4
     }
   ],
-  "last_updated": "2026-08-20T10:11:43.082783"
+  "last_updated": "2026-08-20T16:49:08.165732"
 }

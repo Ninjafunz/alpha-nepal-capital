@@ -1,25 +1,25 @@
 {
   "as_of_date": "2026-08-20",
   "balance_sheet": {
-    "cash_and_equivalents": 150000000.0,
-    "equity_investments_market_value": 0,
+    "cash_and_equivalents": 42145953.15,
+    "equity_investments_market_value": 107285092.35,
     "dividends_receivable": 0.0,
-    "total_assets": 153000000.0,
-    "total_liabilities": 50000000.0,
-    "shareholder_equity": 100000000.0,
+    "total_assets": 152431045.5,
+    "total_liabilities": 49940649.7,
+    "shareholder_equity": 99490395.8,
     "shares_outstanding": 10000000.0,
-    "nav_per_share": 15.0
+    "nav_per_share": 14.9431
   },
   "income_statement": {
     "period": "Daily",
     "dividend_income": 0.0,
     "realized_capital_gains": 0.0,
-    "unrealized_gains_losses": 0,
+    "unrealized_gains_losses": 0.0,
     "gross_investment_income": 0.0,
     "transaction_costs": 0,
     "operating_expenses": 0.0,
     "net_profit": 0.0,
     "net_margin_pct": 0.0
   },
-  "last_updated": "2026-08-20T10:11:43.082783"
+  "last_updated": "2026-08-20T16:49:08.165732"
 }

@@ -6,11 +6,11 @@
       "currency": "NPR",
       "asset_class": "EQUITY_DOMESTIC",
       "starting_capital": 100000000.0,
-      "current_assets": 150000000.0,
-      "equity": 100000000.0,
-      "liabilities": 50000000.0,
-      "total_return_pct": 50.0,
-      "holdings_count": 0
+      "current_assets": 149431045.5,
+      "equity": 99490395.8,
+      "liabilities": 49940649.7,
+      "total_return_pct": 49.43,
+      "holdings_count": 15
     },
     {
       "profile_id": "P2_GLOBAL_EQUITY",
@@ -49,5 +49,5 @@
       "holdings_count": 0
     }
   ],
-  "last_updated": "2026-08-20T10:11:43.088760"
+  "last_updated": "2026-08-20T16:49:08.182510"
 }

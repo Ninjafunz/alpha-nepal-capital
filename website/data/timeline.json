@@ -2,7 +2,7 @@
   "events": [
     {
       "id": 1,
-      "timestamp": "2026-08-20T10:11:41.217100",
+      "timestamp": "2026-08-20T16:49:05.772536",
       "event_date": "2026-08-20",
       "category": "FOUNDATION",
       "title": "Company Founded with NPR 100M Capital",
@@ -14,5 +14,5 @@
       }
     }
   ],
-  "last_updated": "2026-08-20T10:11:43.082783"
+  "last_updated": "2026-08-20T16:49:08.165732"
 }
