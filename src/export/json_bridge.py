@@ -11,7 +11,6 @@ from src.portfolio.engine import PortfolioEngine
 
 
 class JsonBridge:
-
     """Exports structured data to website/data/*.json."""
 
     def __init__(self, policy: InvestmentPolicy, store: DataStore, output_dir: Optional[str] = None):
@@ -26,10 +25,20 @@ class JsonBridge:
         self.output_dir.mkdir(parents=True, exist_ok=True)
         (self.output_dir / "reports").mkdir(parents=True, exist_ok=True)
 
+    @staticmethod
+    def _json_default(obj):
+        if hasattr(obj, "item"):
+            return obj.item()
+        if hasattr(obj, "value"):
+            return obj.value
+        if hasattr(obj, "isoformat"):
+            return obj.isoformat()
+        return str(obj)
+
     def _write_json(self, filename: str, data: Any):
         path = self.output_dir / filename
         with open(path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2)
+            json.dump(data, f, indent=2, default=self._json_default)
 
     def export_all(
         self,
@@ -39,8 +48,9 @@ class JsonBridge:
         income_statement: IncomeStatement,
         nepse_index_data: Dict[str, Any],
         data_status: str = "LIVE",
+        all_portfolios: Optional[Dict[str, PortfolioEngine]] = None
     ):
-        """Generates all 11+ JSON files required for the public website."""
+        """Generates all JSON files required for the public website."""
         now_iso = datetime.now().isoformat()
         trade_date = latest_snapshot.trade_date
 
@@ -48,7 +58,7 @@ class JsonBridge:
         self._write_json("clocks.json", {
             "market_time": nepse_index_data.get("timestamp", now_iso),
             "ai_decision_time": now_iso,
-            "data_status": data_status,  # LIVE, DELAYED, STALE, or PAUSED
+            "data_status": data_status,
             "market_open": True,
             "trading_session": "Regular Trading (Sun-Thu 11:00 AM - 3:00 PM NPT)",
             "last_synced": now_iso,
@@ -58,7 +68,6 @@ class JsonBridge:
         nepse_ret = nepse_index_data.get("pct_change", 0.0)
         alpha = round(latest_snapshot.cumulative_return_pct - nepse_ret, 2)
         
-        # Calculate days since inception (Aug 20, 2026)
         incept_date = datetime.strptime(self.policy.company.company.founded, "%Y-%m-%d")
         curr_dt = datetime.strptime(trade_date, "%Y-%m-%d") if "-" in trade_date else datetime.now()
         days_active = max(1, (curr_dt - incept_date).days + 1)
@@ -83,27 +92,34 @@ class JsonBridge:
             "autonomy_level": self.policy.company.company.autonomy_level,
             "autonomy_level_desc": "Level 3: Fully Autonomous Execution within Constitutional Rules",
             "operating_regime": self.policy.kondratiev.active_phase,
-            "governing_strategy": "ASA-V1.ethics",
+            "governing_strategy": "ASA-V1.ethics (Multi-Asset SAA & Tactical Tilt)",
             "days_active": days_active,
             "last_updated": now_iso,
         })
 
-        # 3. portfolio.json
+        # 3. portfolio.json (Consolidated across all portfolios)
         holdings_list = []
-        for h in portfolio.holdings.values():
-            holdings_list.append({
-                "symbol": h.symbol,
-                "sector": h.sector,
-                "quantity": h.quantity,
-                "avg_buy_price": h.avg_buy_price,
-                "current_price": h.current_price,
-                "cost_basis": h.cost_basis,
-                "current_value": h.current_value,
-                "weight_pct": h.weight_pct,
-                "unrealized_pnl": h.unrealized_pnl,
-                "unrealized_pnl_pct": h.unrealized_pnl_pct,
-                "route": h.route.value,
-            })
+        target_portfolios = all_portfolios.values() if all_portfolios else [portfolio]
+        total_assets = balance_sheet.total_assets
+
+        for p_eng in target_portfolios:
+            for h in p_eng.holdings.values():
+                val = h.current_value
+                wt = (val / max(1.0, total_assets)) * 100.0
+                route_str = h.route.value if hasattr(h.route, "value") else str(h.route)
+                holdings_list.append({
+                    "symbol": h.symbol,
+                    "sector": h.sector,
+                    "quantity": h.quantity,
+                    "avg_buy_price": h.avg_buy_price,
+                    "current_price": h.current_price,
+                    "cost_basis": h.cost_basis,
+                    "current_value": h.current_value,
+                    "weight_pct": round(wt, 2),
+                    "unrealized_pnl": h.unrealized_pnl,
+                    "unrealized_pnl_pct": h.unrealized_pnl_pct,
+                    "route": route_str,
+                })
 
         self._write_json("portfolio.json", {
             "as_of_date": trade_date,
@@ -172,7 +188,7 @@ class JsonBridge:
                 "quantity": d.target_quantity,
                 "price": d.estimated_price,
                 "capital_allocation_npr": d.capital_allocation_npr,
-                "route": d.route.value,
+                "route": d.route.value if hasattr(d.route, "value") else str(d.route),
                 "final_score": d.final_score,
                 "structural_score": d.structural_score,
                 "literature_score": d.literature_score,
@@ -210,12 +226,8 @@ class JsonBridge:
                 "slippage": t.slippage,
                 "total_cost": t.total_cost,
                 "net_value": t.net_value,
-                "route": t.route.value,
+                "route": t.route.value if hasattr(t.route, "value") else str(t.route),
                 "reason": t.reason,
-                "rule_ids": t.rule_ids,
-                "confidence_pct": t.confidence_pct,
-                "post_trade_cash": t.post_trade_cash,
-                "post_trade_nav": t.post_trade_nav,
             }
             for t in txs
         ]
@@ -226,26 +238,23 @@ class JsonBridge:
         })
 
         # 8. compliance.json
-        comp_records = self.store.get_latest_compliance(trade_date)
-        comp_list = [
-            {
-                "rule_id": c.rule_id,
-                "rule_name": c.rule_name,
-                "threshold": c.threshold_desc,
-                "current_value": c.current_value,
-                "limit_value": c.limit_value,
-                "passed": c.passed,
-                "severity": c.severity,
-                "message": c.message,
-            }
-            for c in comp_records
-        ]
+        compliance_checks = self.store.get_latest_compliance()
         self._write_json("compliance.json", {
-            "trade_date": trade_date,
             "overall_compliance_score_pct": latest_snapshot.compliance_score_pct,
-            "rules_count": len(comp_list),
-            "passed_count": sum(1 for c in comp_list if c["passed"]),
-            "rules": comp_list,
+            "audit_date": trade_date,
+            "checks": [
+                {
+                    "rule_id": c.rule_id,
+                    "rule_name": c.rule_name,
+                    "category": "CONSTITUTIONAL",
+                    "threshold_value": c.threshold_desc,
+                    "actual_value": f"{c.current_value:.1f}%" if isinstance(c.current_value, float) else str(c.current_value),
+                    "is_compliant": bool(c.passed),
+                    "severity": c.severity,
+                    "notes": c.message,
+                }
+                for c in compliance_checks
+            ],
             "last_updated": now_iso,
         })
 
@@ -253,25 +262,27 @@ class JsonBridge:
         self._write_json("financials.json", {
             "as_of_date": trade_date,
             "balance_sheet": {
+                "total_assets": balance_sheet.total_assets,
                 "cash_and_equivalents": balance_sheet.cash_and_equivalents,
                 "equity_investments_market_value": balance_sheet.equity_investments_market_value,
-                "dividends_receivable": balance_sheet.dividends_receivable,
-                "total_assets": balance_sheet.total_assets,
+                "cost_basis": getattr(balance_sheet, "cost_basis", balance_sheet.equity_investments_market_value),
+                "unrealized_gain_loss": getattr(balance_sheet, "unrealized_gain_loss", 0.0),
+                "accounts_receivable": getattr(balance_sheet, "dividends_receivable", 0.0),
                 "total_liabilities": balance_sheet.total_liabilities,
-                "shareholder_equity": balance_sheet.shareholder_equity,
-                "shares_outstanding": balance_sheet.shares_outstanding,
+                "shareholder_equity": getattr(balance_sheet, "shareholder_equity", balance_sheet.total_assets - balance_sheet.total_liabilities),
+                "retained_earnings": getattr(balance_sheet, "retained_earnings", 0.0),
                 "nav_per_share": balance_sheet.nav_per_share,
             },
             "income_statement": {
                 "period": income_statement.period,
+                "realized_trading_gain_loss": getattr(income_statement, "realized_capital_gains", 0.0),
                 "dividend_income": income_statement.dividend_income,
-                "realized_capital_gains": income_statement.realized_capital_gains,
-                "unrealized_gains_losses": income_statement.unrealized_gains_losses,
-                "gross_investment_income": income_statement.gross_investment_income,
-                "transaction_costs": income_statement.transaction_costs,
-                "operating_expenses": income_statement.operating_expenses,
-                "net_profit": income_statement.net_profit,
-                "net_margin_pct": income_statement.net_margin_pct,
+                "brokerage_commissions_paid": getattr(income_statement, "brokerage_commissions_paid", 0.0),
+                "sebon_fees_paid": getattr(income_statement, "sebon_fees_paid", 0.0),
+                "dp_charges_paid": getattr(income_statement, "dp_charges_paid", 0.0),
+                "slippage_cost": getattr(income_statement, "slippage_cost", 0.0),
+                "total_operating_expenses": income_statement.total_operating_expenses,
+                "net_profit_loss": income_statement.net_profit_loss,
             },
             "last_updated": now_iso,
         })
@@ -337,6 +348,14 @@ class JsonBridge:
             "events": timeline_events,
             "last_updated": now_iso,
         })
+
+    def export_global_memo(self, memo: Dict[str, Any]):
+        """Exports the Global Executive Memo JSON for website rendering."""
+        self._write_json("global_memo.json", memo)
+
+    def export_macro(self, macro_data: Dict[str, Any]):
+        """Exports Macro Indicators and SAA Calibration to website/data/macro.json."""
+        self._write_json("macro.json", macro_data)
 
     def export_journal(self, reflections: list, win_rate: dict):
         self._write_json('journal.json', {

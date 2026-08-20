@@ -1,0 +1,349 @@
+{
+  "title": "ALPHA NEPAL CAPITAL - GLOBAL EXECUTIVE MEMO",
+  "to": "Founder / Board of Directors",
+  "from": "Global AI Management Team",
+  "date": "2026-08-20",
+  "subject": "Global Portfolio Rebalancing - Regime: Risk-On",
+  "consolidated_status": {
+    "total_nav_npr": 99866933.44,
+    "cash_equiv_npr": 71852922.83,
+    "cash_weight_pct": 71.9,
+    "currency_breakdown": "NPR: 24.9%, USD: 75.1%",
+    "total_return_pct": -0.13,
+    "benchmark_return_pct": 0.06,
+    "alpha_pct": -0.19,
+    "company_health": "[OK] STABLE"
+  },
+  "asset_allocation_dashboard": [
+    {
+      "asset_class": "Equities (Total)",
+      "strategic_target": "40.0%",
+      "current_allocation": "25.8%",
+      "deviation": "-14.2%",
+      "status": "TILTED"
+    },
+    {
+      "asset_class": "  Domestic (NEPSE)",
+      "strategic_target": "20.0%",
+      "current_allocation": "22.0%",
+      "deviation": "+2.0%",
+      "status": "PASS"
+    },
+    {
+      "asset_class": "  Global (US/India)",
+      "strategic_target": "20.0%",
+      "current_allocation": "3.8%",
+      "deviation": "-16.2%",
+      "status": "PASS"
+    },
+    {
+      "asset_class": "Gold & Metals",
+      "strategic_target": "20.0%",
+      "current_allocation": "1.6%",
+      "deviation": "-18.4%",
+      "status": "PASS"
+    },
+    {
+      "asset_class": "Digital Assets",
+      "strategic_target": "15.0%",
+      "current_allocation": "0.7%",
+      "deviation": "-14.3%",
+      "status": "PASS"
+    },
+    {
+      "asset_class": "  BTC",
+      "strategic_target": "10.0%",
+      "current_allocation": "0.0%",
+      "deviation": "-10.0%",
+      "status": "PASS"
+    },
+    {
+      "asset_class": "  ETH",
+      "strategic_target": "5.0%",
+      "current_allocation": "0.7%",
+      "deviation": "-4.3%",
+      "status": "PASS"
+    },
+    {
+      "asset_class": "FX & Cash",
+      "strategic_target": "25.0%",
+      "current_allocation": "71.9%",
+      "deviation": "+46.9%",
+      "status": "PASS"
+    }
+  ],
+  "compliance_audit": {
+    "checks": [
+      {
+        "rule": "Max Crypto Exposure",
+        "limit": "20% NAV",
+        "current": "0.7%",
+        "passed": true,
+        "status": "PASS"
+      },
+      {
+        "rule": "Max Single Crypto (BTC)",
+        "limit": "10% NAV",
+        "current": "0.0%",
+        "passed": true,
+        "status": "PASS"
+      },
+      {
+        "rule": "Max USD-Denominated Exposure",
+        "limit": "40% NAV",
+        "current": "6.1%",
+        "passed": true,
+        "status": "PASS"
+      },
+      {
+        "rule": "Max Portfolio Volatility (ex-Crypto)",
+        "limit": "15%",
+        "current": "11.4%",
+        "passed": true,
+        "status": "PASS"
+      },
+      {
+        "rule": "Max Total Drawdown (Inception)",
+        "limit": "20%",
+        "current": "-3.2%",
+        "passed": true,
+        "status": "PASS"
+      },
+      {
+        "rule": "Gold Custody (Paper vs. Physical)",
+        "limit": "Physical >50%",
+        "current": "65% Physical",
+        "passed": true,
+        "status": "PASS"
+      }
+    ],
+    "compliance_score_pct": 100.0,
+    "fx_hedge_active": true
+  },
+  "proposed_execution_orders": [
+    {
+      "symbol": "NABIL",
+      "action": "BUY",
+      "quantity": 3358,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "GBIME",
+      "action": "BUY",
+      "quantity": 9254,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "NICA",
+      "action": "BUY",
+      "quantity": 4444,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "SCB",
+      "action": "BUY",
+      "quantity": 3241,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "CHCL",
+      "action": "BUY",
+      "quantity": 3761,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "SHPC",
+      "action": "BUY",
+      "quantity": 5769,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "UPPER",
+      "action": "BUY",
+      "quantity": 8582,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "BPCL",
+      "action": "BUY",
+      "quantity": 5389,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "NTC",
+      "action": "BUY",
+      "quantity": 2258,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "NLIC",
+      "action": "BUY",
+      "quantity": 3037,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "SHIVM",
+      "action": "BUY",
+      "quantity": 4100,
+      "confidence_pct": 85.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "SPY",
+      "action": "BUY",
+      "quantity": 7,
+      "confidence_pct": 82.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 22.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "QQQ",
+      "action": "BUY",
+      "quantity": 9,
+      "confidence_pct": 82.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 26.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "INDA",
+      "action": "BUY",
+      "quantity": 130,
+      "confidence_pct": 82.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 24.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 20,
+      "confidence_pct": 82.0,
+      "route": "StrategicRoute.ROUTE_ALPHA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 22.0% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "GLD",
+      "action": "BUY",
+      "quantity": 14,
+      "confidence_pct": 82.0,
+      "route": "StrategicRoute.ROUTE_BETA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 24.5% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "GC=F",
+      "action": "BUY",
+      "quantity": 1,
+      "confidence_pct": 82.0,
+      "route": "StrategicRoute.ROUTE_BETA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 24.5% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "symbol": "ETH-USD",
+      "action": "BUY",
+      "quantity": 2,
+      "confidence_pct": 82.0,
+      "route": "StrategicRoute.ROUTE_GAMMA",
+      "rationale": "Strategic Tilt (Risk-On): Cognitive delta 28.5% >= 20.0%. Passed all headroom and cash constraint checks"
+    }
+  ],
+  "decision_ledger": {
+    "timestamp": "2026-08-20T18:17:07.618977",
+    "regime_classification": "Risk-On",
+    "regime_rationale": "Accommodative cross-asset conditions, stable volatility, positive growth momentum.",
+    "decisions": [
+      {
+        "symbol": "NABIL",
+        "action": "BUY",
+        "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks",
+        "route": "StrategicRoute.ROUTE_ALPHA"
+      },
+      {
+        "symbol": "GBIME",
+        "action": "BUY",
+        "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks",
+        "route": "StrategicRoute.ROUTE_ALPHA"
+      },
+      {
+        "symbol": "NICA",
+        "action": "BUY",
+        "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks",
+        "route": "StrategicRoute.ROUTE_ALPHA"
+      },
+      {
+        "symbol": "SCB",
+        "action": "BUY",
+        "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks",
+        "route": "StrategicRoute.ROUTE_ALPHA"
+      },
+      {
+        "symbol": "CHCL",
+        "action": "BUY",
+        "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks",
+        "route": "StrategicRoute.ROUTE_ALPHA"
+      },
+      {
+        "symbol": "SHPC",
+        "action": "BUY",
+        "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks",
+        "route": "StrategicRoute.ROUTE_ALPHA"
+      },
+      {
+        "symbol": "UPPER",
+        "action": "BUY",
+        "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks",
+        "route": "StrategicRoute.ROUTE_ALPHA"
+      },
+      {
+        "symbol": "BPCL",
+        "action": "BUY",
+        "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks",
+        "route": "StrategicRoute.ROUTE_ALPHA"
+      }
+    ],
+    "fx_hedge_trigger": "TRUE",
+    "compliance_score": 100.0,
+    "global_beta_exposure": 0.65
+  },
+  "special_governance_protocols": [
+    {
+      "asset_class": "Crypto",
+      "red_line": ">20% NAV; >5% in unregulated exchanges; >3% in tokens without SEC clarity",
+      "ethical_override": "If AML/KYC fails for simulated wallet, auto-liquidate within 24h."
+    },
+    {
+      "asset_class": "Gold",
+      "red_line": ">30% NAV",
+      "ethical_override": "Physical custody must be audited quarterly (virtual attestation). No leveraged gold derivatives."
+    },
+    {
+      "asset_class": "Global Equities",
+      "red_line": ">25% in a single country (ex-US); >5% in defense/weapons",
+      "ethical_override": "ESG screen applied: exclude companies with >10% revenue from thermal coal."
+    },
+    {
+      "asset_class": "FX",
+      "red_line": ">50% in USD",
+      "ethical_override": "Hedge back to NPR if NPR appreciates >5% in 30 days."
+    }
+  ]
+}

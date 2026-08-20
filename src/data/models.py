@@ -5,13 +5,13 @@ from typing import List, Dict, Optional, Any
 from enum import Enum
 
 
-
 class AssetClass(str, Enum):
     EQUITY_DOMESTIC = "EQUITY_DOMESTIC"
     EQUITY_GLOBAL = "EQUITY_GLOBAL"
     COMMODITY = "COMMODITY"
     CRYPTO = "CRYPTO"
     FOREX = "FOREX"
+
 
 class ActionType(str, Enum):
     BUY = "BUY"
@@ -53,7 +53,8 @@ class Stock:
     listed_shares: int = 0
     security_id: Optional[int] = None
     is_active: bool = True
-    asset_class: AssetClass = AssetClass.EQUITY_DOMESTIC
+    asset_class: str = "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: float = 15000000.0
 
 
 @dataclass
@@ -115,6 +116,7 @@ class Transaction:
 
     profile_id: str = "P1_DOMESTIC_EQUITY"
 
+
 @dataclass
 class Decision:
     id: str = ""
@@ -126,10 +128,10 @@ class Decision:
     target_quantity: int = 0
     estimated_price: float = 0.0
     capital_allocation_npr: float = 0.0
-    route: StrategicRoute = StrategicRoute.UNASSIGNED
+    route: StrategicRoute = StrategicRoute.ROUTE_ALPHA
     
     # Layer 1: Structural
-    structural_score: float = ""
+    structural_score: float = 0.0
     capital_velocity_score: float = 0.0
     physical_risk_score: float = 0.0
     regulatory_risk_score: float = 0.0
@@ -155,11 +157,12 @@ class Decision:
     
     # Reasoning & Invalidation Condition
     reason_summary: str = ""
-    applied_rules: List[str] = ""
+    applied_rules: List[str] = field(default_factory=list)
     invalidation_condition: str = ""
     executed: bool = False
 
     profile_id: str = "P1_DOMESTIC_EQUITY"
+
 
 @dataclass
 class PortfolioHolding:
@@ -173,9 +176,10 @@ class PortfolioHolding:
     weight_pct: float
     unrealized_pnl: float
     unrealized_pnl_pct: float
-    route: StrategicRoute
+    route: StrategicRoute = StrategicRoute.ROUTE_ALPHA
 
     profile_id: str = "P1_DOMESTIC_EQUITY"
+
 
 @dataclass
 class BalanceSheet:
@@ -191,6 +195,7 @@ class BalanceSheet:
 
     profile_id: str = "P1_DOMESTIC_EQUITY"
 
+
 @dataclass
 class IncomeStatement:
     period: str
@@ -198,27 +203,15 @@ class IncomeStatement:
     dividend_income: float
     realized_capital_gains: float
     unrealized_gains_losses: float
-    gross_investment_income: float
-    transaction_costs: float
-    operating_expenses: float
-    net_profit: float
-    net_margin_pct: float
+    gross_income: float
+    brokerage_commissions_paid: float
+    sebon_fees_paid: float
+    dp_charges_paid: float
+    slippage_cost: float
+    total_operating_expenses: float
+    net_profit_loss: float
 
     profile_id: str = "P1_DOMESTIC_EQUITY"
-
-@dataclass
-class ComplianceRecord:
-    id: str
-    timestamp: str
-    trade_date: str
-    rule_id: str
-    rule_name: str
-    threshold_desc: str
-    current_value: float
-    limit_value: float
-    passed: bool
-    severity: str  # PASS, WARNING, BREACH, CRITICAL
-    message: str
 
 
 @dataclass
@@ -242,6 +235,24 @@ class PortfolioSnapshot:
     status: CompanyStatus
     market_regime: MarketRegime
     holdings_count: int
+
+
+@dataclass
+class ComplianceRecord:
+    id: str
+    timestamp: str
+    trade_date: str
+    rule_id: str
+    rule_name: str
+    threshold_desc: str
+    current_value: float
+    limit_value: float
+    passed: bool
+    severity: str
+    message: str
+
+
+ComplianceCheck = ComplianceRecord
 
 
 @dataclass

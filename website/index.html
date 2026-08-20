@@ -59,12 +59,11 @@
     <section class="hero">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <div class="hero-tagline">Human Strategy · Autonomous Execution · Real Market Data</div>
-          <h2>Can an AI execute a human-designed investment strategy successfully?</h2>
+          <div class="hero-tagline">Founder Global IPS · Multi-Asset SAA · Dynamic Tactical Tilts</div>
+          <h2>Can an AI execute a human-designed multi-asset investment strategy?</h2>
           <p class="lead">
-            Alpha Nepal Capital is a virtual investment company founded with NPR 100,000,000 in starting capital. 
-            The investment philosophy, risk policy, and cognitive-delta decision rules (ASA-V1.ethics) were designed by a human strategist, 
-            and are executed autonomously by an AI operating management committee on the Nepal Stock Exchange (NEPSE).
+            Alpha Nepal Capital translates the Founder's Global Investment Policy Statement into a calibrated Strategic Asset Allocation (SAA): 
+            <strong>40% Equities (20% NEPSE, 20% Global)</strong>, <strong>20% Gold & Metals</strong>, <strong>15% Digital Assets</strong>, and <strong>25% FX/Cash</strong>, dynamically tilted based on global macro regimes.
           </p>
         </div>
         <div id="company-status-badge">
@@ -91,14 +90,14 @@
         <div class="metric-sub">Since Inception</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">Alpha vs NEPSE</div>
+        <div class="metric-label">Alpha vs Benchmark</div>
         <div id="hero-alpha" class="metric-value text-positive">+0.00%</div>
-        <div class="metric-sub">NEPSE Return: <span id="hero-nepse-return">0.00%</span></div>
+        <div class="metric-sub">Global 60/40 Benchmark: <span id="hero-nepse-return">0.00%</span></div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">Strategy Compliance</div>
+        <div class="metric-label">Constitutional Compliance</div>
         <div id="hero-compliance" class="metric-value text-positive">100.0%</div>
-        <div class="metric-sub">Obedience to Rules</div>
+        <div class="metric-sub">Hard Risk Overrides</div>
       </div>
       <div class="metric-card">
         <div class="metric-label">Operating Age</div>
@@ -107,13 +106,89 @@
       </div>
     </div>
 
+    <!-- Macro Regime & Strategic Asset Allocation Banner -->
+    <div class="card" style="background: linear-gradient(135deg, rgba(24, 34, 52, 0.95) 0%, rgba(18, 24, 38, 0.95) 100%); border-left: 6px solid var(--accent-primary); margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+        <div>
+          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700; letter-spacing: 1px;">Global Macro Engine</span>
+          <h3 style="font-size: 1.3rem; margin-top: 0.2rem;">Current Regime: <span id="home-macro-regime" style="color: var(--accent-green);">Risk-On</span></h3>
+          <p id="home-macro-rationale" style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.2rem;">
+            Accommodative macro conditions. Tactical tilts active (+5% Global Equities, +5% Crypto, -10% Cash).
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span class="route-badge route-alpha">Route Alpha: Defensive Moat</span>
+          <span class="route-badge route-beta">Route Beta: Contra-Cyclical</span>
+          <span class="route-badge route-gamma">Route Gamma: Policy Arbitrage</span>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Asset Class</th>
+              <th>Strategic Target</th>
+              <th>Current Allocation</th>
+              <th>Tactical Deviation</th>
+              <th>Allocation Status</th>
+            </tr>
+          </thead>
+          <tbody id="home-saa-tbody">
+            <tr>
+              <td><strong>Equities (Total)</strong></td>
+              <td class="mono">40.0%</td>
+              <td class="mono font-semibold">25.8%</td>
+              <td class="mono">-14.2%</td>
+              <td><span class="status-tag status-live">TILTED</span></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;Domestic (NEPSE)</td>
+              <td class="mono">20.0%</td>
+              <td class="mono font-semibold">22.0%</td>
+              <td class="mono">+2.0%</td>
+              <td><span class="status-tag status-live">PASS</span></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;Global (US/India)</td>
+              <td class="mono">20.0%</td>
+              <td class="mono font-semibold">3.8%</td>
+              <td class="mono">-16.2%</td>
+              <td><span class="status-tag status-live">PASS</span></td>
+            </tr>
+            <tr>
+              <td><strong>Gold & Precious Metals</strong></td>
+              <td class="mono">20.0%</td>
+              <td class="mono font-semibold">1.6%</td>
+              <td class="mono">-18.4%</td>
+              <td><span class="status-tag status-live">PASS</span></td>
+            </tr>
+            <tr>
+              <td><strong>Digital Assets (BTC/ETH)</strong></td>
+              <td class="mono">15.0%</td>
+              <td class="mono font-semibold">0.7%</td>
+              <td class="mono">-14.3%</td>
+              <td><span class="status-tag status-live">PASS</span></td>
+            </tr>
+            <tr>
+              <td><strong>FX & Multi-Currency Cash</strong></td>
+              <td class="mono">25.0%</td>
+              <td class="mono font-semibold">71.9%</td>
+              <td class="mono">+46.9%</td>
+              <td><span class="status-tag status-live">PASS</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- Centerpiece NAV Chart -->
     <div class="card">
       <div class="card-header">
         <div>
-          <h3>Interactive Net Asset Value (NAV) & Benchmark Comparison</h3>
+          <h3>Interactive Net Asset Value (NAV) & Multi-Asset Benchmark Comparison</h3>
           <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
-            Comparative performance: Alpha Nepal Capital (AI) vs Human Static vs NEPSE Composite Index vs Equal-Weight
+            Comparative performance: Alpha Nepal Capital (AI SAA) vs Human Static vs NEPSE Composite Index vs Equal-Weight
           </p>
         </div>
       </div>
@@ -127,7 +202,7 @@
       <!-- Holdings Preview -->
       <div class="card">
         <div class="card-header">
-          <h3>Top Portfolio Holdings</h3>
+          <h3>Active Multi-Asset Holdings</h3>
           <a href="portfolio.html" style="color: var(--accent-blue); text-decoration: none; font-size: 0.85rem; font-weight: 600;">View All →</a>
         </div>
         <div class="table-responsive">
@@ -137,8 +212,8 @@
                 <th>Symbol</th>
                 <th>Sector</th>
                 <th>Qty</th>
-                <th>Price</th>
-                <th>Value</th>
+                <th>Price (NPR)</th>
+                <th>Value (NPR)</th>
                 <th>Weight</th>
                 <th>P&L</th>
                 <th>Route</th>
@@ -154,7 +229,7 @@
       <!-- Recent Decisions Feed -->
       <div class="card">
         <div class="card-header">
-          <h3>What Did the AI Do Today?</h3>
+          <h3>Multi-Asset Decision Engine Activity</h3>
           <a href="decisions.html" style="color: var(--accent-blue); text-decoration: none; font-size: 0.85rem; font-weight: 600;">Full Activity Log →</a>
         </div>
         <div id="home-decisions-feed">
@@ -172,7 +247,7 @@
         <p style="font-size: 0.75rem; margin-top: 0.2rem;">All trading activity is virtual and simulated for empirical academic research.</p>
       </div>
       <div>
-        <span style="font-family: var(--font-mono); font-size: 0.8rem;">Governing Philosophy: ASA-V1.ethics</span>
+        <span style="font-family: var(--font-mono); font-size: 0.8rem;">Governing Philosophy: ASA-V1.ethics (Global Multi-Asset SAA)</span>
       </div>
     </div>
   </footer>

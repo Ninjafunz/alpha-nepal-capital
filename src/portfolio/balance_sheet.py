@@ -7,7 +7,7 @@ from src.strategy.policy import InvestmentPolicy
 class BalanceSheetEngine:
     """Computes virtual company Balance Sheet:
     Total Assets = Cash + Equity Investments (Market Value) + Dividends Receivable
-    Total Liabilities = 0.0 (Zero initial borrowing)
+    Total Liabilities = Borrowed capital / margin
     Shareholder Equity = Total Assets - Total Liabilities
     NAV per Share = Shareholder Equity / Shares Outstanding
     """
@@ -22,10 +22,11 @@ class BalanceSheetEngine:
         cash: float,
         holdings: Dict[str, PortfolioHolding],
         dividends_receivable: float = 0.0,
+        liabilities: float = 0.0,
     ) -> BalanceSheet:
         equity_investments = sum(h.current_value for h in holdings.values())
         total_assets = round(cash + equity_investments + dividends_receivable, 2)
-        total_liabilities = 0.0  # Zero initial debt
+        total_liabilities = round(liabilities, 2)
         shareholder_equity = round(total_assets - total_liabilities, 2)
         nav_per_share = round(shareholder_equity / self.shares_outstanding, 4)
 

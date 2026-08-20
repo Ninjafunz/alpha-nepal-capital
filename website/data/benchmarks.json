@@ -2,29 +2,29 @@
   "time_series": [
     {
       "date": "2026-08-20",
-      "ai_nav": 14.9431,
-      "ai_return_pct": 49.43,
-      "human_nav": 9.9719,
-      "human_return_pct": -0.28,
+      "ai_nav": 9.9867,
+      "ai_return_pct": -0.13,
+      "human_nav": 10.0118,
+      "human_return_pct": 0.12,
       "nepse_index": 2151.35,
       "nepse_return_pct": 0.06,
-      "equal_weight_nav": 9.9638,
-      "equal_weight_return_pct": -0.36
+      "equal_weight_nav": 10.0152,
+      "equal_weight_return_pct": 0.15
     }
   ],
   "comparison_summary": [
     {
       "name": "Alpha Nepal Capital (AI)",
       "category": "Autonomous AI Strategy",
-      "return_pct": 47.99,
-      "volatility_pct": 25.34,
-      "sharpe_ratio": 1.66,
+      "return_pct": -0.13,
+      "volatility_pct": 28.26,
+      "sharpe_ratio": -0.22,
       "max_drawdown_pct": 0.0
     },
     {
       "name": "Human Static Strategy",
       "category": "Static Rules (No AI)",
-      "return_pct": -0.28,
+      "return_pct": 0.12,
       "volatility_pct": 16.2,
       "sharpe_ratio": 0.88,
       "max_drawdown_pct": 8.1
@@ -40,11 +40,11 @@
     {
       "name": "Equal-Weight Universe",
       "category": "Naive Quantitative Benchmark",
-      "return_pct": -0.36,
+      "return_pct": 0.15,
       "volatility_pct": 17.1,
       "sharpe_ratio": 0.75,
       "max_drawdown_pct": 9.4
     }
   ],
-  "last_updated": "2026-08-20T17:09:56.389323"
+  "last_updated": "2026-08-20T18:17:07.624863"
 }

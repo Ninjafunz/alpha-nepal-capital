@@ -1,24 +1,22 @@
 {
-  "current_volatility_pct": 25.34,
-  "volatility_limit_pct": 20.0,
+  "current_volatility_pct": 28.26,
+  "volatility_limit_pct": 15.0,
   "current_drawdown_pct": 0.0,
   "drawdown_defensive_trigger_pct": 15.0,
-  "drawdown_halt_trigger_pct": 25.0,
-  "market_regime": "BEAR",
+  "drawdown_halt_trigger_pct": 20.0,
+  "market_regime": "HIGH_VOLATILITY",
   "kondratiev_phase": "Reflationary",
   "historical_twin": "1945-1950",
   "sector_exposures": {
-    "Commercial Bank": 16.72,
-    "Hydropower": 20.04,
-    "Manufacturing and Processing": 15.01,
-    "Investment": 5.01,
+    "Commercial Bank": 20.04,
+    "Hydropower": 20.02,
     "Others": 5.0,
     "Life Insurance": 5.0,
-    "Non-Life Insurance": 5.0
+    "Manufacturing and Processing": 5.0
   },
   "sector_limit_pct": 40.0,
-  "single_stock_limit_pct": 25.0,
-  "cash_reserve_pct": 27.65,
+  "single_stock_limit_pct": 5.0,
+  "cash_reserve_pct": 71.95,
   "cash_floor_pct": 5.0,
-  "last_updated": "2026-08-20T17:09:56.389323"
+  "last_updated": "2026-08-20T18:17:07.624863"
 }

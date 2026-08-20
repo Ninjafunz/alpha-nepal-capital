@@ -1,4 +1,5 @@
 import yfinance as yf
+import math
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 from src.data.models import PriceBar, Stock, AssetClass
@@ -7,49 +8,48 @@ class GlobalMarketsAPI:
     """Fetches international market prices and applies FX conversions."""
     
     def __init__(self):
-        self.fx_rate_usd_npr = 135.0  # Fallback
+        self.fx_rate_usd_npr = 135.20  # Fallback
         
     def fetch_usd_npr_rate(self) -> float:
         """Fetch live USD/NPR forex rate."""
         try:
             ticker = yf.Ticker("NPR=X")
-            hist = ticker.history(period="1d")
+            hist = ticker.history(period="2d")
             if not hist.empty:
-                self.fx_rate_usd_npr = float(hist['Close'].iloc[-1])
+                val = float(hist['Close'].dropna().iloc[-1])
+                if val > 0:
+                    self.fx_rate_usd_npr = val
         except Exception:
-            pass # Use fallback
+            pass
         return self.fx_rate_usd_npr
 
     def fetch_global_prices(self, universe: List[Stock]) -> List[PriceBar]:
         """Fetch prices for non-domestic assets and convert to NPR."""
         fx_rate = self.fetch_usd_npr_rate()
         
-        global_assets = [s for s in universe if s.asset_class != AssetClass.EQUITY_DOMESTIC]
+        global_assets = [s for s in universe if s.asset_class != "EQUITY_DOMESTIC" and s.asset_class != AssetClass.EQUITY_DOMESTIC]
         if not global_assets:
             return []
             
         symbols = [s.symbol for s in global_assets]
-        
         bars = []
         trade_date = datetime.now().strftime("%Y-%m-%d")
         
         try:
-            # Download all symbols in one batch
-            data = yf.download(symbols, period="2d", group_by="ticker", auto_adjust=True, progress=False)
+            data = yf.download(symbols, period="5d", group_by="ticker", auto_adjust=True, progress=False)
             
             for asset in global_assets:
                 sym = asset.symbol
-                
-                # yf.download structure depends on if 1 symbol or many
-                if len(symbols) == 1:
-                    df = data
+                if sym in data and not data[sym].empty:
+                    df = data[sym].dropna(subset=['Close'])
+                elif len(symbols) == 1 and not data.empty:
+                    df = data.dropna(subset=['Close'])
                 else:
-                    df = data[sym]
+                    continue
                     
                 if df.empty or len(df) < 1:
                     continue
                     
-                # Convert USD to NPR
                 current_close_usd = float(df['Close'].iloc[-1])
                 prev_close_usd = float(df['Close'].iloc[-2]) if len(df) > 1 else current_close_usd
                 
@@ -58,20 +58,30 @@ class GlobalMarketsAPI:
                 
                 pct_change = ((current_close_npr - prev_close_npr) / prev_close_npr * 100.0) if prev_close_npr > 0 else 0.0
                 
+                vol_val = 1000
+                if 'Volume' in df and not df['Volume'].empty:
+                    raw_vol = df['Volume'].iloc[-1]
+                    if not math.isnan(raw_vol):
+                        vol_val = int(raw_vol)
+                
+                open_val = float(df['Open'].iloc[-1]) if 'Open' in df and not math.isnan(df['Open'].iloc[-1]) else current_close_usd
+                high_val = float(df['High'].iloc[-1]) if 'High' in df and not math.isnan(df['High'].iloc[-1]) else current_close_usd
+                low_val = float(df['Low'].iloc[-1]) if 'Low' in df and not math.isnan(df['Low'].iloc[-1]) else current_close_usd
+
                 bars.append(PriceBar(
                     symbol=sym,
                     trade_date=trade_date,
-                    open=float(df['Open'].iloc[-1]) * fx_rate,
-                    high=float(df['High'].iloc[-1]) * fx_rate,
-                    low=float(df['Low'].iloc[-1]) * fx_rate,
+                    open=open_val * fx_rate,
+                    high=high_val * fx_rate,
+                    low=low_val * fx_rate,
                     close=current_close_npr,
-                    volume=int(df.get('Volume', 0).iloc[-1]),
+                    volume=vol_val,
                     turnover=0.0,
                     prev_close=prev_close_npr,
                     point_change=current_close_npr - prev_close_npr,
                     pct_change=pct_change
                 ))
         except Exception as e:
-            print(f"[ERROR] GlobalMarketsAPI fetch failed: {e}")
+            print(f"[WARNING] GlobalMarketsAPI batch fetch error: {e}")
             
         return bars

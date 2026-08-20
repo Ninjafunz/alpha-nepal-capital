@@ -65,6 +65,8 @@ class PortfolioEngine:
                 h.quantity = new_qty
                 h.cost_basis = new_cost
                 h.avg_buy_price = round(new_cost / new_qty, 2)
+                if tx.route != StrategicRoute.UNASSIGNED:
+                    h.route = tx.route
             else:
                 sector = stock.sector if stock else "Unknown"
                 self.holdings[tx.symbol] = PortfolioHolding(
@@ -78,7 +80,7 @@ class PortfolioEngine:
                     weight_pct=0.0,
                     unrealized_pnl=0.0,
                     unrealized_pnl_pct=0.0,
-                    route=tx.route,
+                    route=tx.route if tx.route != StrategicRoute.UNASSIGNED else StrategicRoute.ROUTE_ALPHA,
                     profile_id=self.profile_id
                 )
         elif tx.action == ActionType.SELL:
@@ -98,33 +100,38 @@ class PortfolioEngine:
             self.cash = round(self.cash - tx.gross_value, 2)
             self.liabilities = round(max(0.0, self.liabilities - tx.gross_value), 2)
 
+    def get_total_invested_value(self) -> float:
+        return sum(h.current_value for h in self.holdings.values())
+
     def get_total_assets(self) -> float:
-        invested = sum(h.current_value for h in self.holdings.values())
-        return round(self.cash + invested, 2)
-        
+        return self.cash + self.get_total_invested_value()
+
     def get_equity(self) -> float:
-        return round(self.get_total_assets() - self.liabilities, 2)
+        return self.get_total_assets() - self.liabilities
 
     def get_sector_exposures(self) -> Dict[str, float]:
+        """Calculates current sector concentration percentages."""
         total_assets = self.get_total_assets()
-        exposures: Dict[str, float] = {}
+        if total_assets == 0.0:
+            return {}
+        sectors: Dict[str, float] = {}
         for h in self.holdings.values():
-            exposures[h.sector] = exposures.get(h.sector, 0.0) + h.current_value
-        return {sec: round((val / max(1.0, total_assets)) * 100.0, 2) for sec, val in exposures.items()}
+            sectors[h.sector] = sectors.get(h.sector, 0.0) + h.current_value
+        return {s: round((val / total_assets) * 100.0, 2) for s, val in sectors.items()}
 
     def get_balance_sheet(self, as_of_date: str) -> BalanceSheet:
-        # Override BalanceSheetEngine to inject liabilities
-        bs = self.balance_sheet_engine.generate_balance_sheet(as_of_date, self.cash, self.holdings)
-        bs.profile_id = self.profile_id
-        bs.total_liabilities = self.liabilities
-        bs.shareholder_equity = round(bs.total_assets - self.liabilities, 2)
-        
-        profile = next((p for p in self.policy.company.profiles if p.id == self.profile_id), None)
-        starting_cap = profile.starting_capital if profile else 0.0
-        bs.retained_earnings = round(bs.shareholder_equity - starting_cap, 2)
-        return bs
+        return self.balance_sheet_engine.generate_balance_sheet(
+            as_of_date=as_of_date,
+            cash=self.cash,
+            holdings=self.holdings,
+            dividends_receivable=0.0,
+            liabilities=self.liabilities,
+        )
 
-    def get_income_statement(self, period: str, as_of_date: str, tx_list: List[Transaction]) -> IncomeStatement:
-        iso = self.income_statement_engine.generate_income_statement(period, as_of_date, tx_list, self.holdings)
-        iso.profile_id = self.profile_id
-        return iso
+    def get_income_statement(self, period: str, as_of_date: str, transactions: List[Transaction]) -> IncomeStatement:
+        return self.income_statement_engine.generate_income_statement(
+            period=period,
+            as_of_date=as_of_date,
+            transactions=transactions,
+            holdings=list(self.holdings.values()),
+        )

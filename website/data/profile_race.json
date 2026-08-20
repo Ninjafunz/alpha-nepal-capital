@@ -2,52 +2,52 @@
   "profiles": [
     {
       "profile_id": "P1_DOMESTIC_EQUITY",
-      "name": "Alpha Domestic Equities",
+      "name": "Alpha Domestic Equities (NEPSE)",
       "currency": "NPR",
       "asset_class": "EQUITY_DOMESTIC",
-      "starting_capital": 100000000.0,
-      "current_assets": 149431045.5,
-      "equity": 99490395.8,
-      "liabilities": 49940649.7,
-      "total_return_pct": 49.43,
-      "holdings_count": 15
+      "starting_capital": 40000000.0,
+      "current_assets": 39895637.010000005,
+      "equity": 39895637.010000005,
+      "liabilities": 0.0,
+      "total_return_pct": -0.26,
+      "holdings_count": 11
     },
     {
       "profile_id": "P2_GLOBAL_EQUITY",
-      "name": "Alpha Global Equities",
-      "currency": "USD",
+      "name": "Alpha Global Equities (US/India)",
+      "currency": "NPR",
       "asset_class": "EQUITY_GLOBAL",
-      "starting_capital": 1000000.0,
-      "current_assets": 1000000.0,
-      "equity": 1000000.0,
+      "starting_capital": 20000000.0,
+      "current_assets": 19982109.48,
+      "equity": 19982109.48,
       "liabilities": 0.0,
-      "total_return_pct": 0.0,
-      "holdings_count": 0
+      "total_return_pct": -0.09,
+      "holdings_count": 4
     },
     {
       "profile_id": "P3_COMMODITIES",
-      "name": "Alpha Commodities",
-      "currency": "USD",
+      "name": "Alpha Precious Metals & Commodities (Gold)",
+      "currency": "NPR",
       "asset_class": "COMMODITY",
-      "starting_capital": 1000000.0,
-      "current_assets": 1000000.0,
-      "equity": 1000000.0,
+      "starting_capital": 20000000.0,
+      "current_assets": 19992501.77,
+      "equity": 19992501.77,
       "liabilities": 0.0,
-      "total_return_pct": 0.0,
-      "holdings_count": 0
+      "total_return_pct": -0.04,
+      "holdings_count": 2
     },
     {
       "profile_id": "P4_CRYPTO",
-      "name": "Alpha Crypto",
-      "currency": "USD",
+      "name": "Alpha Digital Assets (BTC/ETH)",
+      "currency": "NPR",
       "asset_class": "CRYPTO",
-      "starting_capital": 1000000.0,
-      "current_assets": 1000000.0,
-      "equity": 1000000.0,
+      "starting_capital": 20000000.0,
+      "current_assets": 19996685.18,
+      "equity": 19996685.18,
       "liabilities": 0.0,
-      "total_return_pct": 0.0,
-      "holdings_count": 0
+      "total_return_pct": -0.02,
+      "holdings_count": 1
     }
   ],
-  "last_updated": "2026-08-20T17:09:56.434668"
+  "last_updated": "2026-08-20T18:17:07.728602"
 }

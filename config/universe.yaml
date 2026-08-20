@@ -1,5 +1,8 @@
-# Universe of Key NEPSE Listed Companies with Baseline Structural Metadata
+# Universe of Multi-Asset Securities with Baseline Structural & Governance Metadata
 securities:
+  # --------------------------------------------------------------------------
+  # 1. DOMESTIC EQUITIES (NEPSE)
+  # --------------------------------------------------------------------------
   - symbol: "NABIL"
     name: "Nabil Bank Limited"
     sector: "Commercial Bank"
@@ -13,6 +16,8 @@ securities:
     bottleneck_score: 88.0
     elite_alignment: 85.0
     governance_score: 92.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 1200000
 
   - symbol: "GBIME"
     name: "Global IME Bank Limited"
@@ -27,6 +32,8 @@ securities:
     bottleneck_score: 84.0
     elite_alignment: 80.0
     governance_score: 86.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 950000
 
   - symbol: "NICA"
     name: "NIC Asia Bank Limited"
@@ -41,6 +48,8 @@ securities:
     bottleneck_score: 80.0
     elite_alignment: 75.0
     governance_score: 82.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 1100000
 
   - symbol: "SCB"
     name: "Standard Chartered Bank Nepal"
@@ -55,6 +64,8 @@ securities:
     bottleneck_score: 90.0
     elite_alignment: 88.0
     governance_score: 95.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 800000
 
   - symbol: "CHCL"
     name: "Chilime Hydropower Company Limited"
@@ -69,6 +80,8 @@ securities:
     bottleneck_score: 92.0
     elite_alignment: 90.0
     governance_score: 91.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 650000
 
   - symbol: "SHPC"
     name: "Sanima Mai Hydropower Limited"
@@ -83,6 +96,8 @@ securities:
     bottleneck_score: 82.0
     elite_alignment: 84.0
     governance_score: 87.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 500000
 
   - symbol: "UPPER"
     name: "Upper Tamakoshi Hydropower Limited"
@@ -97,65 +112,27 @@ securities:
     bottleneck_score: 95.0
     elite_alignment: 94.0
     governance_score: 79.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 750000
 
   - symbol: "BPCL"
     name: "Butwal Power Company Limited"
     sector: "Hydropower"
     category: "A"
-    paid_up_capital_cr: 340.90
+    paid_up_capital_cr: 340.91
     baseline_pe: 21.0
-    baseline_pb: 1.70
-    baseline_roe: 9.8
-    debt_to_equity: 0.30
-    route_eligibility: ["Route Alpha", "Route Gamma"]
-    bottleneck_score: 89.0
-    elite_alignment: 87.0
-    governance_score: 93.0
-
-  - symbol: "HDL"
-    name: "Himalayan Distillery Limited"
-    sector: "Manufacturing and Processing"
-    category: "A"
-    paid_up_capital_cr: 267.27
-    baseline_pe: 29.0
-    baseline_pb: 4.80
-    baseline_roe: 22.0
-    debt_to_equity: 0.15
-    route_eligibility: ["Route Alpha", "Route Beta"]
-    bottleneck_score: 85.0
-    elite_alignment: 78.0
-    governance_score: 84.0
-
-  - symbol: "UNL"
-    name: "Unilever Nepal Limited"
-    sector: "Manufacturing and Processing"
-    category: "A"
-    paid_up_capital_cr: 9.21
-    baseline_pe: 42.0
-    baseline_pb: 12.50
-    baseline_roe: 38.0
-    debt_to_equity: 0.05
-    route_eligibility: ["Route Alpha", "Route Gamma"]
-    bottleneck_score: 96.0
-    elite_alignment: 85.0
-    governance_score: 96.0
-
-  - symbol: "CIT"
-    name: "Citizen Investment Trust"
-    sector: "Investment"
-    category: "A"
-    paid_up_capital_cr: 531.37
-    baseline_pe: 26.5
-    baseline_pb: 3.10
-    baseline_roe: 14.5
-    debt_to_equity: 0.20
-    route_eligibility: ["Route Alpha", "Route Gamma"]
-    bottleneck_score: 94.0
-    elite_alignment: 95.0
-    governance_score: 94.0
+    baseline_pb: 1.85
+    baseline_roe: 10.2
+    debt_to_equity: 0.35
+    route_eligibility: ["Route Alpha"]
+    bottleneck_score: 86.0
+    elite_alignment: 88.0
+    governance_score: 90.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 400000
 
   - symbol: "NTC"
-    name: "Nepal Telecom (Nepal Doorsanchar Company Limited)"
+    name: "Nepal Telecom (Nepal Doorsanchar Co.)"
     sector: "Others"
     category: "A"
     paid_up_capital_cr: 1800.00
@@ -167,6 +144,8 @@ securities:
     bottleneck_score: 98.0
     elite_alignment: 96.0
     governance_score: 92.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 1500000
 
   - symbol: "NLIC"
     name: "Nepal Life Insurance Company Limited"
@@ -181,20 +160,8 @@ securities:
     bottleneck_score: 88.0
     elite_alignment: 82.0
     governance_score: 85.0
-
-  - symbol: "NIL"
-    name: "Neco Insurance Limited"
-    sector: "Non-Life Insurance"
-    category: "A"
-    paid_up_capital_cr: 201.23
-    baseline_pe: 19.5
-    baseline_pb: 2.15
-    baseline_roe: 13.8
-    debt_to_equity: 0.85
-    route_eligibility: ["Route Alpha"]
-    bottleneck_score: 79.0
-    elite_alignment: 76.0
-    governance_score: 84.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 700000
 
   - symbol: "SHIVM"
     name: "Shivam Cements Limited"
@@ -209,31 +176,119 @@ securities:
     bottleneck_score: 83.0
     elite_alignment: 80.0
     governance_score: 81.0
+    asset_class: "EQUITY_DOMESTIC"
+    avg_daily_volume_usd: 600000
 
-  - symbol: 'AAPL'
-    name: 'Apple Inc.'
-    sector: 'Technology'
-    category: 'GLOBAL'
-    baseline_pe: 30.0
-    baseline_pb: 40.0
-    baseline_roe: 150.0
-    debt_to_equity: 1.5
-    route_eligibility: ['Route Alpha']
-    bottleneck_score: 95.0
-    elite_alignment: 90.0
+  # --------------------------------------------------------------------------
+  # 2. GLOBAL EQUITIES & ETFS (Offshore Subsidiary)
+  # --------------------------------------------------------------------------
+  - symbol: "SPY"
+    name: "SPDR S&P 500 ETF Trust"
+    sector: "Global Broad Index"
+    category: "GLOBAL_ETF"
+    baseline_pe: 25.0
+    baseline_pb: 4.5
+    baseline_roe: 18.0
+    debt_to_equity: 1.2
+    route_eligibility: ["Route Alpha"]
+    bottleneck_score: 96.0
+    elite_alignment: 95.0
+    governance_score: 98.0
+    asset_class: "EQUITY_GLOBAL"
+    avg_daily_volume_usd: 35000000000
+
+  - symbol: "QQQ"
+    name: "Invesco QQQ Trust (Nasdaq 100)"
+    sector: "Global Tech/Innovation"
+    category: "GLOBAL_ETF"
+    baseline_pe: 31.0
+    baseline_pb: 7.0
+    baseline_roe: 24.0
+    debt_to_equity: 0.9
+    route_eligibility: ["Route Alpha", "Route Gamma"]
+    bottleneck_score: 98.0
+    elite_alignment: 96.0
     governance_score: 95.0
-    asset_class: 'EQUITY_GLOBAL'
+    asset_class: "EQUITY_GLOBAL"
+    avg_daily_volume_usd: 18000000000
 
-  - symbol: 'GC=F'
-    name: 'Gold Futures'
-    sector: 'Precious Metals'
-    category: 'COMMODITY'
-    route_eligibility: ['Route Beta']
-    asset_class: 'COMMODITY'
+  - symbol: "INDA"
+    name: "iShares MSCI India ETF"
+    sector: "Emerging Markets"
+    category: "GLOBAL_ETF"
+    baseline_pe: 23.0
+    baseline_pb: 3.2
+    baseline_roe: 14.5
+    debt_to_equity: 1.5
+    route_eligibility: ["Route Alpha", "Route Beta"]
+    bottleneck_score: 90.0
+    elite_alignment: 92.0
+    governance_score: 88.0
+    asset_class: "EQUITY_GLOBAL"
+    avg_daily_volume_usd: 250000000
 
-  - symbol: 'BTC-USD'
-    name: 'Bitcoin'
-    sector: 'Cryptocurrency'
-    category: 'CRYPTO'
-    route_eligibility: ['Route Gamma']
-    asset_class: 'CRYPTO'
+  - symbol: "AAPL"
+    name: "Apple Inc."
+    sector: "Technology"
+    category: "GLOBAL_EQUITY"
+    baseline_pe: 32.0
+    baseline_pb: 42.0
+    baseline_roe: 145.0
+    debt_to_equity: 1.4
+    route_eligibility: ["Route Alpha"]
+    bottleneck_score: 97.0
+    elite_alignment: 92.0
+    governance_score: 95.0
+    asset_class: "EQUITY_GLOBAL"
+    avg_daily_volume_usd: 8000000000
+
+  # --------------------------------------------------------------------------
+  # 3. GOLD & PRECIOUS METALS
+  # --------------------------------------------------------------------------
+  - symbol: "GLD"
+    name: "SPDR Gold Shares"
+    sector: "Precious Metals"
+    category: "COMMODITY_ETF"
+    route_eligibility: ["Route Beta", "Route Alpha"]
+    bottleneck_score: 95.0
+    elite_alignment: 98.0
+    governance_score: 96.0
+    asset_class: "COMMODITY"
+    physical_backing_pct: 100.0
+    avg_daily_volume_usd: 1500000000
+
+  - symbol: "GC=F"
+    name: "Gold Futures (COMEX)"
+    sector: "Precious Metals"
+    category: "COMMODITY_FUTURES"
+    route_eligibility: ["Route Beta"]
+    bottleneck_score: 92.0
+    elite_alignment: 95.0
+    governance_score: 90.0
+    asset_class: "COMMODITY"
+    avg_daily_volume_usd: 20000000000
+
+  # --------------------------------------------------------------------------
+  # 4. DIGITAL ASSETS (Crypto)
+  # --------------------------------------------------------------------------
+  - symbol: "BTC-USD"
+    name: "Bitcoin"
+    sector: "Digital Store of Value"
+    category: "CRYPTO_MAJOR"
+    route_eligibility: ["Route Gamma"]
+    bottleneck_score: 99.0
+    elite_alignment: 90.0
+    governance_score: 92.0
+    asset_class: "CRYPTO"
+    avg_daily_volume_usd: 25000000000
+
+  - symbol: "ETH-USD"
+    name: "Ethereum"
+    sector: "Smart Contract Platform"
+    category: "CRYPTO_MAJOR"
+    route_eligibility: ["Route Gamma"]
+    bottleneck_score: 95.0
+    elite_alignment: 88.0
+    governance_score: 90.0
+    asset_class: "CRYPTO"
+    avg_daily_volume_usd: 12000000000

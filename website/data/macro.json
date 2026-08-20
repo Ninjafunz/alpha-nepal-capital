@@ -1,0 +1,84 @@
+{
+  "macro_signals": {
+    "us_10y_yield": 4.6529998779296875,
+    "dxy_proxy": 27.8799991607666,
+    "vix": 15.9399995803833,
+    "gold_spot_usd": 4138.399963378906,
+    "btc_price_usd": 71821.7109375,
+    "usd_npr_rate": 153.0760040283203,
+    "nepse_sentiment_score": 58.0
+  },
+  "regime_info": {
+    "regime": "Risk-On",
+    "rationale": "Accommodative cross-asset conditions, stable volatility, positive growth momentum.",
+    "macro_signals": {
+      "us_10y_yield": 4.6529998779296875,
+      "dxy_proxy": 27.8799991607666,
+      "vix": 15.9399995803833,
+      "gold_spot_usd": 4138.399963378906,
+      "btc_price_usd": 71821.7109375,
+      "usd_npr_rate": 153.0760040283203,
+      "nepse_sentiment_score": 58.0
+    },
+    "timestamp": "2026-08-20T18:17:06.637853"
+  },
+  "saa_calibration": {
+    "baseline_saa": {
+      "Equities": {
+        "strategic_target_pct": 40.0,
+        "sub_classes": {
+          "Domestic (NEPSE)": 20.0,
+          "Global (US/India)": 20.0
+        }
+      },
+      "Gold & Metals": {
+        "strategic_target_pct": 20.0,
+        "sub_classes": {
+          "Physical / GLD Proxy": 15.0,
+          "Paper / Futures": 5.0
+        }
+      },
+      "Digital Assets": {
+        "strategic_target_pct": 15.0,
+        "sub_classes": {
+          "BTC": 10.0,
+          "ETH": 5.0
+        }
+      },
+      "FX & Cash": {
+        "strategic_target_pct": 25.0,
+        "sub_classes": {
+          "NPR Cash": 15.0,
+          "USD Cash": 10.0
+        }
+      }
+    },
+    "regime": "Risk-On",
+    "tactical_tilts": {
+      "Equities": 5.0,
+      "Gold & Metals": -4.0,
+      "Digital Assets": 3.0,
+      "FX & Cash": -4.0
+    },
+    "tactical_target_allocation": {
+      "Equities": 45.0,
+      "Gold & Metals": 16.0,
+      "Digital Assets": 18.0,
+      "FX & Cash": 21.0
+    },
+    "current_allocation": {
+      "P1_DOMESTIC_EQUITY": 40.0,
+      "P2_GLOBAL_EQUITY": 20.0,
+      "P3_COMMODITIES": 20.0,
+      "P4_CRYPTO": 20.0
+    }
+  },
+  "fx_eval": {
+    "usd_exposure_pct": 60.0,
+    "max_usd_limit_pct": 40.0,
+    "hedge_triggered": true,
+    "hedged_amount_npr": 30000000.0,
+    "status": "HEDGED_AUTO"
+  },
+  "timestamp": "2026-08-20T18:17:07.080524"
+}
