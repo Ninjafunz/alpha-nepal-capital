@@ -2,8 +2,8 @@
   "count": 20,
   "transactions": [
     {
-      "id": "8e983f7c-e71f-4f35-8eb6-bd3ad262400e",
-      "timestamp": "2026-08-20T16:49:07.890630",
+      "id": "29cce683-f19f-4be9-b04c-b5c6cea70151",
+      "timestamp": "2026-08-20T17:09:55.670654",
       "trade_date": "2026-08-20",
       "symbol": "CASH_LOAN",
       "action": "BORROW",
@@ -24,8 +24,8 @@
       "post_trade_nav": 0.0
     },
     {
-      "id": "TX-20260820-DCF442",
-      "timestamp": "2026-08-20T16:49:07.897587",
+      "id": "TX-20260820-345EF4",
+      "timestamp": "2026-08-20T17:09:55.682632",
       "trade_date": "2026-08-20",
       "symbol": "NABIL",
       "action": "BUY",
@@ -46,8 +46,8 @@
       "post_trade_nav": 10.9974
     },
     {
-      "id": "36a8030e-4689-41e9-9fe7-a52b80cc7d09",
-      "timestamp": "2026-08-20T16:49:07.907520",
+      "id": "43a2612d-0ff2-48de-98e9-2dc0a600de62",
+      "timestamp": "2026-08-20T17:09:55.694145",
       "trade_date": "2026-08-20",
       "symbol": "CASH_LOAN",
       "action": "BORROW",
@@ -68,8 +68,8 @@
       "post_trade_nav": 0.0
     },
     {
-      "id": "TX-20260820-EE3C75",
-      "timestamp": "2026-08-20T16:49:07.918300",
+      "id": "TX-20260820-F232A6",
+      "timestamp": "2026-08-20T17:09:55.703533",
       "trade_date": "2026-08-20",
       "symbol": "GBIME",
       "action": "BUY",
@@ -90,8 +90,8 @@
       "post_trade_nav": 11.9943
     },
     {
-      "id": "231c8151-8872-46da-b0f8-3e8b98f811f4",
-      "timestamp": "2026-08-20T16:49:07.926354",
+      "id": "86141572-3ca4-484f-84d6-cfb0f8fa46cd",
+      "timestamp": "2026-08-20T17:09:55.715340",
       "trade_date": "2026-08-20",
       "symbol": "CASH_LOAN",
       "action": "BORROW",
@@ -112,8 +112,8 @@
       "post_trade_nav": 0.0
     },
     {
-      "id": "TX-20260820-C045B3",
-      "timestamp": "2026-08-20T16:49:07.935182",
+      "id": "TX-20260820-8F3432",
+      "timestamp": "2026-08-20T17:09:55.729548",
       "trade_date": "2026-08-20",
       "symbol": "NICA",
       "action": "BUY",
@@ -134,8 +134,8 @@
       "post_trade_nav": 12.9906
     },
     {
-      "id": "7dbff07e-1fb8-4119-899c-cab9e7e18877",
-      "timestamp": "2026-08-20T16:49:07.942641",
+      "id": "bde8d3f4-1b15-43d7-b492-5a7aa82c59db",
+      "timestamp": "2026-08-20T17:09:55.748423",
       "trade_date": "2026-08-20",
       "symbol": "CASH_LOAN",
       "action": "BORROW",
@@ -156,8 +156,8 @@
       "post_trade_nav": 0.0
     },
     {
-      "id": "TX-20260820-E65939",
-      "timestamp": "2026-08-20T16:49:07.949637",
+      "id": "TX-20260820-0509A3",
+      "timestamp": "2026-08-20T17:09:55.765075",
       "trade_date": "2026-08-20",
       "symbol": "SCB",
       "action": "BUY",
@@ -178,8 +178,8 @@
       "post_trade_nav": 13.9865
     },
     {
-      "id": "71798796-e414-483e-a30e-2cd429ee520c",
-      "timestamp": "2026-08-20T16:49:07.958245",
+      "id": "52bb15f0-008d-4b64-bb58-ab570edbba0f",
+      "timestamp": "2026-08-20T17:09:55.781030",
       "trade_date": "2026-08-20",
       "symbol": "CASH_LOAN",
       "action": "BORROW",
@@ -200,8 +200,8 @@
       "post_trade_nav": 0.0
     },
     {
-      "id": "TX-20260820-D68970",
-      "timestamp": "2026-08-20T16:49:07.967702",
+      "id": "TX-20260820-0297A0",
+      "timestamp": "2026-08-20T17:09:55.798181",
       "trade_date": "2026-08-20",
       "symbol": "CHCL",
       "action": "BUY",
@@ -222,8 +222,8 @@
       "post_trade_nav": 14.9786
     },
     {
-      "id": "TX-20260820-A1E511",
-      "timestamp": "2026-08-20T16:49:07.975741",
+      "id": "TX-20260820-EED28D",
+      "timestamp": "2026-08-20T17:09:55.822437",
       "trade_date": "2026-08-20",
       "symbol": "SHPC",
       "action": "BUY",
@@ -244,8 +244,8 @@
       "post_trade_nav": 14.975
     },
     {
-      "id": "TX-20260820-C4A149",
-      "timestamp": "2026-08-20T16:49:07.985063",
+      "id": "TX-20260820-01FCBA",
+      "timestamp": "2026-08-20T17:09:55.846701",
       "trade_date": "2026-08-20",
       "symbol": "UPPER",
       "action": "BUY",
@@ -266,8 +266,8 @@
       "post_trade_nav": 14.9715
     },
     {
-      "id": "TX-20260820-27756C",
-      "timestamp": "2026-08-20T16:49:07.993682",
+      "id": "TX-20260820-6113B0",
+      "timestamp": "2026-08-20T17:09:55.867088",
       "trade_date": "2026-08-20",
       "symbol": "BPCL",
       "action": "BUY",
@@ -288,8 +288,8 @@
       "post_trade_nav": 14.9679
     },
     {
-      "id": "TX-20260820-699D26",
-      "timestamp": "2026-08-20T16:49:08.001912",
+      "id": "TX-20260820-2B4CCC",
+      "timestamp": "2026-08-20T17:09:55.885314",
       "trade_date": "2026-08-20",
       "symbol": "HDL",
       "action": "BUY",
@@ -310,8 +310,8 @@
       "post_trade_nav": 14.9644
     },
     {
-      "id": "TX-20260820-384B86",
-      "timestamp": "2026-08-20T16:49:08.008750",
+      "id": "TX-20260820-805EA4",
+      "timestamp": "2026-08-20T17:09:55.899363",
       "trade_date": "2026-08-20",
       "symbol": "UNL",
       "action": "BUY",
@@ -332,8 +332,8 @@
       "post_trade_nav": 14.9608
     },
     {
-      "id": "TX-20260820-38F55A",
-      "timestamp": "2026-08-20T16:49:08.018711",
+      "id": "TX-20260820-A4FA05",
+      "timestamp": "2026-08-20T17:09:55.921578",
       "trade_date": "2026-08-20",
       "symbol": "CIT",
       "action": "BUY",
@@ -354,8 +354,8 @@
       "post_trade_nav": 14.9573
     },
     {
-      "id": "TX-20260820-75A580",
-      "timestamp": "2026-08-20T16:49:08.028395",
+      "id": "TX-20260820-AC6E7B",
+      "timestamp": "2026-08-20T17:09:55.935987",
       "trade_date": "2026-08-20",
       "symbol": "NTC",
       "action": "BUY",
@@ -376,8 +376,8 @@
       "post_trade_nav": 14.9537
     },
     {
-      "id": "TX-20260820-B127D9",
-      "timestamp": "2026-08-20T16:49:08.038966",
+      "id": "TX-20260820-847DB9",
+      "timestamp": "2026-08-20T17:09:55.949927",
       "trade_date": "2026-08-20",
       "symbol": "NLIC",
       "action": "BUY",
@@ -398,8 +398,8 @@
       "post_trade_nav": 14.9502
     },
     {
-      "id": "TX-20260820-AA0627",
-      "timestamp": "2026-08-20T16:49:08.046123",
+      "id": "TX-20260820-D11511",
+      "timestamp": "2026-08-20T17:09:55.962842",
       "trade_date": "2026-08-20",
       "symbol": "NIL",
       "action": "BUY",
@@ -420,8 +420,8 @@
       "post_trade_nav": 14.9466
     },
     {
-      "id": "TX-20260820-6D204E",
-      "timestamp": "2026-08-20T16:49:08.051509",
+      "id": "TX-20260820-0FA902",
+      "timestamp": "2026-08-20T17:09:55.977949",
       "trade_date": "2026-08-20",
       "symbol": "SHIVM",
       "action": "BUY",
@@ -442,5 +442,5 @@
       "post_trade_nav": 14.9432
     }
   ],
-  "last_updated": "2026-08-20T16:49:08.165732"
+  "last_updated": "2026-08-20T17:09:56.389323"
 }
