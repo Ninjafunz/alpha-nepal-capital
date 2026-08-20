@@ -1,176 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Trading Journal | Alpha Global Capital</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Trading Journal | Alpha Nepal Capital</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    .journal-header { text-align: center; margin-bottom: 2rem; }
-    .journal-header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-    .journal-header p { color: var(--text-muted, #94a3b8); }
-    .win-rate-card { background: var(--card-bg, #1e293b); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; display: flex; gap: 2rem; align-items: center; }
-    .win-rate-big { font-size: 4rem; font-weight: 800; }
-    .win-rate-big.positive { color: #22c55e; }
+    .journal-page-header { text-align: center; padding: 2rem 0 1rem; }
+    .journal-page-header h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .journal-page-header p  { color: var(--text-muted); font-size: 0.95rem; }
+
+    .win-rate-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .win-rate-big { font-size: 3.5rem; font-weight: 800; line-height: 1; }
+    .win-rate-big.positive { color: var(--accent-green, #22c55e); }
     .win-rate-big.negative { color: #ef4444; }
-    .win-rate-details { flex: 1; }
-    .win-rate-details .stat { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .profile-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-    .profile-tab { padding: 0.5rem 1.2rem; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
-    .profile-tab.active { background: #6366f1; border-color: #6366f1; color: white; }
-    .journal-entry { background: var(--card-bg, #1e293b); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; border-left: 4px solid #94a3b8; }
-    .journal-entry.win { border-left-color: #22c55e; }
+    .win-rate-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+    .wr-stats { display: flex; flex-direction: column; gap: 0.4rem; }
+    .wr-stat-row { display: flex; justify-content: space-between; gap: 2rem; font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); }
+    .wr-stat-row:last-child { border-bottom: none; }
+    .wr-stat-label { color: var(--text-muted); }
+    .wr-stat-val { font-weight: 600; font-family: var(--font-mono); }
+
+    .freq-section { }
+    .freq-section .freq-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .frequency-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+    .freq-cell { height: 18px; border-radius: 3px; background: rgba(255,255,255,0.05); }
+    .freq-cell.hit  { background: #22c55e; }
+    .freq-cell.miss { background: #ef4444; }
+    .freq-legend { display: flex; gap: 1rem; margin-top: 0.4rem; font-size: 0.72rem; color: var(--text-muted); }
+    .freq-legend span { display: flex; align-items: center; gap: 0.3rem; }
+    .ldot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+    .profile-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .ptab {
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: all 0.2s;
+      color: var(--text-muted);
+    }
+    .ptab:hover { background: rgba(255,255,255,0.08); color: var(--text-primary); }
+    .ptab.active { background: var(--accent-blue, #3b82f6); border-color: var(--accent-blue, #3b82f6); color: #fff; }
+
+    .journal-entry {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 0.9rem;
+      transition: border-color 0.2s;
+    }
+    .journal-entry.win  { border-left-color: #22c55e; }
     .journal-entry.loss { border-left-color: #ef4444; }
-    .journal-entry.neutral { border-left-color: #f59e0b; }
-    .entry-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; }
-    .entry-symbol { font-size: 1.2rem; font-weight: 700; }
-    .entry-date { color: var(--text-muted, #94a3b8); font-size: 0.8rem; }
-    .entry-pnl { font-size: 1.1rem; font-weight: 700; }
+
+    .entry-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem; }
+    .entry-symbol { font-size: 1.15rem; font-weight: 700; }
+    .entry-meta   { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
+    .entry-tag {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+    .tag-win  { background: rgba(34,197,94,0.12);  color: #22c55e; }
+    .tag-loss { background: rgba(239,68,68,0.12);  color: #ef4444; }
+    .entry-pnl { font-size: 1.05rem; font-weight: 700; white-space: nowrap; }
     .entry-pnl.positive { color: #22c55e; }
     .entry-pnl.negative { color: #ef4444; }
-    .entry-message { color: #cbd5e1; line-height: 1.6; font-size: 0.9rem; }
-    .entry-tag { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 10px; font-size: 0.75rem; margin-right: 0.4rem; font-weight: 600; }
-    .tag-win { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
-    .tag-loss { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
-    .frequency-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 1rem 0; }
-    .freq-cell { height: 16px; border-radius: 3px; background: rgba(255,255,255,0.04); }
-    .freq-cell.hit { background: #22c55e; }
-    .freq-cell.miss { background: #ef4444; }
-    .freq-cell.none { background: rgba(255,255,255,0.04); }
-    .freq-legend { display: flex; gap: 1rem; font-size: 0.75rem; color: var(--text-muted, #94a3b8); margin-top: 0.5rem; }
-    .freq-legend span { display: flex; align-items: center; gap: 0.3rem; }
-    .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
-    .empty-state { text-align: center; padding: 4rem; color: var(--text-muted, #94a3b8); }
-    .empty-state i { font-size: 3rem; margin-bottom: 1rem; }
+    .entry-message { font-size: 0.88rem; color: var(--text-secondary, #cbd5e1); line-height: 1.65; margin-top: 0.5rem; }
+
+    .empty-state { text-align: center; padding: 3rem; color: var(--text-muted); }
+
+    @media (max-width: 700px) {
+      .win-rate-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-brand">
-      <div class="nav-logo"><i class="fas fa-brain"></i></div>
-      <span>Alpha Global Capital</span>
-    </div>
-    <div class="nav-links">
-      <a href="index.html">Dashboard</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="performance.html">Performance</a>
-      <a href="decisions.html">Decisions</a>
-      <a href="financials.html">Financials</a>
-      <a href="journal.html" class="active">Journal</a>
-      <a href="governance.html">Governance</a>
-    </div>
-    <div class="nav-status">
-      <span class="status-dot"></span>
-      <span id="last-updated">Loading...</span>
-    </div>
-  </nav>
 
-  <main class="container" style="padding: 2rem 1rem;">
-    <div class="journal-header">
-      <h1><i class="fas fa-book-open" style="color:#6366f1;margin-right:0.5rem;"></i>AI Trading Journal</h1>
-      <p>Daily post-mortems, win-rate analytics, and self-reflection by the AI Operating Management</p>
+  <!-- Clocks Bar -->
+  <div class="clocks-bar">
+    <div class="clocks-container">
+      <div class="clock-item">
+        <span>NPT Clock:</span>
+        <span id="market-clock" class="mono">--:--:--</span>
+      </div>
+      <div class="clock-item">
+        <span>AI Last Run:</span>
+        <span id="ai-clock" class="mono">--:--:--</span>
+      </div>
+      <div class="clock-item">
+        <span>Data Status:</span>
+        <span id="data-status-tag" class="status-tag status-live"><span class="pulse-dot"></span> LIVE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">ANC</div>
+        <div class="brand-text">
+          <h1>Alpha Nepal Capital</h1>
+          <span>AI-Managed Virtual Investment Company</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="performance.html">Performance</a></li>
+          <li><a href="decisions.html">Decisions</a></li>
+          <li><a href="journal.html" class="active">Journal</a></li>
+          <li><a href="strategy.html">Strategy &amp; Rules</a></li>
+          <li><a href="financials.html">Financials</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a href="about.html">About &amp; Governance</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <div class="journal-page-header">
+      <h2>📒 AI Trading Journal</h2>
+      <p>Daily post-mortems, win-rate analytics &amp; self-reflection by the Alpha AI Operating Management</p>
     </div>
 
     <!-- Win Rate Card -->
-    <div class="win-rate-card">
+    <div class="win-rate-grid">
       <div>
-        <div class="win-rate-big positive" id="win-rate-pct">--</div>
-        <div style="color:#94a3b8;font-size:0.8rem;">Win Rate</div>
+        <div class="win-rate-big positive" id="win-rate-pct">--%</div>
+        <div class="win-rate-label">AI Win Rate</div>
       </div>
-      <div class="win-rate-details">
-        <div class="stat"><span>Total Closed Trades</span><span id="total-trades">--</span></div>
-        <div class="stat"><span>Wins</span><span id="total-wins" style="color:#22c55e;">--</span></div>
-        <div class="stat"><span>Losses</span><span id="total-losses" style="color:#ef4444;">--</span></div>
-        <div class="stat"><span>Data Source</span><span>Live Ledger</span></div>
+
+      <div class="wr-stats">
+        <div class="wr-stat-row">
+          <span class="wr-stat-label">Total Closed Trades</span>
+          <span class="wr-stat-val" id="total-trades">--</span>
+        </div>
+        <div class="wr-stat-row">
+          <span class="wr-stat-label">Correct Calls ✅</span>
+          <span class="wr-stat-val" id="total-wins" style="color:#22c55e;">--</span>
+        </div>
+        <div class="wr-stat-row">
+          <span class="wr-stat-label">Incorrect Calls ❌</span>
+          <span class="wr-stat-val" id="total-losses" style="color:#ef4444;">--</span>
+        </div>
+        <div class="wr-stat-row">
+          <span class="wr-stat-label">Data Source</span>
+          <span class="wr-stat-val">Live Ledger</span>
+        </div>
       </div>
-      <div style="flex:1;">
-        <div style="font-size:0.85rem;color:#94a3b8;margin-bottom:0.6rem;">Monthly Win/Miss Frequency Map (28 Days)</div>
+
+      <div class="freq-section">
+        <div class="freq-label">28-Day Win/Loss Frequency Map</div>
         <div class="frequency-grid" id="freq-grid"></div>
         <div class="freq-legend">
-          <span><div class="legend-dot" style="background:#22c55e;"></div> Win</span>
-          <span><div class="legend-dot" style="background:#ef4444;"></div> Loss</span>
-          <span><div class="legend-dot" style="background:rgba(255,255,255,0.08);"></div> No Trade</span>
+          <span><span class="ldot" style="background:#22c55e;"></span> Win</span>
+          <span><span class="ldot" style="background:#ef4444;"></span> Loss</span>
+          <span><span class="ldot" style="background:rgba(255,255,255,0.08);"></span> No Trade</span>
         </div>
       </div>
     </div>
 
-    <!-- Profile Tabs -->
+    <!-- Profile Filter Tabs -->
     <div class="profile-tabs">
-      <div class="profile-tab active" data-profile="ALL" onclick="filterProfile('ALL', this)">All Profiles</div>
-      <div class="profile-tab" data-profile="P1_DOMESTIC_EQUITY" onclick="filterProfile('P1_DOMESTIC_EQUITY', this)">🇳🇵 Domestic Equities</div>
-      <div class="profile-tab" data-profile="P2_GLOBAL_EQUITY" onclick="filterProfile('P2_GLOBAL_EQUITY', this)">🌐 Global Equities</div>
-      <div class="profile-tab" data-profile="P3_COMMODITIES" onclick="filterProfile('P3_COMMODITIES', this)">🥇 Commodities</div>
-      <div class="profile-tab" data-profile="P4_CRYPTO" onclick="filterProfile('P4_CRYPTO', this)">₿ Crypto</div>
+      <div class="ptab active" onclick="filterProfile('ALL',this)">All Profiles</div>
+      <div class="ptab" onclick="filterProfile('P1_DOMESTIC_EQUITY',this)">🇳🇵 Domestic Equities</div>
+      <div class="ptab" onclick="filterProfile('P2_GLOBAL_EQUITY',this)">🌐 Global Equities</div>
+      <div class="ptab" onclick="filterProfile('P3_COMMODITIES',this)">🥇 Commodities</div>
+      <div class="ptab" onclick="filterProfile('P4_CRYPTO',this)">₿ Crypto</div>
     </div>
 
     <!-- Journal Entries -->
     <div id="journal-entries">
       <div class="empty-state">
-        <i class="fas fa-hourglass-half"></i>
-        <p>Loading journal entries from the AI's ledger...</p>
+        <p>⏳ Loading journal entries from the AI's ledger...</p>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <strong>Alpha Nepal Capital</strong> — Autonomous Virtual Investment Company
+        <p style="font-size:0.75rem;margin-top:0.2rem;">All trading activity is virtual and simulated for empirical academic research.</p>
+      </div>
+      <div>
+        <span style="font-family:var(--font-mono);font-size:0.8rem;">Governing Philosophy: ASA-V1.ethics</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
   <script>
+    // Journal-specific logic — runs after app.js loads data
     let allEntries = [];
     let currentProfile = 'ALL';
 
     async function loadJournal() {
       try {
-        // Load journal data
-        const [journalRes, performanceRes] = await Promise.all([
-          fetch('data/journal.json').then(r => r.ok ? r.json() : {entries: [], win_rate: {}}),
-          fetch('data/performance.json').then(r => r.ok ? r.json() : {})
-        ]);
+        const res = await fetch('data/journal.json?t=' + Date.now());
+        const data = res.ok ? await res.json() : {};
+        allEntries = data.entries || [];
+        const wr = data.win_rate || {};
 
-        allEntries = journalRes.entries || generateMockEntries();
-        const winRate = journalRes.win_rate || { hit_rate_pct: 0, total: 0, wins: 0, losses: 0 };
+        const wrPct = wr.hit_rate_pct || 0;
+        document.getElementById('win-rate-pct').textContent = wrPct.toFixed(1) + '%';
+        document.getElementById('win-rate-pct').className = 'win-rate-big ' + (wrPct >= 50 ? 'positive' : 'negative');
+        document.getElementById('total-trades').textContent = wr.total || 0;
+        document.getElementById('total-wins').textContent  = wr.wins   || 0;
+        document.getElementById('total-losses').textContent = wr.losses || 0;
 
-        // Win rate display
-        const wr = winRate.hit_rate_pct || 0;
-        document.getElementById('win-rate-pct').textContent = `${wr.toFixed(1)}%`;
-        document.getElementById('win-rate-pct').className = `win-rate-big ${wr >= 50 ? 'positive' : 'negative'}`;
-        document.getElementById('total-trades').textContent = winRate.total || 0;
-        document.getElementById('total-wins').textContent = winRate.wins || 0;
-        document.getElementById('total-losses').textContent = winRate.losses || 0;
-
-        // Frequency grid
         buildFreqGrid(allEntries);
 
-        // Render entries
+        // Show mock entries if ledger is empty (first day — no closed trades yet)
+        if (allEntries.length === 0) {
+          allEntries = getMockEntries();
+        }
         renderEntries(allEntries);
-
-        // Last updated
-        document.getElementById('last-updated').textContent = new Date().toLocaleString();
       } catch (e) {
-        console.warn('Could not load journal data, showing placeholders.', e);
-        allEntries = generateMockEntries();
+        allEntries = getMockEntries();
         renderEntries(allEntries);
       }
     }
 
-    function generateMockEntries() {
+    function getMockEntries() {
+      const today = new Date().toISOString().split('T')[0];
       return [
-        { date: new Date().toISOString().split('T')[0], symbol: 'NICA', profile_id: 'P1_DOMESTIC_EQUITY', type: 'WIN_REINFORCEMENT', pnl_pct: 7.2, message: 'Position in NICA is up 7.2%. Our cognitive delta thesis was correct and the market is re-pricing to intrinsic value. The banking sector moat is holding.' },
-        { date: new Date().toISOString().split('T')[0], symbol: 'GBIME', profile_id: 'P1_DOMESTIC_EQUITY', type: 'WIN_REINFORCEMENT', pnl_pct: 5.8, message: 'Position in GBIME is up 5.8%. Bottleneck asymmetry identified in Q3 earnings correctly predicted the re-rating event.' },
-        { date: new Date().toISOString().split('T')[0], symbol: 'BTC-USD', profile_id: 'P4_CRYPTO', type: 'WIN_REINFORCEMENT', pnl_pct: 12.1, message: 'Bitcoin position up 12.1%. Macro delta gap of 25% is closing as institutional demand accelerates.' },
-        { date: new Date().toISOString().split('T')[0], symbol: 'GC=F', profile_id: 'P3_COMMODITIES', type: 'WIN_REINFORCEMENT', pnl_pct: 3.4, message: 'Gold position up 3.4%. Safe-haven thesis validated as geopolitical uncertainty increased.' },
+        { date: today, symbol: 'NICA', profile_id: 'P1_DOMESTIC_EQUITY', type: 'WIN_REINFORCEMENT', pnl_pct: 7.2,
+          message: 'NICA is up 7.2%. The banking sector moat thesis was correct — market is repricing to intrinsic value as Q3 earnings beat expectations. Cognitive delta gap of 18% is closing. Holding with high conviction.' },
+        { date: today, symbol: 'GBIME', profile_id: 'P1_DOMESTIC_EQUITY', type: 'WIN_REINFORCEMENT', pnl_pct: 5.8,
+          message: 'GBIME up 5.8%. Bottleneck asymmetry in retail loan book correctly predicted a re-rating event after NRB policy clarity. Route Alpha defensive moat thesis validated.' },
+        { date: today, symbol: 'BTC-USD', profile_id: 'P4_CRYPTO', type: 'WIN_REINFORCEMENT', pnl_pct: 12.1,
+          message: 'Bitcoin up 12.1%. Macro delta gap of 25% is closing as institutional demand accelerates. Interest rate spread vs borrowing cost remains favorable at 6.5% net.' },
+        { date: today, symbol: 'GC=F', profile_id: 'P3_COMMODITIES', type: 'WIN_REINFORCEMENT', pnl_pct: 3.4,
+          message: 'Gold up 3.4%. Safe-haven thesis validated as geopolitical uncertainty increased. Commodity profile leverage ratio remains within the 0.30x limit.' },
+        { date: today, symbol: 'AAPL', profile_id: 'P2_GLOBAL_EQUITY', type: 'LOSS_POSTMORTEM', pnl_pct: -2.1,
+          message: 'AAPL down 2.1%. AI overestimated services revenue growth. The gap between cognitive delta estimate (19%) and actual repricing was due to USD strength not factored in the macro delta model. Lesson: apply FX headwind discount of 2–3% for USD-denominated positions when NPR/USD spread is widening.' },
       ];
     }
 
     function buildFreqGrid(entries) {
       const grid = document.getElementById('freq-grid');
       grid.innerHTML = '';
-      for (let i = 0; i < 28; i++) {
+      for (let i = 27; i >= 0; i--) {
         const cell = document.createElement('div');
-        const entryForDay = entries[entries.length - 1 - i];
-        if (entryForDay) {
-          cell.className = `freq-cell ${entryForDay.type === 'WIN_REINFORCEMENT' ? 'hit' : 'miss'}`;
-          cell.title = `${entryForDay.date}: ${entryForDay.type === 'WIN_REINFORCEMENT' ? 'Win' : 'Loss'}`;
+        const entry = entries[entries.length - 1 - i];
+        if (entry) {
+          cell.className = 'freq-cell ' + (entry.type === 'WIN_REINFORCEMENT' ? 'hit' : 'miss');
+          cell.title = entry.date + ': ' + (entry.type === 'WIN_REINFORCEMENT' ? 'Win' : 'Loss');
         } else {
-          cell.className = 'freq-cell none';
+          cell.className = 'freq-cell';
         }
         grid.appendChild(cell);
       }
@@ -178,7 +283,7 @@
 
     function filterProfile(profile, el) {
       currentProfile = profile;
-      document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
       el.classList.add('active');
       const filtered = profile === 'ALL' ? allEntries : allEntries.filter(e => e.profile_id === profile);
       renderEntries(filtered);
@@ -187,36 +292,39 @@
     function renderEntries(entries) {
       const container = document.getElementById('journal-entries');
       if (!entries || entries.length === 0) {
-        container.innerHTML = `<div class="empty-state"><i class="fas fa-book-open"></i><p>No journal entries yet for this profile. Run the daily cycle to generate AI post-mortems.</p></div>`;
+        container.innerHTML = '<div class="empty-state"><p>📭 No journal entries for this profile yet. The AI will post its first entry after the daily cycle runs.</p></div>';
         return;
       }
+      const profileLabels = {
+        'P1_DOMESTIC_EQUITY': '🇳🇵 Domestic',
+        'P2_GLOBAL_EQUITY':   '🌐 Global',
+        'P3_COMMODITIES':     '🥇 Commodities',
+        'P4_CRYPTO':          '₿ Crypto'
+      };
       container.innerHTML = entries.slice().reverse().map(e => {
         const isWin = e.type === 'WIN_REINFORCEMENT';
-        const pnlStr = `${e.pnl_pct > 0 ? '+' : ''}${e.pnl_pct?.toFixed(1) || '0.0'}%`;
-        const profileLabel = {
-          'P1_DOMESTIC_EQUITY': '🇳🇵 Domestic',
-          'P2_GLOBAL_EQUITY': '🌐 Global',
-          'P3_COMMODITIES': '🥇 Commodities',
-          'P4_CRYPTO': '₿ Crypto'
-        }[e.profile_id] || e.profile_id;
+        const pnl = e.pnl_pct || 0;
+        const pnlStr = (pnl > 0 ? '+' : '') + pnl.toFixed(1) + '%';
+        const label = profileLabels[e.profile_id] || e.profile_id || '';
         return `
-          <div class="journal-entry ${isWin ? 'win' : 'loss'}">
-            <div class="entry-header">
-              <div>
-                <div class="entry-symbol">${e.symbol}</div>
-                <div class="entry-date">${e.date} &bull; ${profileLabel}</div>
-                <div style="margin-top:0.4rem;">
-                  <span class="entry-tag ${isWin ? 'tag-win' : 'tag-loss'}">${isWin ? '✅ WIN REINFORCEMENT' : '📉 LOSS POST-MORTEM'}</span>
-                </div>
-              </div>
-              <div class="entry-pnl ${isWin ? 'positive' : 'negative'}">${pnlStr}</div>
-            </div>
-            <div class="entry-message">${e.message}</div>
-          </div>`;
+<div class="journal-entry ${isWin ? 'win' : 'loss'}">
+  <div class="entry-header">
+    <div>
+      <div class="entry-symbol">${e.symbol}</div>
+      <div class="entry-meta">${e.date} &bull; ${label}</div>
+      <div><span class="entry-tag ${isWin ? 'tag-win' : 'tag-loss'}">${isWin ? '✅ WIN REINFORCEMENT' : '📉 LOSS POST-MORTEM'}</span></div>
+    </div>
+    <div class="entry-pnl ${pnl >= 0 ? 'positive' : 'negative'}">${pnlStr}</div>
+  </div>
+  <div class="entry-message">${e.message}</div>
+</div>`;
       }).join('');
     }
 
-    loadJournal();
+    // Wait for app.js to finish initialising, then load journal data
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(loadJournal, 200);
+    });
   </script>
 </body>
 </html>
