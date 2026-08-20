@@ -40,21 +40,47 @@ const App = {
 
   updateClocks() {
     const clocks = this.data.clocks;
-    if (!clocks) return;
 
     const marketTimeEl = document.getElementById("market-clock");
     const aiTimeEl = document.getElementById("ai-clock");
     const dataStatusEl = document.getElementById("data-status-tag");
 
-    if (marketTimeEl && clocks.market_time) {
-      marketTimeEl.textContent = Utils.formatTime(clocks.market_time);
+    // Live ticking NPT clock — runs every second in the browser
+    const tickMarketClock = () => {
+      if (!marketTimeEl) return;
+      const now = new Date();
+      const nptOffset = 5 * 60 + 45; // NPT = UTC+5:45
+      const nptMs = now.getTime() + (now.getTimezoneOffset() + nptOffset) * 60000;
+      const npt = new Date(nptMs);
+      const h = String(npt.getHours()).padStart(2, "0");
+      const m = String(npt.getMinutes()).padStart(2, "0");
+      const s = String(npt.getSeconds()).padStart(2, "0");
+      marketTimeEl.textContent = `${h}:${m}:${s} NPT`;
+    };
+    tickMarketClock();
+    setInterval(tickMarketClock, 1000);
+
+    // AI Last Run — from the JSON file (when simulation last executed)
+    if (clocks && aiTimeEl && clocks.ai_decision_time) {
+      const lastRun = new Date(clocks.ai_decision_time);
+      const hoursAgo = Math.round((Date.now() - lastRun.getTime()) / 3600000);
+      aiTimeEl.textContent = `${Utils.formatTime(clocks.ai_decision_time)} (${hoursAgo}h ago)`;
+    } else if (aiTimeEl) {
+      aiTimeEl.textContent = "Pending first cycle";
     }
-    if (aiTimeEl && clocks.ai_decision_time) {
-      aiTimeEl.textContent = Utils.formatTime(clocks.ai_decision_time);
-    }
-    if (dataStatusEl && clocks.data_status) {
-      dataStatusEl.className = `status-tag ${clocks.data_status === 'LIVE' ? 'status-live' : 'status-delayed'}`;
-      dataStatusEl.innerHTML = `<span class="pulse-dot"></span> ${clocks.data_status}`;
+
+    // Staleness detection — mark STALE if last run was > 26 hours ago
+    if (dataStatusEl) {
+      let status = "STALE";
+      if (clocks && clocks.ai_decision_time) {
+        const hoursSinceRun = (Date.now() - new Date(clocks.ai_decision_time).getTime()) / 3600000;
+        if (hoursSinceRun < 26) {
+          status = clocks.data_status || "LIVE";
+        }
+      }
+      const isLive = status === "LIVE";
+      dataStatusEl.className = `status-tag ${isLive ? "status-live" : "status-delayed"}`;
+      dataStatusEl.innerHTML = `<span class="pulse-dot"></span> ${status}`;
     }
   },
 
