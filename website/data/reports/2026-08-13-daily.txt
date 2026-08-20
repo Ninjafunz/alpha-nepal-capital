@@ -1,0 +1,49 @@
+================================================================================
+ALPHA NEPAL CAPITAL — DAILY EXECUTIVE REPORT
+Trade Date: 2026-08-13 | Status: DECLINING | Regime: BULL
+================================================================================
+
+1. FINANCIAL POSITION
+   Total Assets:         NPR   94,270,336.35
+   Cash Reserve:         NPR   65,954,107.40  (70.0%)
+   Invested Portfolio:   NPR   28,316,228.95
+   NAV / Share:          NPR          9.4270
+   Daily Return:         -5.60%
+   Cumulative Return:    -5.73%
+   NEPSE Index Change:   -0.12%
+   Alpha Generated:      -5.61%
+   Drawdown from Peak:   5.60%
+   Compliance Score:     100.0%
+
+2. WHY THE AI DID WHAT IT DID TODAY
+   Total Decisions Evaluated: 13
+   BUY Orders Executed:       2
+   HOLD Decisions:            11
+
+   EXECUTED BUY ORDERS:
+   ▶ BUY GBIME @ NPR 219.07
+     Route:         Route Alpha (Defensive Moat)
+     Cognitive Delta: 21.8%  |  Intrinsic Value Est: NPR 266.81
+     Structural Score: 79.7  |  Literature Score: 84.0
+     Reason: Strategic Tilt (Risk-On): Cognitive delta 21.8% >= 20.0%. Passed all headroom and cash constraint checks
+     Invalidation: Exit if 30-day realized volatility exceeds 25% or fundamental thesis degrades by >15%.
+   ▶ BUY NICA @ NPR 442.44
+     Route:         Route Beta (Contra-Cyclical Raid)
+     Cognitive Delta: 28.3%  |  Intrinsic Value Est: NPR 567.81
+     Structural Score: 77.2  |  Literature Score: 81.8
+     Reason: Strategic Tilt (Risk-On): Cognitive delta 28.3% >= 20.0%. Passed all headroom and cash constraint checks
+     Invalidation: Exit if 30-day realized volatility exceeds 25% or fundamental thesis degrades by >15%.
+
+   HOLD DECISIONS (Delta below 20% threshold or sizing constraint):
+   ○ HOLD NABIL — Delta: 8.5% — Decision Pipeline: Cognitive delta 8.5% below minimum threshold of 20.0%.
+   ○ HOLD SCB — Delta: 0.2% — Decision Pipeline: Cognitive delta 0.2% below minimum threshold of 20.0%.
+   ○ HOLD CHCL — Delta: -6.7% — Decision Pipeline: Cognitive delta -6.7% below minimum threshold of 20.0%.
+   ○ HOLD SHPC — Delta: -5.7% — Decision Pipeline: Cognitive delta -5.7% below minimum threshold of 20.0%.
+   ○ HOLD UPPER — Delta: -41.6% — Decision Pipeline: Cognitive delta -41.6% below minimum threshold of 20.0%.
+
+3. AI INVESTMENT PHILOSOPHY APPLIED TODAY
+   - Layer 1 (Structural): Screened for capital velocity, PPA coverage, bottleneck asymmetry
+   - Layer 2 (Literature): Checked elite alignment, prospect theory 'mispriced middle'
+   - Layer 3 (Cognitive Delta): Only bought where intrinsic value gap >= 20%
+   - Constitutional Guardrails: Max 10% single stock, 40% sector, 5% min cash enforced
+================================================================================

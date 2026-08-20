@@ -1,5 +1,6 @@
 """NEPSE API Client & Market Ingestion Engine."""
 import requests
+import time
 import json
 import logging
 from datetime import datetime, timedelta
@@ -15,38 +16,56 @@ logger = logging.getLogger(__name__)
 
 
 class NepseClient:
-    """Client for Nepal Stock Exchange (NEPSE) market data with automated fallbacks."""
+    """Client for Nepal Stock Exchange (NEPSE) live feed with automated rate-limiting and simulation fallbacks."""
 
-    BASE_URL = "https://www.nepalstock.com.np/api/nots"
-    AUTH_URL = "https://www.nepalstock.com.np/api/authenticate/prove"
+    LIVE_URL = "https://nepalstock.com.np"
+    API_TODAY_PRICE = "https://www.nepalstock.com.np/api/nots/nepse-data/today-price?size=500"
 
-    def __init__(self, use_live: bool = True, timeout: int = 10):
+    def __init__(self, use_live: bool = True, min_interval_seconds: float = 3.0, timeout: int = 10):
         self.use_live = use_live
+        self.min_interval = min_interval_seconds
         self.timeout = timeout
+        self.last_request_time = 0.0
+
         self.session = requests.Session()
         self.session.headers.update({
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             "Accept": "application/json, text/plain, */*",
-            "Accept-Language": "en-US,en;q=0.9",
-            "Referer": "https://www.nepalstock.com.np/",
+            "Referer": "https://nepalstock.com.np",
         })
-        self.token: Optional[str] = None
-        self.token_expiry: Optional[datetime] = None
 
-    def _authenticate(self) -> bool:
-        """Attempt token generation from NEPSE backend."""
+    def _respect_rate_limit(self):
+        """Enforces a safe polling interval (>= 3s) to prevent NEPSE rate-limiting."""
+        elapsed = time.time() - self.last_request_time
+        if elapsed < self.min_interval:
+            time.sleep(self.min_interval - elapsed)
+        self.last_request_time = time.time()
+
+    def fetch_live_data(self) -> Optional[Dict[str, Any]]:
+        """Fetches live raw JSON from NEPSE."""
+        self._respect_rate_limit()
+        headers = {
+            "User-Agent": "Mozilla/5.0",
+            "Referer": "https://nepalstock.com.np",
+        }
         try:
-            resp = self.session.post(self.AUTH_URL, json={}, timeout=self.timeout, verify=False)
-            if resp.status_code == 200:
-                data = resp.json()
-                # Basic token extraction fallback
-                self.token = data.get("accessToken")
-                self.session.headers["Authorization"] = f"Salvgd {self.token}"
-                self.token_expiry = datetime.now() + timedelta(minutes=15)
-                return True
+            response = requests.get(self.API_TODAY_PRICE, headers=headers, timeout=self.timeout, verify=False)
+            if response.status_code == 200:
+                return response.json()
         except Exception as e:
-            logger.warning(f"Live NEPSE authentication bypassed: {e}")
-        return False
+            logger.warning(f"Error fetching live NEPSE feed: {e}")
+        return None
+
+    def start_polling_loop(self, poll_interval: int = 10):
+        """Continuous polling loop for real-time NEPSE updates."""
+        print(f"[*] Starting NEPSE real-time data feed loop (Interval: {poll_interval}s)...")
+        while True:
+            live_data = self.fetch_live_data()
+            if live_data and "content" in live_data:
+                print(f"[{time.strftime('%H:%M:%S')}] Live NEPSE Feed: {len(live_data['content'])} securities received.")
+            else:
+                print(f"[{time.strftime('%H:%M:%S')}] Off-hours / Standby. Waiting {poll_interval}s...")
+            time.sleep(max(3, poll_interval))
 
     def fetch_today_prices(self, universe_stocks: List[Stock], trade_date: str) -> List[PriceBar]:
         """Fetch today's prices for given universe. Uses live API when available, with realistic synthetic prospective generator when market is closed."""

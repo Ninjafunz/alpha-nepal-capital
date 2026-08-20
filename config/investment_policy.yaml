@@ -8,7 +8,7 @@
 
 company:
   name: "Alpha Nepal Capital"
-  founded: "2026-08-20"
+  founded: "2026-08-13"
   starting_capital: 100000000.0   # NPR 100,000,000 (100 Million Base)
   shares_outstanding: 10000000.0  # 10,000,000 virtual shares
   starting_nav: 10.0              # NPR 10.00 / share
@@ -16,119 +16,100 @@ company:
   autonomy_level: 3               # Level 3: Fully Autonomous Execution
 
 investment_objective: >
-  Maximize long-term risk-adjusted capital growth through dynamic Multi-Asset
-  Strategic Asset Allocation (SAA) and regime-adaptive Tactical Tilts across
-  Nepalese Equities, Global ETFs, Precious Metals (Gold), Digital Assets (BTC/ETH),
-  and Cash/FX. Operate strictly within the ASA-V1.ethics framework treating cross-asset
-  correlation, currency risk (USD/NPR), and liquidity fragmentation as primary structural challenges.
+  Maximize long-term risk-adjusted capital growth through dynamic Tactical Tilts and
+  deep value fundamental selection across the Nepalese Equity Market (NEPSE).
+  Operate strictly within the ASA-V1.ethics framework exploiting structural market asymmetries
+  and cognitive perception gaps while strictly respecting constitutional risk limits.
 
 # ------------------------------------------------------------------------------
-# 1. STRATEGIC ASSET ALLOCATION (SAA) BASELINE TARGETS
+# 1. STRATEGIC ASSET ALLOCATION (SAA) BASELINE TARGETS (DOMESTIC NEPSE)
 # ------------------------------------------------------------------------------
 strategic_asset_allocation:
   equities:
-    total_pct: 40.0
-    domestic_nepse_pct: 20.0
-    global_etfs_pct: 20.0
+    total_pct: 85.0
+    domestic_nepse_pct: 85.0
+    global_etfs_pct: 0.0
   gold_and_metals:
-    total_pct: 20.0
-    physical_proxy_target_pct: 65.0  # Physical/GLD proxy backing minimum 50%
+    total_pct: 0.0
+    physical_proxy_target_pct: 0.0
   digital_assets:
-    total_pct: 15.0
-    btc_target_pct: 10.0
-    eth_target_pct: 5.0
+    total_pct: 0.0
+    btc_target_pct: 0.0
+    eth_target_pct: 0.0
   fx_and_cash:
-    total_pct: 25.0
+    total_pct: 15.0
     npr_cash_pct: 15.0
-    usd_cash_pct: 10.0
+    usd_cash_pct: 0.0
 
 # ------------------------------------------------------------------------------
-# 2. MACRO REGIME DETECTION & TACTICAL TILT ENGINE
+# 2. NEPSE MARKET REGIME FRAMEWORK
 # ------------------------------------------------------------------------------
 macro_regime_framework:
   indicators:
-    us_10y_yield_symbol: "^TNX"
-    dxy_proxy_symbol: "UUP"
-    vix_symbol: "^VIX"
-    gold_symbol: "GLD"
-    btc_symbol: "BTC-USD"
-    usd_npr_symbol: "NPR=X"
+    nepse_index_symbol: "NEPSE"
+    interbank_rate_pct: 6.5
+    banking_liquidity_npr_cr: 12000.0
   
-  max_tactical_tilt_pct: 10.0       # Max ±10% deviation from baseline SAA
+  max_tactical_tilt_pct: 15.0       # Max ±15% deviation from baseline SAA
   
   regime_tilts:
     risk_on:
-      equities_tilt: 5.0
-      gold_tilt: -4.0
-      crypto_tilt: 3.0
-      cash_tilt: -4.0
-      rationale: "Accommodative liquidity, low VIX, bullish equity momentum."
+      equities_tilt: 10.0
+      cash_tilt: -10.0
+      rationale: "Accommodative interbank liquidity, declining interest rates, bullish NEPSE momentum."
     risk_off:
-      equities_tilt: -5.0
-      gold_tilt: 6.0
-      crypto_tilt: -5.0
-      cash_tilt: 4.0
-      rationale: "Elevated VIX, safe-haven demand, risk asset deleveraging."
-    stagflation:
-      equities_tilt: -6.0
-      gold_tilt: 8.0
-      crypto_tilt: -4.0
-      cash_tilt: 2.0
-      rationale: "Rising yields and commodities with slowing growth; physical store of value priority."
-    liquidity_crunch:
-      equities_tilt: -8.0
-      gold_tilt: -2.0
-      crypto_tilt: -8.0
-      cash_tilt: 18.0
-      rationale: "Dollar surge, credit spread widening; maximum liquidity preservation."
+      equities_tilt: -15.0
+      cash_tilt: 15.0
+      rationale: "Tight banking liquidity, credit stress, defensive cash preservation."
+    sideways:
+      equities_tilt: 0.0
+      cash_tilt: 0.0
+      rationale: "Range-bound consolidation, focus on high-dividend Route Alpha moats."
+    high_volatility:
+      equities_tilt: -10.0
+      cash_tilt: 10.0
+      rationale: "Extreme market dispersion; defensive posture with tactical turnaround raids."
 
 # ------------------------------------------------------------------------------
-# 3. UNIFIED RISK OVERRIDES & CONSTRAINTS
+# 3. DOMESTIC RISK OVERRIDES & CONSTRAINTS
 # ------------------------------------------------------------------------------
 unified_risk_overrides:
-  # Currency Risk Override: If USD assets > 40% NAV -> auto-hedge 50% via simulated FX forwards
   currency_risk:
-    max_usd_exposure_pct: 40.0
-    auto_hedge_ratio_pct: 50.0
-    npr_appreciation_hedge_trigger_pct: 5.0  # 30-day NPR surge trigger
-
-  # Volatility Override: If Crypto 30d annualized vol > 80% -> cut position size by 50%
+    max_usd_exposure_pct: 0.0
+    auto_hedge_ratio_pct: 0.0
+    npr_appreciation_hedge_trigger_pct: 0.0
   volatility_override:
-    crypto_vol_threshold_pct: 80.0
-    crypto_size_reduction_pct: 50.0
-    crypto_vol_target_band: [30.0, 60.0]
-    max_portfolio_volatility_ex_crypto_pct: 15.0
-
-  # Liquidity Override: Max 5% NAV in assets with < $10M avg daily volume
+    crypto_vol_threshold_pct: 0.0
+    crypto_size_reduction_pct: 0.0
+    crypto_vol_target_band: [0.0, 0.0]
+    max_portfolio_volatility_ex_crypto_pct: 18.0
   liquidity_override:
-    min_global_daily_volume_usd: 10000000.0
+    min_global_daily_volume_usd: 0.0
     illiquid_max_nav_pct: 5.0
-
-  # Concentration Override: No single equity > 5% NAV; no single crypto > 3% NAV
   concentration_limits:
-    max_single_equity_pct: 5.0
-    max_single_crypto_pct: 3.0
-    max_single_commodity_pct: 15.0
+    max_single_equity_pct: 10.0
+    max_single_crypto_pct: 0.0
+    max_single_commodity_pct: 0.0
 
 # ------------------------------------------------------------------------------
-# 4. SPECIAL GOVERNANCE PROTOCOLS & RED LINES
+# 4. SPECIAL GOVERNANCE PROTOCOLS
 # ------------------------------------------------------------------------------
 special_governance_protocols:
   crypto:
-    absolute_hard_cap_pct: 20.0
-    max_unregulated_exchange_pct: 5.0
-    max_unclear_sec_tokens_pct: 3.0
-    kyc_aml_auto_liquidate_hours: 24
+    absolute_hard_cap_pct: 0.0
+    max_unregulated_exchange_pct: 0.0
+    max_unclear_sec_tokens_pct: 0.0
+    kyc_aml_auto_liquidate_hours: 0
   gold:
-    absolute_hard_cap_pct: 30.0
-    min_physical_custody_audit_pct: 50.0
+    absolute_hard_cap_pct: 0.0
+    min_physical_custody_audit_pct: 0.0
     allow_leveraged_derivatives: false
   global_equities:
-    max_single_non_us_country_pct: 25.0
-    max_defense_weapons_pct: 5.0
-    esg_thermal_coal_revenue_cutoff_pct: 10.0
+    max_single_non_us_country_pct: 0.0
+    max_defense_weapons_pct: 0.0
+    esg_thermal_coal_revenue_cutoff_pct: 0.0
   fx_cash:
-    max_usd_allocation_pct: 50.0
+    max_usd_allocation_pct: 0.0
     min_cash_reserve_pct: 5.0
 
 # ------------------------------------------------------------------------------

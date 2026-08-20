@@ -1,0 +1,35 @@
+================================================================================
+ALPHA NEPAL CAPITAL — DAILY EXECUTIVE REPORT
+Trade Date: 2026-08-19 | Status: STABLE | Regime: SIDEWAYS
+================================================================================
+
+1. FINANCIAL POSITION
+   Total Assets:         NPR  100,079,425.85
+   Cash Reserve:         NPR   65,954,107.40  (65.9%)
+   Invested Portfolio:   NPR   34,125,318.45
+   NAV / Share:          NPR         10.0079
+   Daily Return:         +0.21%
+   Cumulative Return:    +0.08%
+   NEPSE Index Change:   -1.63%
+   Alpha Generated:      +1.71%
+   Drawdown from Peak:   0.04%
+   Compliance Score:     83.3%
+
+2. WHY THE AI DID WHAT IT DID TODAY
+   Total Decisions Evaluated: 13
+   BUY Orders Executed:       0
+   HOLD Decisions:            13
+
+   HOLD DECISIONS (Delta below 20% threshold or sizing constraint):
+   ○ HOLD NABIL — Delta: 11.1% — Decision Pipeline: Cognitive delta 11.1% below minimum threshold of 20.0%.
+   ○ HOLD GBIME — Delta: 20.2% — Decision Pipeline: Sizing constraint. Below minimum 2% position size
+   ○ HOLD NICA — Delta: 30.6% — Decision Pipeline: Sizing constraint. Below minimum 2% position size
+   ○ HOLD SCB — Delta: 1.3% — Decision Pipeline: Cognitive delta 1.3% below minimum threshold of 20.0%.
+   ○ HOLD CHCL — Delta: -9.3% — Decision Pipeline: Cognitive delta -9.3% below minimum threshold of 20.0%.
+
+3. AI INVESTMENT PHILOSOPHY APPLIED TODAY
+   - Layer 1 (Structural): Screened for capital velocity, PPA coverage, bottleneck asymmetry
+   - Layer 2 (Literature): Checked elite alignment, prospect theory 'mispriced middle'
+   - Layer 3 (Cognitive Delta): Only bought where intrinsic value gap >= 20%
+   - Constitutional Guardrails: Max 10% single stock, 40% sector, 5% min cash enforced
+================================================================================

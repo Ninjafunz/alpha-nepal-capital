@@ -27,7 +27,8 @@ class IncomeStatementEngine:
 
         for tx in transactions:
             if tx.action == ActionType.SELL:
-                realized_gains += (tx.price * 0.05 * tx.quantity)
+                # Use actual realized_pnl tracked on the transaction
+                realized_gains += getattr(tx, "realized_pnl", 0.0)
 
         unrealized_gains = 0.0
         if holdings:

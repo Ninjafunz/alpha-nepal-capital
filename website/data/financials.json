@@ -1,27 +1,27 @@
 {
   "as_of_date": "2026-08-20",
   "balance_sheet": {
-    "total_assets": 99866944.87,
-    "cash_and_equivalents": 71855340.58,
-    "equity_investments_market_value": 28011604.29,
-    "cost_basis": 28011604.29,
+    "total_assets": 99846193.43,
+    "cash_and_equivalents": 65954107.4,
+    "equity_investments_market_value": 33892086.03,
+    "cost_basis": 33892086.03,
     "unrealized_gain_loss": 0.0,
     "accounts_receivable": 0.0,
     "total_liabilities": 0.0,
-    "shareholder_equity": 39895637.01,
+    "shareholder_equity": 99846193.43,
     "retained_earnings": 0.0,
-    "nav_per_share": 9.9867
+    "nav_per_share": 9.9846
   },
   "income_statement": {
     "period": "Daily",
     "realized_trading_gain_loss": 0.0,
     "dividend_income": 0.0,
-    "brokerage_commissions_paid": 0,
-    "sebon_fees_paid": 0,
-    "dp_charges_paid": 0,
-    "slippage_cost": 0,
-    "total_operating_expenses": 0.0,
-    "net_profit_loss": 0.0
+    "brokerage_commissions_paid": 121985.78,
+    "sebon_fees_paid": 5082.75,
+    "dp_charges_paid": 0.0,
+    "slippage_cost": 33884.94,
+    "total_operating_expenses": 160953.47,
+    "net_profit_loss": -286067.9
   },
-  "last_updated": "2026-08-20T18:33:05.155158"
+  "last_updated": "2026-08-20T19:25:53.745933"
 }

@@ -1,9 +1,9 @@
 {
   "as_of_date": "2026-08-20",
-  "total_assets": 99866944.87,
-  "cash_npr": 71855340.58,
-  "cash_weight_pct": 71.95,
-  "invested_npr": 28011604.29,
+  "total_assets": 99846193.43,
+  "cash_npr": 65954107.4,
+  "cash_weight_pct": 66.06,
+  "invested_npr": 33892086.03,
   "holdings_count": 18,
   "holdings": [
     {
@@ -15,35 +15,35 @@
       "cost_basis": 2009356.22,
       "current_value": 1999856.9,
       "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
+      "unrealized_pnl": -9499.32,
+      "unrealized_pnl_pct": -0.47,
       "route": "Route Alpha (Defensive Moat)"
     },
     {
       "symbol": "GBIME",
       "sector": "Commercial Bank",
-      "quantity": 9254,
-      "avg_buy_price": 216.05,
+      "quantity": 22862,
+      "avg_buy_price": 218.88,
       "current_price": 216.05,
-      "cost_basis": 2008823.51,
-      "current_value": 1999326.7,
-      "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
+      "cost_basis": 5004088.32,
+      "current_value": 4939335.1,
+      "weight_pct": 4.95,
+      "unrealized_pnl": -64753.22,
+      "unrealized_pnl_pct": -1.29,
       "route": "Route Alpha (Defensive Moat)"
     },
     {
       "symbol": "NICA",
       "sector": "Commercial Bank",
-      "quantity": 4444,
-      "avg_buy_price": 449.82,
+      "quantity": 10981,
+      "avg_buy_price": 447.54,
       "current_price": 449.82,
-      "cost_basis": 2008495.33,
-      "current_value": 1999000.08,
-      "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
-      "route": "Route Alpha (Defensive Moat)"
+      "cost_basis": 4914463.7,
+      "current_value": 4939473.42,
+      "weight_pct": 4.95,
+      "unrealized_pnl": 25009.72,
+      "unrealized_pnl_pct": 0.51,
+      "route": "Route Beta (Contra-Cyclical Raid)"
     },
     {
       "symbol": "SCB",
@@ -54,8 +54,8 @@
       "cost_basis": 2007665.06,
       "current_value": 1998173.73,
       "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
+      "unrealized_pnl": -9491.33,
+      "unrealized_pnl_pct": -0.47,
       "route": "Route Alpha (Defensive Moat)"
     },
     {
@@ -67,8 +67,8 @@
       "cost_basis": 2007257.38,
       "current_value": 1997767.98,
       "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
+      "unrealized_pnl": -9489.4,
+      "unrealized_pnl_pct": -0.47,
       "route": "Route Alpha (Defensive Moat)"
     },
     {
@@ -80,8 +80,8 @@
       "cost_basis": 2006888.52,
       "current_value": 1997400.87,
       "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
+      "unrealized_pnl": -9487.65,
+      "unrealized_pnl_pct": -0.47,
       "route": "Route Alpha (Defensive Moat)"
     },
     {
@@ -93,8 +93,8 @@
       "cost_basis": 2006431.07,
       "current_value": 1996945.58,
       "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
+      "unrealized_pnl": -9485.49,
+      "unrealized_pnl_pct": -0.47,
       "route": "Route Alpha (Defensive Moat)"
     },
     {
@@ -106,8 +106,8 @@
       "cost_basis": 2005837.74,
       "current_value": 1996355.05,
       "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
+      "unrealized_pnl": -9482.69,
+      "unrealized_pnl_pct": -0.47,
       "route": "Route Alpha (Defensive Moat)"
     },
     {
@@ -119,8 +119,8 @@
       "cost_basis": 2005122.28,
       "current_value": 1995642.98,
       "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
+      "unrealized_pnl": -9479.3,
+      "unrealized_pnl_pct": -0.47,
       "route": "Route Alpha (Defensive Moat)"
     },
     {
@@ -132,8 +132,8 @@
       "cost_basis": 2004939.29,
       "current_value": 1995460.85,
       "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
+      "unrealized_pnl": -9478.44,
+      "unrealized_pnl_pct": -0.47,
       "route": "Route Alpha (Defensive Moat)"
     },
     {
@@ -145,13 +145,13 @@
       "cost_basis": 2004701.31,
       "current_value": 1995224.0,
       "weight_pct": 2.0,
-      "unrealized_pnl": 0.0,
-      "unrealized_pnl_pct": 0.0,
+      "unrealized_pnl": -9477.31,
+      "unrealized_pnl_pct": -0.47,
       "route": "Route Alpha (Defensive Moat)"
     },
     {
       "symbol": "SPY",
-      "sector": "Global Broad Index",
+      "sector": "Unknown",
       "quantity": 7,
       "avg_buy_price": 117724.6312842993,
       "current_price": 117724.6312842993,
@@ -164,7 +164,7 @@
     },
     {
       "symbol": "QQQ",
-      "sector": "Global Tech/Innovation",
+      "sector": "Unknown",
       "quantity": 9,
       "avg_buy_price": 109614.6675806446,
       "current_price": 109614.6675806446,
@@ -177,7 +177,7 @@
     },
     {
       "symbol": "INDA",
-      "sector": "Emerging Markets",
+      "sector": "Unknown",
       "quantity": 130,
       "avg_buy_price": 7583.385379708256,
       "current_price": 7583.385379708256,
@@ -190,7 +190,7 @@
     },
     {
       "symbol": "AAPL",
-      "sector": "Technology",
+      "sector": "Unknown",
       "quantity": 20,
       "avg_buy_price": 48499.0683008288,
       "current_price": 48499.0683008288,
@@ -203,7 +203,7 @@
     },
     {
       "symbol": "GLD",
-      "sector": "Precious Metals",
+      "sector": "Unknown",
       "quantity": 14,
       "avg_buy_price": 63348.97294649901,
       "current_price": 63348.97294649901,
@@ -216,7 +216,7 @@
     },
     {
       "symbol": "GC=F",
-      "sector": "Precious Metals",
+      "sector": "Unknown",
       "quantity": 1,
       "avg_buy_price": 690939.1892802864,
       "current_price": 690939.1892802864,
@@ -229,7 +229,7 @@
     },
     {
       "symbol": "ETH-USD",
-      "sector": "Smart Contract Platform",
+      "sector": "Unknown",
       "quantity": 2,
       "avg_buy_price": 348099.4299251698,
       "current_price": 348099.4299251698,
@@ -242,11 +242,12 @@
     }
   ],
   "sector_exposures": {
-    "Commercial Bank": 20.04,
-    "Hydropower": 20.02,
-    "Others": 5.0,
-    "Life Insurance": 5.0,
-    "Manufacturing and Processing": 5.0
+    "Commercial Bank": 13.9,
+    "Hydropower": 8.0,
+    "Others": 2.0,
+    "Life Insurance": 2.0,
+    "Manufacturing and Processing": 2.0,
+    "Unknown": 6.05
   },
-  "last_updated": "2026-08-20T18:33:05.155158"
+  "last_updated": "2026-08-20T19:25:53.745933"
 }

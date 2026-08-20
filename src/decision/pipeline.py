@@ -96,14 +96,24 @@ class DecisionPipeline:
                     if asset.symbol not in funds:
                         continue
                     fund = funds[asset.symbol]
-                    score_result = self.scorer.evaluate_security(asset, bar, fund, [bar], {})
+                    # Pass security metadata if available
+                    sec_meta = {
+                        "bottleneck_score": getattr(asset, "bottleneck_score", 85.0),
+                        "elite_alignment": getattr(asset, "elite_alignment", 80.0),
+                        "governance_score": getattr(asset, "governance_score", 85.0),
+                        "route_eligibility": getattr(asset, "route_eligibility", ["Route Alpha"]),
+                    }
+                    score_result = self.scorer.evaluate_security(asset, bar, fund, [bar], sec_meta)
                     
                     # Extract delta and route from 3-Layer Scorer
                     delta_pct = 25.0
-                    if isinstance(score_result, dict) and "cognitive_delta" in score_result:
-                        delta_pct = score_result["cognitive_delta"].get("delta_pct", 25.0)
-                    elif isinstance(score_result, dict) and "composite_score" in score_result:
-                        delta_pct = (score_result["composite_score"] / 100.0) * 40.0
+                    if isinstance(score_result, dict):
+                        if "cognitive" in score_result and "delta_pct" in score_result["cognitive"]:
+                            delta_pct = score_result["cognitive"]["delta_pct"]
+                        elif "cognitive_delta" in score_result:
+                            delta_pct = score_result["cognitive_delta"].get("delta_pct", 25.0)
+                        elif "final_score" in score_result:
+                            delta_pct = (score_result["final_score"] / 100.0) * 35.0
                         
                     route_val = score_result.get("route", StrategicRoute.ROUTE_ALPHA)
                     if isinstance(route_val, StrategicRoute):
@@ -120,20 +130,24 @@ class DecisionPipeline:
                     else:
                         route = StrategicRoute.ROUTE_ALPHA
 
-                    confidence = score_result.get("composite_score", 85.0) if isinstance(score_result, dict) else 85.0
+                    confidence = score_result.get("final_score", 85.0) if isinstance(score_result, dict) else 85.0
                     vol_30d = 18.0
                 else:
-                    # Global Equity, Commodity, Crypto
-                    delta_pct = self.macro_scorer.calculate_gap(asset, bar)
                     if asset.asset_class == "CRYPTO":
+                        delta_pct = 20.0
                         route = StrategicRoute.ROUTE_GAMMA
-                        vol_30d = 65.0  # Dynamic crypto vol
+                        confidence = 80.0
+                        vol_30d = 65.0
                     elif asset.asset_class == "COMMODITY":
                         route = StrategicRoute.ROUTE_BETA
                         vol_30d = 14.0
+                        delta_pct = 20.0
+                        confidence = 80.0
                     else:
                         route = StrategicRoute.ROUTE_ALPHA
                         vol_30d = 16.0
+                        delta_pct = 20.0
+                        confidence = 80.0
                         
                     score_result = {
                         "composite_score": 82.0,
@@ -223,21 +237,21 @@ class DecisionPipeline:
                     estimated_price=round(bar.close, 2),
                     capital_allocation_npr=round(target_qty * bar.close, 2),
                     route=route,
-                    structural_score=score_result.get("structural", {}).get("total_score", 85.0) if isinstance(score_result, dict) else 85.0,
+                    structural_score=score_result.get("structural", {}).get("structural_composite", 85.0) if isinstance(score_result, dict) else 85.0,
                     capital_velocity_score=score_result.get("structural", {}).get("capital_velocity", 80.0) if isinstance(score_result, dict) else 80.0,
                     physical_risk_score=score_result.get("structural", {}).get("physical_risk", 10.0) if isinstance(score_result, dict) else 10.0,
                     regulatory_risk_score=score_result.get("structural", {}).get("regulatory_risk", 15.0) if isinstance(score_result, dict) else 15.0,
-                    bottleneck_score=score_result.get("structural", {}).get("bottleneck_pricing_power", 85.0) if isinstance(score_result, dict) else 85.0,
-                    literature_score=score_result.get("literature", {}).get("total_score", 80.0) if isinstance(score_result, dict) else 80.0,
+                    bottleneck_score=score_result.get("structural", {}).get("bottleneck_asymmetry", 85.0) if isinstance(score_result, dict) else 85.0,
+                    literature_score=score_result.get("literature", {}).get("literature_composite", 80.0) if isinstance(score_result, dict) else 80.0,
                     elite_alignment_score=score_result.get("literature", {}).get("elite_alignment", 85.0) if isinstance(score_result, dict) else 85.0,
-                    sentiment_score=score_result.get("literature", {}).get("sentiment_score", 75.0) if isinstance(score_result, dict) else 75.0,
-                    optionality_score=score_result.get("literature", {}).get("asymmetric_optionality", 80.0) if isinstance(score_result, dict) else 80.0,
-                    golden_zone_score=score_result.get("literature", {}).get("golden_zone_score", 80.0) if isinstance(score_result, dict) else 80.0,
+                    sentiment_score=score_result.get("literature", {}).get("sentiment_position", 75.0) if isinstance(score_result, dict) else 75.0,
+                    optionality_score=score_result.get("literature", {}).get("real_options", 80.0) if isinstance(score_result, dict) else 80.0,
+                    golden_zone_score=score_result.get("literature", {}).get("golden_zone", 80.0) if isinstance(score_result, dict) else 80.0,
                     cognitive_delta_score=delta_pct,
-                    narrative_bias_score=5.0,
-                    anchoring_bias_score=5.0,
-                    recency_bias_score=5.0,
-                    intrinsic_value_est=round(bar.close * (1.0 + delta_pct / 100.0), 2),
+                    narrative_bias_score=score_result.get("cognitive", {}).get("narrative_bias", 5.0) if isinstance(score_result, dict) else 5.0,
+                    anchoring_bias_score=score_result.get("cognitive", {}).get("anchoring_bias", 5.0) if isinstance(score_result, dict) else 5.0,
+                    recency_bias_score=score_result.get("cognitive", {}).get("recency_bias", 5.0) if isinstance(score_result, dict) else 5.0,
+                    intrinsic_value_est=score_result.get("cognitive", {}).get("intrinsic_value", round(bar.close * (1.0 + delta_pct / 100.0), 2)) if isinstance(score_result, dict) else round(bar.close * (1.0 + delta_pct / 100.0), 2),
                     delta_pct=delta_pct,
                     final_score=confidence,
                     reason_summary=memo,

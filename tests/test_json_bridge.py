@@ -52,5 +52,5 @@ def test_json_bridge_export(tmp_path):
 
     with open(export_dir / "company.json", "r", encoding="utf-8") as f:
         comp_data = json.load(f)
-        assert comp_data["name"] == "Alpha Global Capital"
+        assert comp_data["name"] == "Alpha Nepal Capital"
         assert comp_data["status"] == "FLOURISHING"

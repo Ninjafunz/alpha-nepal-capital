@@ -53,13 +53,16 @@ class MonthlyReporter:
                 "shareholder_equity": balance_sheet.shareholder_equity,
             },
             "financial_performance": {
-                "gross_income": income_stmt.gross_investment_income,
+                "gross_income": income_stmt.gross_income,
                 "dividend_income": income_stmt.dividend_income,
                 "realized_gains": income_stmt.realized_capital_gains,
                 "unrealized_gains": income_stmt.unrealized_gains_losses,
-                "transaction_costs": income_stmt.transaction_costs,
-                "net_profit": income_stmt.net_profit,
-                "net_margin_pct": income_stmt.net_margin_pct,
+                "transaction_costs": income_stmt.total_operating_expenses,
+                "net_profit": income_stmt.net_profit_loss,
+                "net_margin_pct": round(
+                    (income_stmt.net_profit_loss / income_stmt.gross_income * 100.0)
+                    if income_stmt.gross_income != 0 else 0.0, 2
+                ),
             },
             "ai_decisions_summary": {
                 "total_decisions": len(decisions),

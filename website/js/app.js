@@ -315,18 +315,19 @@ const App = {
     const journal = this.data.journal;
     const entriesFeed = document.getElementById("journal-entries-feed");
     if (journal && journal.win_rate) {
-      this.setText("journal-win-rate", `${journal.win_rate.win_rate_pct.toFixed(1)}%`);
-      this.setText("journal-total-trades", `${journal.win_rate.total_trades} Trades`);
+      const wr = journal.win_rate;
+      this.setText("journal-win-rate", `${(wr.hit_rate_pct ?? wr.win_rate_pct ?? 0).toFixed(1)}%`);
+      this.setText("journal-total-trades", `${(wr.total ?? wr.total_trades ?? 0)} Trades`);
     }
     if (entriesFeed && journal && journal.entries) {
       entriesFeed.innerHTML = journal.entries.map(e => `
         <div class="decision-item">
           <div class="decision-header">
-            <span class="decision-title"><strong>Post-Mortem: ${e.symbol}</strong></span>
-            <span class="decision-meta">${Utils.formatDate(e.trade_date)}</span>
+            <span class="decision-title"><strong>Post-Mortem: ${e.symbol || "Portfolio"}</strong></span>
+            <span class="decision-meta">${Utils.formatDate(e.date || e.trade_date)}</span>
           </div>
           <div class="decision-body">
-            <p>${e.reflection_memo}</p>
+            <p>${e.message || e.reflection_memo || ""}</p>
           </div>
         </div>
       `).join("");

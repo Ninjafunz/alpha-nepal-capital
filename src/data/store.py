@@ -120,7 +120,9 @@ class DataStore:
                 reason TEXT NOT NULL,
                 rule_ids TEXT NOT NULL,
                 confidence_pct REAL NOT NULL,
-                decision_id TEXT NOT NULL
+                decision_id TEXT NOT NULL,
+                realized_pnl REAL DEFAULT 0.0,
+                profile_id TEXT DEFAULT 'P1_DOMESTIC_EQUITY'
             );
             """)
 
@@ -231,6 +233,36 @@ class DataStore:
                 meta_json TEXT
             );
             """)
+
+            # Schema Migrations for existing databases
+            def _add_column_if_missing(table: str, col: str, col_type: str):
+                cur = conn.cursor()
+                cur.execute(f"PRAGMA table_info({table})")
+                cols = [row[1] for row in cur.fetchall()]
+                if col not in cols:
+                    cur.execute(f"ALTER TABLE {table} ADD COLUMN {col} {col_type}")
+
+            _add_column_if_missing("transactions", "realized_pnl", "REAL DEFAULT 0.0")
+            _add_column_if_missing("transactions", "profile_id", "TEXT DEFAULT 'P1_DOMESTIC_EQUITY'")
+            _add_column_if_missing("decisions", "estimated_price", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "capital_allocation_npr", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "intrinsic_value_est", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "delta_pct", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "final_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "structural_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "capital_velocity_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "physical_risk_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "regulatory_risk_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "bottleneck_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "literature_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "elite_alignment_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "sentiment_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "optionality_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "golden_zone_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "cognitive_delta_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "narrative_bias_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "anchoring_bias_score", "REAL DEFAULT 0.0")
+            _add_column_if_missing("decisions", "recency_bias_score", "REAL DEFAULT 0.0")
 
             conn.commit()
 
@@ -406,14 +438,15 @@ class DataStore:
                 gross_value, broker_commission, sebon_fee, dp_charge, slippage,
                 total_cost, net_value, pre_trade_cash, post_trade_cash,
                 pre_trade_nav, post_trade_nav, route, reason, rule_ids,
-                confidence_pct, decision_id
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+                confidence_pct, decision_id, realized_pnl, profile_id
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
             """, (
                 tx.id, tx.timestamp, tx.trade_date, tx.symbol, tx.action.value, tx.quantity, tx.price,
                 tx.gross_value, tx.broker_commission, tx.sebon_fee, tx.dp_charge, tx.slippage,
                 tx.total_cost, tx.net_value, tx.pre_trade_cash, tx.post_trade_cash,
                 tx.pre_trade_nav, tx.post_trade_nav, tx.route.value, tx.reason,
-                json.dumps(tx.rule_ids), tx.confidence_pct, tx.decision_id
+                json.dumps(tx.rule_ids), tx.confidence_pct, tx.decision_id,
+                getattr(tx, "realized_pnl", 0.0), getattr(tx, "profile_id", "P1_DOMESTIC_EQUITY")
             ))
             conn.commit()
 
@@ -445,6 +478,8 @@ class DataStore:
                     rule_ids=json.loads(r["rule_ids"]),
                     confidence_pct=r["confidence_pct"],
                     decision_id=r["decision_id"],
+                    realized_pnl=r["realized_pnl"] if "realized_pnl" in r.keys() else 0.0,
+                    profile_id=r["profile_id"] if "profile_id" in r.keys() else "P1_DOMESTIC_EQUITY",
                 )
                 for r in rows
             ]

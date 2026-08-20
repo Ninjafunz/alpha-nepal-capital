@@ -1,5 +1,5 @@
 {
-  "overall_compliance_score_pct": 100.0,
+  "overall_compliance_score_pct": 83.3,
   "audit_date": "2026-08-20",
   "checks": [
     {
@@ -61,7 +61,67 @@
       "is_compliant": true,
       "severity": "PASS",
       "notes": "Active holdings count is 11 (Cap: 25)"
+    },
+    {
+      "rule_id": "RULE-POS-01",
+      "rule_name": "Max Single Position Exposure",
+      "category": "CONSTITUTIONAL",
+      "threshold_value": "<= 5.0%",
+      "actual_value": "5.3%",
+      "is_compliant": false,
+      "severity": "BREACH",
+      "notes": "Highest single stock weight is 5.3% (Limit: 5.0%)"
+    },
+    {
+      "rule_id": "RULE-SEC-02",
+      "rule_name": "Max Sector Concentration",
+      "category": "CONSTITUTIONAL",
+      "threshold_value": "<= 40.0%",
+      "actual_value": "13.9%",
+      "is_compliant": true,
+      "severity": "PASS",
+      "notes": "Highest sector concentration is 13.9% (Limit: 40.0%)"
+    },
+    {
+      "rule_id": "RULE-CASH-03",
+      "rule_name": "Minimum Cash Liquidity Reserve",
+      "category": "CONSTITUTIONAL",
+      "threshold_value": ">= 5.0%",
+      "actual_value": "66.1%",
+      "is_compliant": true,
+      "severity": "PASS",
+      "notes": "Cash balance at 66.1% of total assets (Floor: 5.0%)"
+    },
+    {
+      "rule_id": "RULE-DD-04",
+      "rule_name": "Maximum Drawdown Guardrail",
+      "category": "CONSTITUTIONAL",
+      "threshold_value": "<= 15.0%",
+      "actual_value": "0.0%",
+      "is_compliant": true,
+      "severity": "PASS",
+      "notes": "Portfolio drawdown is 0.0% (Defensive Trigger: 15.0%)"
+    },
+    {
+      "rule_id": "RULE-VOL-05",
+      "rule_name": "Portfolio Annualized Volatility",
+      "category": "CONSTITUTIONAL",
+      "threshold_value": "<= 15.0%",
+      "actual_value": "14.5%",
+      "is_compliant": true,
+      "severity": "PASS",
+      "notes": "Annualized volatility is 14.5% (Cap: 15.0%)"
+    },
+    {
+      "rule_id": "RULE-HOLD-06",
+      "rule_name": "Max Position Diversification Cap",
+      "category": "CONSTITUTIONAL",
+      "threshold_value": "<= 25 holdings",
+      "actual_value": "18.0%",
+      "is_compliant": true,
+      "severity": "PASS",
+      "notes": "Active holdings count is 18 (Cap: 25)"
     }
   ],
-  "last_updated": "2026-08-20T18:33:05.155158"
+  "last_updated": "2026-08-20T19:25:53.745933"
 }

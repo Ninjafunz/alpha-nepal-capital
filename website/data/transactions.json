@@ -1,5 +1,5 @@
 {
-  "count": 18,
+  "count": 20,
   "transactions": [
     {
       "id": "TX-20260820-BB59B1",
@@ -324,7 +324,43 @@
       "net_value": 699505.81,
       "route": "Route Gamma (Policy Hack)",
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 28.5% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "id": "TX-20260820-CBB298",
+      "timestamp": "2026-08-20T19:25:48.785946",
+      "trade_date": "2026-08-13",
+      "symbol": "GBIME",
+      "action": "BUY",
+      "quantity": 13608,
+      "price": 219.07,
+      "gross_value": 2981104.56,
+      "broker_commission": 10731.98,
+      "sebon_fee": 447.17,
+      "dp_charge": 0.0,
+      "slippage": 2981.1,
+      "total_cost": 14160.25,
+      "net_value": 2995264.81,
+      "route": "Route Alpha (Defensive Moat)",
+      "reason": "Strategic Tilt (Risk-On): Cognitive delta 21.8% >= 20.0%. Passed all headroom and cash constraint checks"
+    },
+    {
+      "id": "TX-20260820-47D6CF",
+      "timestamp": "2026-08-20T19:25:48.796484",
+      "trade_date": "2026-08-13",
+      "symbol": "NICA",
+      "action": "BUY",
+      "quantity": 6537,
+      "price": 442.44,
+      "gross_value": 2892230.28,
+      "broker_commission": 10412.03,
+      "sebon_fee": 433.83,
+      "dp_charge": 0.0,
+      "slippage": 2892.23,
+      "total_cost": 13738.09,
+      "net_value": 2905968.37,
+      "route": "Route Beta (Contra-Cyclical Raid)",
+      "reason": "Strategic Tilt (Risk-On): Cognitive delta 28.3% >= 20.0%. Passed all headroom and cash constraint checks"
     }
   ],
-  "last_updated": "2026-08-20T18:33:05.155158"
+  "last_updated": "2026-08-20T19:25:53.745933"
 }

@@ -1,0 +1,156 @@
+{
+  "trade_date": "2026-08-17",
+  "status": "STABLE",
+  "regime": "BULL",
+  "nav_per_share": 10.01,
+  "daily_return_pct": 0.23,
+  "cumulative_return_pct": 0.1,
+  "nepse_pct_change": 0.62,
+  "alpha_pct": -0.52,
+  "compliance_score_pct": 83.3,
+  "decisions": [
+    {
+      "symbol": "NABIL",
+      "action": "HOLD",
+      "route": "Route Gamma (Policy Hack)",
+      "delta_pct": 7.28,
+      "structural_score": 82.28,
+      "literature_score": 86.75,
+      "intrinsic_value_est": 644.45,
+      "reason": "Decision Pipeline: Cognitive delta 7.3% below minimum threshold of 20.0%.",
+      "executed": false
+    },
+    {
+      "symbol": "GBIME",
+      "action": "HOLD",
+      "route": "Route Alpha (Defensive Moat)",
+      "delta_pct": 21.23,
+      "structural_score": 79.72,
+      "literature_score": 84.0,
+      "intrinsic_value_est": 266.81,
+      "reason": "Decision Pipeline: Sizing constraint. Below minimum 2% position size",
+      "executed": false
+    },
+    {
+      "symbol": "NICA",
+      "action": "HOLD",
+      "route": "Route Beta (Contra-Cyclical Raid)",
+      "delta_pct": 28.13,
+      "structural_score": 77.16,
+      "literature_score": 81.75,
+      "intrinsic_value_est": 567.81,
+      "reason": "Decision Pipeline: Sizing constraint. Below minimum 2% position size",
+      "executed": false
+    },
+    {
+      "symbol": "SCB",
+      "action": "HOLD",
+      "route": "Route Gamma (Policy Hack)",
+      "delta_pct": 3.47,
+      "structural_score": 83.29,
+      "literature_score": 88.25,
+      "intrinsic_value_est": 619.89,
+      "reason": "Decision Pipeline: Cognitive delta 3.5% below minimum threshold of 20.0%.",
+      "executed": false
+    },
+    {
+      "symbol": "CHCL",
+      "action": "HOLD",
+      "route": "Route Gamma (Policy Hack)",
+      "delta_pct": -10.2,
+      "structural_score": 83.17,
+      "literature_score": 87.75,
+      "intrinsic_value_est": 492.27,
+      "reason": "Decision Pipeline: Cognitive delta -10.2% below minimum threshold of 20.0%.",
+      "executed": false
+    },
+    {
+      "symbol": "SHPC",
+      "action": "HOLD",
+      "route": "Route Alpha (Defensive Moat)",
+      "delta_pct": -5.89,
+      "structural_score": 79.17,
+      "literature_score": 85.25,
+      "intrinsic_value_est": 331.25,
+      "reason": "Decision Pipeline: Cognitive delta -5.9% below minimum threshold of 20.0%.",
+      "executed": false
+    },
+    {
+      "symbol": "UPPER",
+      "action": "HOLD",
+      "route": "Route Beta (Contra-Cyclical Raid)",
+      "delta_pct": -39.63,
+      "structural_score": 75.8,
+      "literature_score": 79.87,
+      "intrinsic_value_est": 141.52,
+      "reason": "Decision Pipeline: Cognitive delta -39.6% below minimum threshold of 20.0%.",
+      "executed": false
+    },
+    {
+      "symbol": "BPCL",
+      "action": "HOLD",
+      "route": "Route Alpha (Defensive Moat)",
+      "delta_pct": -14.49,
+      "structural_score": 80.85,
+      "literature_score": 87.0,
+      "intrinsic_value_est": 328.96,
+      "reason": "Decision Pipeline: Cognitive delta -14.5% below minimum threshold of 20.0%.",
+      "executed": false
+    },
+    {
+      "symbol": "NTC",
+      "action": "HOLD",
+      "route": "Route Gamma (Policy Hack)",
+      "delta_pct": -3.85,
+      "structural_score": 82.29,
+      "literature_score": 89.5,
+      "intrinsic_value_est": 833.89,
+      "reason": "Decision Pipeline: Cognitive delta -3.9% below minimum threshold of 20.0%.",
+      "executed": false
+    },
+    {
+      "symbol": "NLIC",
+      "action": "HOLD",
+      "route": "Route Alpha (Defensive Moat)",
+      "delta_pct": -38.96,
+      "structural_score": 77.46,
+      "literature_score": 79.32,
+      "intrinsic_value_est": 424.0,
+      "reason": "Decision Pipeline: Cognitive delta -39.0% below minimum threshold of 20.0%.",
+      "executed": false
+    },
+    {
+      "symbol": "SHIVM",
+      "action": "HOLD",
+      "route": "Route Alpha (Defensive Moat)",
+      "delta_pct": -30.31,
+      "structural_score": 75.64,
+      "literature_score": 79.94,
+      "intrinsic_value_est": 340.73,
+      "reason": "Decision Pipeline: Cognitive delta -30.3% below minimum threshold of 20.0%.",
+      "executed": false
+    },
+    {
+      "symbol": "HDL",
+      "action": "HOLD",
+      "route": "Route Gamma (Policy Hack)",
+      "delta_pct": -36.5,
+      "structural_score": 82.29,
+      "literature_score": 84.71,
+      "intrinsic_value_est": 924.88,
+      "reason": "Decision Pipeline: Cognitive delta -36.5% below minimum threshold of 20.0%.",
+      "executed": false
+    },
+    {
+      "symbol": "CIT",
+      "action": "HOLD",
+      "route": "Route Gamma (Policy Hack)",
+      "delta_pct": -33.19,
+      "structural_score": 81.72,
+      "literature_score": 86.94,
+      "intrinsic_value_est": 1660.38,
+      "reason": "Decision Pipeline: Cognitive delta -33.2% below minimum threshold of 20.0%.",
+      "executed": false
+    }
+  ]
+}

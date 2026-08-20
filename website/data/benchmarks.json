@@ -1,30 +1,85 @@
 {
   "time_series": [
     {
+      "date": "2026-08-13",
+      "ai_nav": 9.427,
+      "ai_return_pct": -5.73,
+      "human_nav": 10.0536,
+      "human_return_pct": 0.54,
+      "nepse_index": 2147.48,
+      "nepse_return_pct": -0.12,
+      "equal_weight_nav": 10.0689,
+      "equal_weight_return_pct": 0.69
+    },
+    {
+      "date": "2026-08-16",
+      "ai_nav": 9.9963,
+      "ai_return_pct": -0.04,
+      "human_nav": 10.0134,
+      "human_return_pct": 0.13,
+      "nepse_index": 2160.31,
+      "nepse_return_pct": 0.48,
+      "equal_weight_nav": 10.0172,
+      "equal_weight_return_pct": 0.17
+    },
+    {
+      "date": "2026-08-17",
+      "ai_nav": 10.01,
+      "ai_return_pct": 0.1,
+      "human_nav": 10.0467,
+      "human_return_pct": 0.47,
+      "nepse_index": 2163.4,
+      "nepse_return_pct": 0.62,
+      "equal_weight_nav": 10.06,
+      "equal_weight_return_pct": 0.6
+    },
+    {
+      "date": "2026-08-18",
+      "ai_nav": 10.0123,
+      "ai_return_pct": 0.12,
+      "human_nav": 10.0297,
+      "human_return_pct": 0.3,
+      "nepse_index": 2154.2,
+      "nepse_return_pct": 0.2,
+      "equal_weight_nav": 10.0382,
+      "equal_weight_return_pct": 0.38
+    },
+    {
+      "date": "2026-08-19",
+      "ai_nav": 10.0079,
+      "ai_return_pct": 0.08,
+      "human_nav": 10.0105,
+      "human_return_pct": 0.11,
+      "nepse_index": 2114.91,
+      "nepse_return_pct": -1.63,
+      "equal_weight_nav": 10.0135,
+      "equal_weight_return_pct": 0.14
+    },
+    {
       "date": "2026-08-20",
-      "ai_nav": 9.9867,
-      "ai_return_pct": -0.13,
-      "human_nav": 10.0089,
-      "human_return_pct": 0.09,
+      "ai_nav": 9.9846,
+      "ai_return_pct": -0.15,
+      "human_nav": 9.9651,
+      "human_return_pct": -0.35,
       "nepse_index": 2151.35,
       "nepse_return_pct": 0.06,
-      "equal_weight_nav": 10.0114,
-      "equal_weight_return_pct": 0.11
+      "equal_weight_nav": 9.9551,
+      "equal_weight_return_pct": -0.45
     }
   ],
   "comparison_summary": [
     {
       "name": "Alpha Nepal Capital (AI)",
       "category": "Autonomous AI Strategy",
-      "return_pct": -0.13,
-      "volatility_pct": 27.72,
-      "sharpe_ratio": -0.22,
-      "max_drawdown_pct": 0.0
+      "return_pct": -0.15,
+      "volatility_pct": 22.68,
+      "sharpe_ratio": -0.27,
+      "max_drawdown_pct": 0.28
     },
     {
       "name": "Human Static Strategy",
       "category": "Static Rules (No AI)",
-      "return_pct": 0.09,
+      "return_pct": -0.35,
       "volatility_pct": 16.2,
       "sharpe_ratio": 0.88,
       "max_drawdown_pct": 8.1
@@ -40,11 +95,11 @@
     {
       "name": "Equal-Weight Universe",
       "category": "Naive Quantitative Benchmark",
-      "return_pct": 0.11,
+      "return_pct": -0.45,
       "volatility_pct": 17.1,
       "sharpe_ratio": 0.75,
       "max_drawdown_pct": 9.4
     }
   ],
-  "last_updated": "2026-08-20T18:33:05.155158"
+  "last_updated": "2026-08-20T19:25:53.745933"
 }

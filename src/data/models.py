@@ -113,7 +113,7 @@ class Transaction:
     rule_ids: List[str]
     confidence_pct: float
     decision_id: str
-
+    realized_pnl: float = 0.0
     profile_id: str = "P1_DOMESTIC_EQUITY"
 
 
