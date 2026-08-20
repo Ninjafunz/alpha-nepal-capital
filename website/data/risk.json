@@ -1,5 +1,5 @@
 {
-  "current_volatility_pct": 28.26,
+  "current_volatility_pct": 27.72,
   "volatility_limit_pct": 15.0,
   "current_drawdown_pct": 0.0,
   "drawdown_defensive_trigger_pct": 15.0,
@@ -18,5 +18,5 @@
   "single_stock_limit_pct": 5.0,
   "cash_reserve_pct": 71.95,
   "cash_floor_pct": 5.0,
-  "last_updated": "2026-08-20T18:17:07.624863"
+  "last_updated": "2026-08-20T18:33:05.155158"
 }

@@ -1,9 +1,9 @@
 {
   "as_of_date": "2026-08-20",
-  "total_assets": 99866933.44,
-  "cash_npr": 71852922.83,
+  "total_assets": 99866944.87,
+  "cash_npr": 71855340.58,
   "cash_weight_pct": 71.95,
-  "invested_npr": 28014010.610000003,
+  "invested_npr": 28011604.29,
   "holdings_count": 18,
   "holdings": [
     {
@@ -218,10 +218,10 @@
       "symbol": "GC=F",
       "sector": "Precious Metals",
       "quantity": 1,
-      "avg_buy_price": 691689.2467511967,
-      "current_price": 691689.2467511967,
-      "cost_basis": 694974.77,
-      "current_value": 691689.25,
+      "avg_buy_price": 690939.1892802864,
+      "current_price": 690939.1892802864,
+      "cost_basis": 694221.15,
+      "current_value": 690939.19,
       "weight_pct": 0.69,
       "unrealized_pnl": 0.0,
       "unrealized_pnl_pct": 0.0,
@@ -231,10 +231,10 @@
       "symbol": "ETH-USD",
       "sector": "Smart Contract Platform",
       "quantity": 2,
-      "avg_buy_price": 348927.55765301734,
-      "current_price": 348927.55765301734,
-      "cost_basis": 701169.94,
-      "current_value": 697855.12,
+      "avg_buy_price": 348099.4299251698,
+      "current_price": 348099.4299251698,
+      "cost_basis": 699505.81,
+      "current_value": 696198.86,
       "weight_pct": 0.7,
       "unrealized_pnl": 0.0,
       "unrealized_pnl_pct": 0.0,
@@ -248,5 +248,5 @@
     "Life Insurance": 5.0,
     "Manufacturing and Processing": 5.0
   },
-  "last_updated": "2026-08-20T18:17:07.624863"
+  "last_updated": "2026-08-20T18:33:05.155158"
 }

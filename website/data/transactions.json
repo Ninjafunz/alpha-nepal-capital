@@ -2,8 +2,8 @@
   "count": 18,
   "transactions": [
     {
-      "id": "TX-20260820-89435A",
-      "timestamp": "2026-08-20T18:17:06.639712",
+      "id": "TX-20260820-BB59B1",
+      "timestamp": "2026-08-20T18:33:04.710447",
       "trade_date": "2026-08-20",
       "symbol": "NABIL",
       "action": "BUY",
@@ -20,8 +20,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-ABE20A",
-      "timestamp": "2026-08-20T18:17:06.656429",
+      "id": "TX-20260820-55E54F",
+      "timestamp": "2026-08-20T18:33:04.718864",
       "trade_date": "2026-08-20",
       "symbol": "GBIME",
       "action": "BUY",
@@ -38,8 +38,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-FFC676",
-      "timestamp": "2026-08-20T18:17:06.690231",
+      "id": "TX-20260820-B9D608",
+      "timestamp": "2026-08-20T18:33:04.729603",
       "trade_date": "2026-08-20",
       "symbol": "NICA",
       "action": "BUY",
@@ -56,8 +56,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-A75C35",
-      "timestamp": "2026-08-20T18:17:06.709631",
+      "id": "TX-20260820-98FC96",
+      "timestamp": "2026-08-20T18:33:04.740511",
       "trade_date": "2026-08-20",
       "symbol": "SCB",
       "action": "BUY",
@@ -74,8 +74,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-4C7723",
-      "timestamp": "2026-08-20T18:17:06.727046",
+      "id": "TX-20260820-BDD26C",
+      "timestamp": "2026-08-20T18:33:04.752676",
       "trade_date": "2026-08-20",
       "symbol": "CHCL",
       "action": "BUY",
@@ -92,8 +92,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-E3DC86",
-      "timestamp": "2026-08-20T18:17:06.749918",
+      "id": "TX-20260820-1E45D3",
+      "timestamp": "2026-08-20T18:33:04.763814",
       "trade_date": "2026-08-20",
       "symbol": "SHPC",
       "action": "BUY",
@@ -110,8 +110,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-46486A",
-      "timestamp": "2026-08-20T18:17:06.771354",
+      "id": "TX-20260820-7BCAF2",
+      "timestamp": "2026-08-20T18:33:04.777238",
       "trade_date": "2026-08-20",
       "symbol": "UPPER",
       "action": "BUY",
@@ -128,8 +128,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-036998",
-      "timestamp": "2026-08-20T18:17:06.794439",
+      "id": "TX-20260820-88065D",
+      "timestamp": "2026-08-20T18:33:04.788641",
       "trade_date": "2026-08-20",
       "symbol": "BPCL",
       "action": "BUY",
@@ -146,8 +146,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-9DDF92",
-      "timestamp": "2026-08-20T18:17:06.818709",
+      "id": "TX-20260820-530509",
+      "timestamp": "2026-08-20T18:33:04.799058",
       "trade_date": "2026-08-20",
       "symbol": "NTC",
       "action": "BUY",
@@ -164,8 +164,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-A0BE16",
-      "timestamp": "2026-08-20T18:17:06.883814",
+      "id": "TX-20260820-F7FE7A",
+      "timestamp": "2026-08-20T18:33:04.811398",
       "trade_date": "2026-08-20",
       "symbol": "NLIC",
       "action": "BUY",
@@ -182,8 +182,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-BBE301",
-      "timestamp": "2026-08-20T18:17:06.910794",
+      "id": "TX-20260820-57337A",
+      "timestamp": "2026-08-20T18:33:04.822474",
       "trade_date": "2026-08-20",
       "symbol": "SHIVM",
       "action": "BUY",
@@ -200,8 +200,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 25.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-F68CFE",
-      "timestamp": "2026-08-20T18:17:06.939454",
+      "id": "TX-20260820-C005A6",
+      "timestamp": "2026-08-20T18:33:04.835885",
       "trade_date": "2026-08-20",
       "symbol": "SPY",
       "action": "BUY",
@@ -218,8 +218,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 22.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-2D5CEA",
-      "timestamp": "2026-08-20T18:17:06.957908",
+      "id": "TX-20260820-5C682E",
+      "timestamp": "2026-08-20T18:33:04.851136",
       "trade_date": "2026-08-20",
       "symbol": "QQQ",
       "action": "BUY",
@@ -236,8 +236,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 26.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-DEE499",
-      "timestamp": "2026-08-20T18:17:06.978485",
+      "id": "TX-20260820-62688C",
+      "timestamp": "2026-08-20T18:33:04.862995",
       "trade_date": "2026-08-20",
       "symbol": "INDA",
       "action": "BUY",
@@ -254,8 +254,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 24.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-A38DE6",
-      "timestamp": "2026-08-20T18:17:07.001820",
+      "id": "TX-20260820-DB01E5",
+      "timestamp": "2026-08-20T18:33:04.873515",
       "trade_date": "2026-08-20",
       "symbol": "AAPL",
       "action": "BUY",
@@ -272,8 +272,8 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 22.0% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-0C174B",
-      "timestamp": "2026-08-20T18:17:07.021710",
+      "id": "TX-20260820-8A2B30",
+      "timestamp": "2026-08-20T18:33:04.885122",
       "trade_date": "2026-08-20",
       "symbol": "GLD",
       "action": "BUY",
@@ -290,41 +290,41 @@
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 24.5% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-A8D6D9",
-      "timestamp": "2026-08-20T18:17:07.042937",
+      "id": "TX-20260820-EE9A15",
+      "timestamp": "2026-08-20T18:33:04.897795",
       "trade_date": "2026-08-20",
       "symbol": "GC=F",
       "action": "BUY",
       "quantity": 1,
-      "price": 691689.2467511967,
-      "gross_value": 691689.25,
-      "broker_commission": 2490.08,
-      "sebon_fee": 103.75,
+      "price": 690939.1892802864,
+      "gross_value": 690939.19,
+      "broker_commission": 2487.38,
+      "sebon_fee": 103.64,
       "dp_charge": 0.0,
-      "slippage": 691.69,
-      "total_cost": 3285.52,
-      "net_value": 694974.77,
+      "slippage": 690.94,
+      "total_cost": 3281.96,
+      "net_value": 694221.15,
       "route": "Route Beta (Contra-Cyclical Raid)",
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 24.5% >= 20.0%. Passed all headroom and cash constraint checks"
     },
     {
-      "id": "TX-20260820-1767B5",
-      "timestamp": "2026-08-20T18:17:07.062599",
+      "id": "TX-20260820-36145A",
+      "timestamp": "2026-08-20T18:33:04.908520",
       "trade_date": "2026-08-20",
       "symbol": "ETH-USD",
       "action": "BUY",
       "quantity": 2,
-      "price": 348927.55765301734,
-      "gross_value": 697855.12,
-      "broker_commission": 2512.28,
-      "sebon_fee": 104.68,
+      "price": 348099.4299251698,
+      "gross_value": 696198.86,
+      "broker_commission": 2506.32,
+      "sebon_fee": 104.43,
       "dp_charge": 0.0,
-      "slippage": 697.86,
-      "total_cost": 3314.82,
-      "net_value": 701169.94,
+      "slippage": 696.2,
+      "total_cost": 3306.95,
+      "net_value": 699505.81,
       "route": "Route Gamma (Policy Hack)",
       "reason": "Strategic Tilt (Risk-On): Cognitive delta 28.5% >= 20.0%. Passed all headroom and cash constraint checks"
     }
   ],
-  "last_updated": "2026-08-20T18:17:07.624863"
+  "last_updated": "2026-08-20T18:33:05.155158"
 }

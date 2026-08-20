@@ -30,8 +30,8 @@
       "currency": "NPR",
       "asset_class": "COMMODITY",
       "starting_capital": 20000000.0,
-      "current_assets": 19992501.77,
-      "equity": 19992501.77,
+      "current_assets": 19992505.33,
+      "equity": 19992505.33,
       "liabilities": 0.0,
       "total_return_pct": -0.04,
       "holdings_count": 2
@@ -42,12 +42,12 @@
       "currency": "NPR",
       "asset_class": "CRYPTO",
       "starting_capital": 20000000.0,
-      "current_assets": 19996685.18,
-      "equity": 19996685.18,
+      "current_assets": 19996693.05,
+      "equity": 19996693.05,
       "liabilities": 0.0,
       "total_return_pct": -0.02,
       "holdings_count": 1
     }
   ],
-  "last_updated": "2026-08-20T18:17:07.728602"
+  "last_updated": "2026-08-20T18:33:05.225044"
 }

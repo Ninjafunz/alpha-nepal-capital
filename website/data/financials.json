@@ -1,10 +1,10 @@
 {
   "as_of_date": "2026-08-20",
   "balance_sheet": {
-    "total_assets": 99866933.44,
-    "cash_and_equivalents": 71852922.83,
-    "equity_investments_market_value": 28014010.610000003,
-    "cost_basis": 28014010.610000003,
+    "total_assets": 99866944.87,
+    "cash_and_equivalents": 71855340.58,
+    "equity_investments_market_value": 28011604.29,
+    "cost_basis": 28011604.29,
     "unrealized_gain_loss": 0.0,
     "accounts_receivable": 0.0,
     "total_liabilities": 0.0,
@@ -23,5 +23,5 @@
     "total_operating_expenses": 0.0,
     "net_profit_loss": 0.0
   },
-  "last_updated": "2026-08-20T18:17:07.624863"
+  "last_updated": "2026-08-20T18:33:05.155158"
 }

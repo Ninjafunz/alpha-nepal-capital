@@ -5,9 +5,9 @@
   "date": "2026-08-20",
   "subject": "Global Portfolio Rebalancing - Regime: Risk-On",
   "consolidated_status": {
-    "total_nav_npr": 99866933.44,
-    "cash_equiv_npr": 71852922.83,
-    "cash_weight_pct": 71.9,
+    "total_nav_npr": 99866944.87,
+    "cash_equiv_npr": 71855340.58000001,
+    "cash_weight_pct": 72.0,
     "currency_breakdown": "NPR: 24.9%, USD: 75.1%",
     "total_return_pct": -0.13,
     "benchmark_return_pct": 0.06,
@@ -67,8 +67,8 @@
     {
       "asset_class": "FX & Cash",
       "strategic_target": "25.0%",
-      "current_allocation": "71.9%",
-      "deviation": "+46.9%",
+      "current_allocation": "72.0%",
+      "deviation": "+47.0%",
       "status": "PASS"
     }
   ],
@@ -91,7 +91,7 @@
       {
         "rule": "Max USD-Denominated Exposure",
         "limit": "40% NAV",
-        "current": "6.1%",
+        "current": "6.0%",
         "passed": true,
         "status": "PASS"
       },
@@ -267,7 +267,7 @@
     }
   ],
   "decision_ledger": {
-    "timestamp": "2026-08-20T18:17:07.618977",
+    "timestamp": "2026-08-20T18:33:05.151695",
     "regime_classification": "Risk-On",
     "regime_rationale": "Accommodative cross-asset conditions, stable volatility, positive growth momentum.",
     "decisions": [

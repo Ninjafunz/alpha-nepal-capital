@@ -1,10 +1,10 @@
 {
   "macro_signals": {
-    "us_10y_yield": 4.6529998779296875,
+    "us_10y_yield": 4.708000183105469,
     "dxy_proxy": 27.8799991607666,
-    "vix": 15.9399995803833,
+    "vix": 16.0,
     "gold_spot_usd": 4138.399963378906,
-    "btc_price_usd": 71821.7109375,
+    "btc_price_usd": 71509.21875,
     "usd_npr_rate": 153.0760040283203,
     "nepse_sentiment_score": 58.0
   },
@@ -12,15 +12,15 @@
     "regime": "Risk-On",
     "rationale": "Accommodative cross-asset conditions, stable volatility, positive growth momentum.",
     "macro_signals": {
-      "us_10y_yield": 4.6529998779296875,
+      "us_10y_yield": 4.708000183105469,
       "dxy_proxy": 27.8799991607666,
-      "vix": 15.9399995803833,
+      "vix": 16.0,
       "gold_spot_usd": 4138.399963378906,
-      "btc_price_usd": 71821.7109375,
+      "btc_price_usd": 71509.21875,
       "usd_npr_rate": 153.0760040283203,
       "nepse_sentiment_score": 58.0
     },
-    "timestamp": "2026-08-20T18:17:06.637853"
+    "timestamp": "2026-08-20T18:33:04.709248"
   },
   "saa_calibration": {
     "baseline_saa": {
@@ -80,5 +80,5 @@
     "hedged_amount_npr": 30000000.0,
     "status": "HEDGED_AUTO"
   },
-  "timestamp": "2026-08-20T18:17:07.080524"
+  "timestamp": "2026-08-20T18:33:04.919543"
 }
