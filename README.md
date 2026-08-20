@@ -1,27 +1,45 @@
-# Alpha Nepal Capital — AI-Managed Virtual Investment Company
+# Alpha Nepal Capital
 
-[![GitHub Actions](https://github.com/username/alpha-nepal-capital/actions/workflows/daily_cycle.yml/badge.svg)](https://github.com/username/alpha-nepal-capital/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Daily Cycle](https://github.com/Ninjafunz/alpha-nepal-capital/actions/workflows/daily_cycle.yml/badge.svg)](https://github.com/Ninjafunz/alpha-nepal-capital/actions/workflows/daily_cycle.yml)
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](LICENSE)
 [![Strategy: ASA-V1.ethics](https://img.shields.io/badge/Strategy-ASA--V1.ethics-blue.svg)](config/investment_policy.yaml)
-[![Status: FLOURISHING](https://img.shields.io/badge/Status-FLOURISHING-00d26a.svg)](https://username.github.io/alpha-nepal-capital)
+[![Status: FLOURISHING](https://img.shields.io/badge/Status-FLOURISHING-00d26a.svg)](https://Ninjafunz.github.io/alpha-nepal-capital/website)
+[![Compliance: 100%](https://img.shields.io/badge/Strategy%20Compliance-100%25-00d26a.svg)](config/investment_policy.yaml)
 
 > *"Can a human-designed investment strategy, autonomously executed by an AI-managed virtual investment company using real-time market information, generate sustainable risk-adjusted returns in the Nepalese equity market?"*
+>
+> — Core Research Question, Alpha Nepal Capital
 
-**Live Public Investor Portal:** [https://username.github.io/alpha-nepal-capital](https://username.github.io/alpha-nepal-capital)
-
----
-
-## 1. Executive Summary & Concept
-
-Alpha Nepal Capital is founded as a **virtual investment company** with **NPR 100,000,000 in starting capital** and **10,000,000 virtual shares** at a par Net Asset Value (NAV) of **NPR 10.00 / share**.
-
-* **The Founder / Chief Strategist (You):** Defines the core investment philosophy, constitutional risk boundaries, eligible sectors, position sizing rules, and cognitive delta criteria.
-* **The AI Management Team:** Operates autonomously (Level 3 Autonomy) to monitor real-time NEPSE data, screen opportunities, calculate 3-layer investment scores, size positions, execute virtual trades against an immutable ledger, and publish daily/monthly reports.
-* **The Website:** Functions as the public investor-relations portal, rendering live balance sheets, interactive NAV charts, AI decision streams, and compliance audits directly from committed JSON data.
+**Live Public Investor Portal:** [https://Ninjafunz.github.io/alpha-nepal-capital/website](https://Ninjafunz.github.io/alpha-nepal-capital/website)
 
 ---
 
-## 2. The ASA-V1.ethics Investment Constitution
+## What is this?
+
+Alpha Nepal Capital is an **empirical research experiment** — a fully operational virtual investment company run entirely by an autonomous AI management system, executing a human-designed investment philosophy on real NEPSE (Nepal Stock Exchange) and global market data.
+
+**The human founder designed the strategy. The AI operates the company. The market judges the results.**
+
+This is not a trading bot, not a recommendation tool, and not financial advice. It is a transparent, live, public record of whether AI can faithfully execute a structured investment constitution — the ASA-V1.ethics framework — and generate meaningful alpha over time.
+
+---
+
+## Architecture at a Glance
+
+```
+Human Founder (Chief Strategist)          AI Management (Autonomous Execution)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Investment philosophy (ASA-V1.ethics)   • Real-time NEPSE + Global price feed
+• Risk tolerance & hard constraint limits • 3-Layer opportunity scoring engine
+• Portfolio rules (25% stock, 40% sector) • Cognitive Delta threshold filter
+• Starting capital (NPR 100M)             • Constitutional position sizer
+• Strategy revisions (founder approval)  • Virtual trade execution + ledger
+                                          • Daily / monthly AI reporting
+```
+
+---
+
+## The ASA-V1.ethics Investment Constitution
 
 ```
 Every investment vehicle is governed by exactly four structural forces and one cognitive gap.
@@ -29,86 +47,191 @@ Profits are found in the velocity of mispricing between academic consensus and p
 Ethics are the longest-duration call option on regulatory goodwill.
 ```
 
-### The 3-Layer Scoring Model:
-1. **Layer 1: Structural Anchoring (35% Weight)**
-   * Capital Velocity (Liquidity flow, credit spreads, 90-day momentum)
-   * Physical / Operational Risk (Supply chain resilience, NPL, hydro water flow/PPA)
-   * Transition / Regulatory Risk (NRB directives, SEBON policy, tax tailwinds)
-   * Bottleneck Asymmetry (Inelastic levers, steep marginal cost advantage)
-2. **Layer 2: Theoretical Literature Audit (30% Weight)**
-   * Elite Theory (Kondratiev macro alignment)
-   * Prospect Theory (The "Mispriced Middle" between fear and greed)
-   * Real Options (Unpriced asset optionality)
-   * Regulatory Capture ("Golden Zone" dynamics)
-3. **Layer 3: Cognitive Delta Engine (35% Weight)**
-   * Three-Bias Check: Narrative Bias, Anchoring Bias, Recency Bias
-   * Intrinsic Value vs. Market Price: Requires **Delta > 30%** to deploy capital
+### 3-Layer Scoring Pipeline
 
-### The 3 Execution Routes:
-* **Route Alpha (Defensive Moat):** Insulated infrastructure & sovereign-backed cash flows (60% target)
-* **Route Beta (Contra-Cyclical Raid):** Deep value turnaround plays with D/E > 2x & beaten-down P/E (25% target)
-* **Route Gamma (Policy Hack):** Exceeding regulatory compliance standards by 20%+ (15% target)
+| Layer | Weight | What it evaluates |
+|---|---|---|
+| **Layer 1: Structural Anchoring** | 35% | Capital velocity, physical/operational risk, regulatory transition risk, bottleneck asymmetry |
+| **Layer 2: Literature Audit** | 30% | Kondratiev/Elite Theory alignment, Prospect Theory mispriced middle, real options, regulatory capture |
+| **Layer 3: Cognitive Delta Engine** | 35% | Three-bias audit (Narrative, Anchoring, Recency); requires **Delta ≥ 20%** gap between intrinsic value and market price before any capital is deployed |
 
----
+### Constitutional Hard Rules
 
-## 3. Four-Portfolio Experimental Control Group
+| Rule | Limit |
+|---|---|
+| Max single stock exposure | 25% |
+| Max sector concentration | 40% |
+| Min cash liquidity reserve | 5% |
+| Max active holdings | 15 |
+| Max portfolio drawdown (halt) | 25% |
+| Strategy compliance score | 100% required |
 
-To objectively determine whether AI execution adds value, four portfolios are tracked in parallel:
+### 3 Strategic Execution Routes
 
-| Portfolio | Strategy Type | Autonomous AI? | Description |
-|---|---|:---:|---|
-| **Alpha Nepal Capital** | **ASA-V1.ethics** | **Yes** | AI dynamically sizes and allocates based on structural deltas |
-| **Human Static** | Fixed Asset Allocation | No | Static pre-set allocation (40% Bank, 40% Hydro, 20% Cash) |
-| **NEPSE Index** | Passive Market | No | Buy-and-hold the NEPSE Composite Index |
-| **Equal-Weight** | Naive Quantitative | No | Equal allocation across top 10 universe stocks |
+| Route | Description | Target Allocation |
+|---|---|---|
+| **Alpha — Defensive Moat** | Insulated infrastructure & sovereign-backed cash flows | 60% |
+| **Beta — Contra-Cyclical Raid** | Deep value turnarounds with D/E > 2x and depressed P/E | 25% |
+| **Gamma — Policy Hack** | Companies exceeding regulatory standards by 20%+ | 15% |
 
 ---
 
-## 4. Installation & Quickstart
+## Four-Portfolio Experimental Control Group
 
-```bash
-# Clone the repository
-git clone https://github.com/username/alpha-nepal-capital.git
-cd alpha-nepal-capital
+To objectively measure whether AI execution adds alpha, four portfolios run in parallel:
 
-# Install Python dependencies using uv or pip
-pip install -e .
+| Portfolio | Strategy | AI-Managed? |
+|---|---|:---:|
+| **Alpha Nepal Capital (P1)** | ASA-V1.ethics — NEPSE Equities (NPR 100M) | ✅ |
+| **Global Equity Profile (P2)** | Global equities via yfinance (USD 1M offshore) | ✅ |
+| **Commodities Profile (P3)** | Gold futures & commodities (USD 1M offshore) | ✅ |
+| **Crypto Profile (P4)** | Bitcoin / major crypto (USD 1M offshore) | ✅ |
 
-# Run the complete autonomous daily cycle
-alpha-nepal run-daily
+> **Regulatory note:** Nepalese law prohibits domestic capital from investing abroad. Global, Commodities, and Crypto portfolios are modelled as a legally isolated offshore subsidiary and tracked in USD.
 
-# View current company status and balance sheet
-alpha-nepal status
+---
 
-# Check constitutional strategy compliance score
-alpha-nepal compliance
+## How the Daily Cycle Works
 
-# View recent AI decision memos
-alpha-nepal decisions
+Every trading day (Sun–Thu), GitHub Actions automatically runs:
 
-# Compare performance against the 4 benchmarks
-alpha-nepal benchmark
+```
+1. Price Ingestion       → NEPSE delayed quotes + yfinance for global assets
+2. Fundamentals          → Audited P/E, EPS, book value per NEPSE sector
+3. AI Decision Pipeline  → Score all assets → threshold filter → position sizer → execute
+4. Leverage Manager      → Evaluates borrow/repay based on yield vs. cost of capital
+5. Self-Reflection       → Win/loss post-mortems, AI accuracy tracking
+6. Compliance Audit      → 6-rule constitutional check (must be 100%)
+7. Benchmark Comparison  → 4-portfolio comparative NAV and Sharpe ratio tables
+8. JSON Export + Deploy  → website/data/*.json committed → GitHub Pages rebuilt
 ```
 
 ---
 
-## 5. CLI Command Reference
+## Repository Structure
 
-| Command | Description |
-|---|---|
-| `alpha-nepal run-daily` | Ingests NEPSE data, runs decision pipeline, executes trades, snapshots NAV, exports JSON |
-| `alpha-nepal status` | Displays active portfolio holdings, sector weights, P&L, and NAV |
-| `alpha-nepal balance-sheet` | Prints audited company balance sheet |
-| `alpha-nepal compliance` | Evaluates rule-by-rule obedience against the IPS Constitution |
-| `alpha-nepal decisions` | Lists recent AI decisions with structural scores and cognitive delta % |
-| `alpha-nepal benchmark` | Displays comparative return, volatility, Sharpe ratio, and drawdown tables |
-| `alpha-nepal export-json` | Exports database state into `website/data/*.json` |
-| `alpha-nepal report-monthly` | Generates permanent monthly CEO executive report |
+```
+alpha-nepal-capital/
+├── config/
+│   ├── investment_policy.yaml     # The IPS Constitution (human-defined)
+│   ├── company_profile.yaml       # 4 portfolio profiles and starting capital
+│   └── universe.yaml              # Eligible securities universe
+│
+├── src/
+│   ├── cli.py                     # Entry point: `alpha-nepal run-daily`
+│   ├── data/
+│   │   ├── models.py              # Decision, Transaction, Stock, PriceBar data classes
+│   │   ├── store.py               # SQLite immutable ledger
+│   │   └── global_markets.py     # yfinance integration (global/crypto/commodity prices)
+│   ├── strategy/
+│   │   ├── scorer.py              # 3-Layer ASA-V1.ethics scoring engine
+│   │   ├── macro_delta.py         # Cognitive delta for non-NEPSE assets
+│   │   └── policy.py             # Typed IPS configuration loader (Pydantic)
+│   ├── portfolio/
+│   │   ├── engine.py              # Per-profile PortfolioEngine (cash, holdings, liabilities)
+│   │   ├── position_sizer.py      # Constitutional position sizing with hard limits
+│   │   ├── leverage_manager.py    # Borrow/Repay based on yield vs. cost of capital
+│   │   └── transaction.py         # NEPSE transaction cost model (broker, SEBON, DP)
+│   ├── decision/
+│   │   ├── pipeline.py            # Core brain: threshold triage → sizer → VirtualExecutor
+│   │   └── executor.py            # VirtualExecutor: builds tx, updates portfolio, logs ledger
+│   ├── governance/
+│   │   └── reflection.py          # AI self-reflection, win/loss post-mortems, win-rate
+│   └── export/
+│       └── json_bridge.py         # Exports all state to website/data/*.json
+│
+├── website/                       # GitHub Pages investor portal
+│   ├── index.html                 # Overview / hero dashboard
+│   ├── portfolio.html             # Live holdings and sector breakdown
+│   ├── performance.html           # Comparative NAV trajectory charts
+│   ├── decisions.html             # AI decision feed with reasoning memos
+│   ├── journal.html               # Win/loss post-mortems and AI accuracy log
+│   ├── strategy.html              # IPS constitution and compliance audit
+│   ├── financials.html            # Balance sheet and income statement
+│   ├── reports.html               # Monthly CEO reports
+│   ├── about.html                 # Governance matrix and research framework
+│   ├── css/style.css
+│   ├── js/
+│   │   ├── app.js                 # Data loader, clock renderer, live staleness detection
+│   │   ├── charts.js              # Chart.js NAV and sector allocation charts
+│   │   └── utils.js               # Formatters (NPR, %, dates, badges)
+│   └── data/                      # Auto-generated JSON (committed by CI every trading day)
+│       ├── clocks.json            # Market time, AI last run, live/stale status
+│       ├── company.json           # NAV, total assets, return, status
+│       ├── portfolio.json         # Active holdings, sector weights
+│       ├── decisions.json         # All AI decisions with scores and reasoning
+│       ├── transactions.json      # Executed virtual trades
+│       ├── compliance.json        # 6-rule constitutional audit results
+│       ├── benchmarks.json        # Comparative portfolio performance data
+│       ├── financials.json        # Balance sheet and income statement
+│       ├── journal.json           # AI self-reflection entries and win-rate
+│       └── profile_race.json      # 4-portfolio comparative race data
+│
+├── tests/                         # pytest unit tests
+├── .github/workflows/
+│   └── daily_cycle.yml            # Daily autonomous CI pipeline (Sun–Thu 09:30 UTC)
+└── pyproject.toml
+```
 
 ---
 
-## 6. GitHub Pages & Automated Actions
+## Quickstart
 
-1. Push this repository to GitHub as a **public repository**.
-2. Go to **Settings > Pages** and set source to **GitHub Actions**.
-3. The `.github/workflows/daily_cycle.yml` workflow will automatically run every trading day (Sun–Thu at 3:15 PM NPT), execute the daily investment cycle, commit the updated `website/data/*.json`, and trigger a live GitHub Pages deployment.
+```bash
+# Clone
+git clone https://github.com/Ninjafunz/alpha-nepal-capital.git
+cd alpha-nepal-capital
+
+# Install
+pip install -e .
+
+# Run the full autonomous daily cycle locally
+python -m src.cli run-daily
+
+# Or use the CLI entry point
+alpha-nepal run-daily
+```
+
+### CLI Reference
+
+| Command | Description |
+|---|---|
+| `alpha-nepal run-daily` | Full daily cycle: ingest → score → threshold → execute → export |
+| `alpha-nepal status` | Portfolio holdings, sector weights, P&L, NAV |
+| `alpha-nepal compliance` | Rule-by-rule constitutional audit |
+| `alpha-nepal decisions` | Recent AI decisions with cognitive delta scores |
+| `alpha-nepal benchmark` | 4-portfolio comparative return, Sharpe, drawdown |
+| `alpha-nepal export-json` | Export database state to `website/data/*.json` |
+
+---
+
+## GitHub Pages Setup
+
+1. Push to a **public GitHub repository**.
+2. Go to **Settings → Pages → Build and deployment → Source** → set to **GitHub Actions**.
+3. The `daily_cycle.yml` workflow will automatically:
+   - Run every trading day (Sun–Thu, 09:30 UTC)
+   - Execute the full investment cycle
+   - Commit updated `website/data/*.json`
+   - Redeploy the GitHub Pages investor portal
+
+---
+
+## Disclaimer
+
+This project is **strictly for academic research and educational purposes**.
+
+- All trading activity is **virtual and simulated**. No real money is managed.
+- NEPSE price data is used under fair use for non-commercial research.
+- This is **not financial advice**. Nothing in this repository should be construed as a recommendation to buy, sell, or hold any security.
+- The human founder retains all intellectual property rights over the ASA-V1.ethics investment philosophy and strategy architecture.
+
+---
+
+## License
+
+© 2026 Ninjafunz (Alpha Nepal Capital Founder). All rights reserved.
+
+This project is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**.
+
+See [LICENSE](LICENSE) for full terms.
