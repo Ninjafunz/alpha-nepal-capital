@@ -1,0 +1,18 @@
+{
+  "time_series": [
+    {
+      "date": "2026-08-20",
+      "nav": 9.9919,
+      "total_nav": 99919267.22,
+      "daily_return_pct": 0.0,
+      "cumulative_return_pct": -0.08,
+      "drawdown_pct": 0.0
+    }
+  ],
+  "current_nav": 9.9919,
+  "high_water_mark": 99919267.22,
+  "current_drawdown_pct": 0.0,
+  "annualized_volatility_pct": 23.88,
+  "sharpe_ratio": -0.25,
+  "last_updated": "2026-08-20T13:59:59.733065"
+}

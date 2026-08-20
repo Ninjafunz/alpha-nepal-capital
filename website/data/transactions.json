@@ -1,0 +1,56 @@
+{
+  "count": 2,
+  "transactions": [
+    {
+      "id": "TX-20260820-D4A46A",
+      "timestamp": "2026-08-20T13:59:59.558557",
+      "trade_date": "2026-08-20",
+      "symbol": "GBIME",
+      "action": "BUY",
+      "quantity": 46285,
+      "price": 216.05,
+      "gross_value": 9999874.25,
+      "broker_commission": 35999.55,
+      "sebon_fee": 1499.98,
+      "dp_charge": 0.0,
+      "slippage": 9999.87,
+      "total_cost": 47499.4,
+      "net_value": 10047373.65,
+      "route": "Route Alpha (Defensive Moat)",
+      "reason": "Structural Score: 81.6 | Cognitive Delta: +23.5% (Intrinsic: NPR 266.81 vs Market: NPR 216.05) | Route: Route Alpha (Defensive Moat)",
+      "rule_ids": [
+        "R-BUY-DELTA-QUALIFIED",
+        "R-RISK-HEADROOM-PASS"
+      ],
+      "confidence_pct": 87.0,
+      "post_trade_cash": 89952626.35,
+      "post_trade_nav": 9.9953
+    },
+    {
+      "id": "TX-20260820-3A7A20",
+      "timestamp": "2026-08-20T13:59:59.601779",
+      "trade_date": "2026-08-20",
+      "symbol": "NICA",
+      "action": "BUY",
+      "quantity": 15554,
+      "price": 449.82,
+      "gross_value": 6996500.28,
+      "broker_commission": 25187.4,
+      "sebon_fee": 1049.48,
+      "dp_charge": 0.0,
+      "slippage": 6996.5,
+      "total_cost": 33233.38,
+      "net_value": 7029733.66,
+      "route": "Route Beta (Contra-Cyclical Raid)",
+      "reason": "Structural Score: 79.0 | Cognitive Delta: +26.2% (Intrinsic: NPR 567.81 vs Market: NPR 449.82) | Route: Route Beta (Contra-Cyclical Raid)",
+      "rule_ids": [
+        "R-BUY-DELTA-QUALIFIED",
+        "R-RISK-HEADROOM-PASS"
+      ],
+      "confidence_pct": 85.2,
+      "post_trade_cash": 82922892.69,
+      "post_trade_nav": 9.992
+    }
+  ],
+  "last_updated": "2026-08-20T13:59:59.733065"
+}

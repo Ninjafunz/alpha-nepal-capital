@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategy & Compliance — Alpha Nepal Capital</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="clocks-bar">
+    <div class="clocks-container">
+      <div class="clock-item"><span>Market Clock:</span><span id="market-clock" class="mono">--:--:--</span></div>
+      <div class="clock-item"><span>AI Cycle:</span><span id="ai-clock" class="mono">--:--:--</span></div>
+      <div class="clock-item"><span>Data Status:</span><span id="data-status-tag" class="status-tag status-live"><span class="pulse-dot"></span> LIVE</span></div>
+    </div>
+  </div>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">ANC</div>
+        <div class="brand-text">
+          <h1>Alpha Nepal Capital</h1>
+          <span>AI-Managed Virtual Investment Company</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="performance.html">Performance</a></li>
+          <li><a href="decisions.html">Decisions</a></li>
+          <li><a href="strategy.html" class="active">Strategy & Rules</a></li>
+          <li><a href="financials.html">Financials</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a href="about.html">About & Governance</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="card-header" style="border: none; margin-bottom: 1.5rem; padding-bottom: 0;">
+      <div>
+        <h2>Investment Policy Statement & Constitutional Compliance</h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          Evaluating strategy obedience: Distinguishing the inherent quality of the human strategy from AI execution discipline.
+        </p>
+      </div>
+    </div>
+
+    <!-- Compliance Score Banner -->
+    <div class="card" style="background: linear-gradient(135deg, rgba(24, 34, 52, 0.9) 0%, rgba(18, 24, 38, 0.9) 100%); border-left: 6px solid var(--accent-primary);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 0.25rem;">Constitutional Strategy Obedience</h3>
+          <p style="color: var(--text-secondary);">Real-time monitoring of hard constraints defined by the Chief Strategist.</p>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Compliance Score</div>
+          <div id="compliance-score-val" style="font-size: 2.5rem; font-weight: 800; font-family: var(--font-mono); color: var(--accent-primary);">100.0%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Compliance Checklist -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Constitutional Hard Rules & Limits Checklist</h3>
+      </div>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Rule ID</th>
+              <th>Constitutional Guardrail</th>
+              <th>Policy Threshold</th>
+              <th>Current Portfolio Value</th>
+              <th>Compliance Status</th>
+              <th>Audit Log Message</th>
+            </tr>
+          </thead>
+          <tbody id="compliance-rules-tbody">
+            <tr><td colspan="6" style="text-align: center; color: var(--text-muted);">Loading compliance records...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Methodology Overview -->
+    <div class="card">
+      <div class="card-header">
+        <h3>The ASA-V1.ethics Strategy Architecture</h3>
+      </div>
+      <div style="color: var(--text-secondary); line-height: 1.8;">
+        <p><strong>Maxim:</strong> <em>"Profits are not found in the asset itself, but in the velocity of mispricing between academic consensus and physical reality. Ethics are not a drag; they are the longest-duration call option on regulatory goodwill."</em></p>
+        <div style="margin-top: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px;">
+            <strong style="color: var(--accent-blue);">Pillar 1: Structural Anchoring</strong>
+            <p style="font-size: 0.85rem; margin-top: 0.3rem;">Evaluates Capital Velocity, Physical/Operational Risk, Regulatory Risk, and Bottleneck Asymmetries.</p>
+          </div>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px;">
+            <strong style="color: var(--accent-gold);">Pillar 2: Literature Audit</strong>
+            <p style="font-size: 0.85rem; margin-top: 0.3rem;">Applies Elite Theory, Prospect Theory (the mispriced middle), Real Options, and Regulatory Capture.</p>
+          </div>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px;">
+            <strong style="color: var(--accent-primary);">Pillar 3: Cognitive Delta</strong>
+            <p style="font-size: 0.85rem; margin-top: 0.3rem;">Audits Narrative, Anchoring, and Recency Biases. Requires a 30%+ gap between intrinsic value and price.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div><strong>Alpha Nepal Capital</strong> — Autonomous Virtual Investment Company</div>
+      <div><span style="font-family: var(--font-mono); font-size: 0.8rem;">Governing Philosophy: ASA-V1.ethics</span></div>
+    </div>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

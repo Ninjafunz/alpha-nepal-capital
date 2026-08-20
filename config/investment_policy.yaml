@@ -1,0 +1,145 @@
+# ==============================================================================
+# Alpha Nepal Capital — Investment Policy Statement (IPS) & Constitution
+# Version: 1.0.0
+# Governing Philosophy: ASA-V1.ethics
+# Chief Strategist / Founder: Human Founder
+# Operating Management: Autonomous AI Agent (Level 3 Autonomy)
+# ==============================================================================
+
+company:
+  name: "Alpha Nepal Capital"
+  founded: "2026-08-20"
+  starting_capital: 100000000.0   # NPR 100,000,000 (100 Million)
+  shares_outstanding: 10000000.0  # 10,000,000 virtual shares
+  starting_nav: 10.0              # NPR 10.00 / share
+  currency: "NPR"
+  autonomy_level: 3               # Level 3: Fully Autonomous Execution
+
+investment_objective: >
+  Maximize long-term risk-adjusted capital growth while maintaining controlled
+  downside risk in the Nepalese equity market (NEPSE). Operate strictly within
+  the ASA-V1.ethics institutional framework where profits are extracted from the
+  velocity of mispricing between academic consensus and physical reality, and ethics
+  serve as a long-duration call option on regulatory goodwill.
+
+# ------------------------------------------------------------------------------
+# 1. STRUCTURAL ANCHORING & SITUATIONAL TRIAGE (Pillar 1)
+# ------------------------------------------------------------------------------
+structural_variables:
+  capital_velocity_weight: 0.25      # Liquidity flow, credit spreads, 90-day momentum
+  physical_operational_weight: 0.25  # Supply chain resilience, NPL, hydro water flow, PPA
+  regulatory_transition_weight: 0.25 # NRB directives, SEBON policies, tax tailwinds
+  bottleneck_asymmetry_weight: 0.25  # Inelastic levers, steep marginal cost advantage
+
+kondratiev_macro_mapping:
+  active_phase: "Reflationary"       # Inflationary / Deflationary / Stagflationary / Reflationary
+  twin_period: "1945-1950"           # Post-war / post-transition infrastructure development
+  priority_sectors:
+    - "Hydropower"
+    - "Commercial Bank"
+    - "Manufacturing and Processing"
+
+# ------------------------------------------------------------------------------
+# 2. THEORETICAL LITERATURE AUDIT (Pillar 2)
+# ------------------------------------------------------------------------------
+literature_audit:
+  elite_alignment_weight: 0.25       # Kondratiev/Elite Theory alignment
+  sentiment_position_weight: 0.25    # Prospect Theory (mispriced middle, 25th-75th pct)
+  real_options_weight: 0.25          # Unpriced optionality (land, licenses, M&A cash)
+  golden_zone_weight: 0.25           # Regulatory capture sweet-spot
+  max_fair_value_sigma: 1.5          # Validated within 1.5 standard deviations
+
+# ------------------------------------------------------------------------------
+# 3. COGNITIVE DELTA ENGINE (Pillar 3)
+# ------------------------------------------------------------------------------
+cognitive_delta:
+  min_delta_threshold_pct: 20.0      # Minimum 20% gap between intrinsic value and price
+  aggressive_delta_threshold_pct: 40.0 # Above 40% delta triggers aggressive allocation
+  bias_penalty_narrative: 0.35       # Penalty if management narrative outpaces cash flow
+  bias_penalty_anchoring: 0.35       # Penalty if price relies on past ATH instead of replacement cost
+  bias_penalty_recency: 0.30         # Discount 90-day noise in favor of 5-year structural thesis
+
+# ------------------------------------------------------------------------------
+# 4. STRATEGIC ROUTES & ALLOCATION (Pillar 4)
+# ------------------------------------------------------------------------------
+strategic_routes:
+  route_alpha:
+    name: "Route Alpha (Defensive Moat)"
+    description: "Insulated infrastructure & sovereign-linked recurring cash flows"
+    target_allocation_pct: 60.0
+    eligible_sectors: ["Commercial Bank", "Hydropower", "Others"]
+  route_beta:
+    name: "Route Beta (Contra-Cyclical Raid)"
+    description: "Deep value, beaten-down high operating leverage, turnaround plays"
+    target_allocation_pct: 25.0
+    min_drawdown_trigger_pct: 30.0
+    max_debt_to_equity: 3.5
+  route_gamma:
+    name: "Route Gamma (Policy Hack)"
+    description: "Exceeding regulatory standards by 20%+, compliance-first moats"
+    target_allocation_pct: 15.0
+    governance_premium_score: 10.0
+
+# ------------------------------------------------------------------------------
+# 5. PORTFOLIO CONSTRAINTS & RISK LIMITS (The Hard Rules)
+# ------------------------------------------------------------------------------
+portfolio_constraints:
+  max_single_position_pct: 25.0      # Maximum 25% in any single stock
+  max_sector_pct: 40.0               # Maximum 40% in any single sector
+  min_cash_pct: 5.0                  # Minimum 5% cash buffer at all times
+  max_cash_pct: 50.0                 # Max 50% cash in normal regimes
+  defensive_cash_pct: 30.0           # Cash target when defensive review triggered
+  max_positions: 15                  # Maximum concurrent holdings
+  min_position_size_pct: 2.0         # Minimum position size to prevent dust
+  max_portfolio_volatility_annual: 20.0 # Annualized portfolio volatility limit (%)
+  max_drawdown_warning_pct: 10.0     # Warning alert at 10% drawdown
+  max_drawdown_defensive_pct: 15.0   # Enter defensive review mode at 15% drawdown
+  max_drawdown_halt_pct: 25.0        # Halt all buy orders at 25% drawdown
+
+# ------------------------------------------------------------------------------
+# 6. TRANSACTION COSTS & EXECUTION FRICTION (Realistic NEPSE Model)
+# ------------------------------------------------------------------------------
+transaction_costs:
+  broker_commission_pct: 0.36        # Standard brokerage commission (0.36%)
+  sebon_fee_pct: 0.015               # SEBON regulatory fee (0.015%)
+  dp_charge_npr: 25.0                # Depository Participant fee per sell order
+  slippage_pct: 0.10                 # Simulated market impact slippage (0.10%)
+
+# ------------------------------------------------------------------------------
+# 7. ELIGIBLE UNIVERSE & FILTERS
+# ------------------------------------------------------------------------------
+investment_universe:
+  exchange: "NEPSE"
+  eligible_sectors:
+    - "Commercial Bank"
+    - "Development Bank"
+    - "Finance"
+    - "Microfinance"
+    - "Hydropower"
+    - "Life Insurance"
+    - "Non-Life Insurance"
+    - "Manufacturing and Processing"
+    - "Hotels and Tourism"
+    - "Trading"
+    - "Investment"
+    - "Others"
+  excluded_sectors:
+    - "Mutual Fund"                  # Direct equity holdings only
+  minimum_category: "A"              # Class A compliant securities preferred
+  min_daily_turnover_npr: 500000     # Minimum daily liquidity check
+
+# ------------------------------------------------------------------------------
+# 8. COMPANY STATUS EVALUATION RULES
+# ------------------------------------------------------------------------------
+company_status_thresholds:
+  flourishing:
+    min_return_pct: 5.0
+    min_alpha_pct: 0.0
+    max_drawdown_pct: 10.0
+  stable:
+    min_return_pct: 0.0
+    max_drawdown_pct: 15.0
+  declining:
+    max_return_pct: 0.0
+  critical:
+    max_return_pct: -10.0

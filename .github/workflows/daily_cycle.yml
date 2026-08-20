@@ -1,0 +1,42 @@
+name: Daily Autonomous Investment Cycle
+
+on:
+  schedule:
+    # NEPSE trades Sunday through Thursday.
+    # Market closes at 3:00 PM NPT. 3:15 PM NPT = 09:30 UTC (Sun-Thu).
+    - cron: '30 9 * * 0-4'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  run-daily-simulation:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Execute Autonomous Daily Cycle
+        run: |
+          python -m src.cli run-daily
+
+      - name: Commit and Push Updated Website JSON Data
+        run: |
+          git config user.name "Alpha Nepal Capital AI"
+          git config user.email "ai@alpha-nepal-capital.internal"
+          git add website/data/
+          git diff --staged --quiet || git commit -m "📊 Daily Simulation Update: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push

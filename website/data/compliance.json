@@ -1,0 +1,69 @@
+{
+  "trade_date": "2026-08-20",
+  "overall_compliance_score_pct": 100.0,
+  "rules_count": 6,
+  "passed_count": 6,
+  "rules": [
+    {
+      "rule_id": "RULE-POS-01",
+      "rule_name": "Max Single Position Exposure",
+      "threshold": "<= 25.0%",
+      "current_value": 10.01,
+      "limit_value": 25.0,
+      "passed": true,
+      "severity": "PASS",
+      "message": "Highest single stock weight is 10.0% (Limit: 25.0%)"
+    },
+    {
+      "rule_id": "RULE-SEC-02",
+      "rule_name": "Max Sector Concentration",
+      "threshold": "<= 40.0%",
+      "current_value": 17.01,
+      "limit_value": 40.0,
+      "passed": true,
+      "severity": "PASS",
+      "message": "Highest sector concentration is 17.0% (Limit: 40.0%)"
+    },
+    {
+      "rule_id": "RULE-CASH-03",
+      "rule_name": "Minimum Cash Liquidity Reserve",
+      "threshold": ">= 5.0%",
+      "current_value": 82.99,
+      "limit_value": 5.0,
+      "passed": true,
+      "severity": "PASS",
+      "message": "Cash balance at 83.0% of total assets (Floor: 5.0%)"
+    },
+    {
+      "rule_id": "RULE-DD-04",
+      "rule_name": "Maximum Drawdown Guardrail",
+      "threshold": "<= 15.0%",
+      "current_value": 0.0,
+      "limit_value": 15.0,
+      "passed": true,
+      "severity": "PASS",
+      "message": "Portfolio drawdown is 0.0% (Defensive Trigger: 15.0%)"
+    },
+    {
+      "rule_id": "RULE-VOL-05",
+      "rule_name": "Portfolio Annualized Volatility",
+      "threshold": "<= 20.0%",
+      "current_value": 14.5,
+      "limit_value": 20.0,
+      "passed": true,
+      "severity": "PASS",
+      "message": "Annualized volatility is 14.5% (Cap: 20.0%)"
+    },
+    {
+      "rule_id": "RULE-HOLD-06",
+      "rule_name": "Max Position Diversification Cap",
+      "threshold": "<= 15 holdings",
+      "current_value": 2.0,
+      "limit_value": 15.0,
+      "passed": true,
+      "severity": "PASS",
+      "message": "Active holdings count is 2 (Cap: 15)"
+    }
+  ],
+  "last_updated": "2026-08-20T13:59:59.733065"
+}

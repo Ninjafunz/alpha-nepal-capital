@@ -1,0 +1,37 @@
+{
+  "period": "2026-08",
+  "title": "2026-08 \u2014 Monthly CEO Report",
+  "published_at": "2026-08-20T14:00:08.153558",
+  "as_of_date": "2026-08-20",
+  "executive_summary": "Alpha Nepal Capital generated a -0.08% net return for 2026-08, generating an Alpha of -1.53% against the NEPSE Composite Index benchmark (+1.45%). The company operated with 100.0% Strategy Compliance.",
+  "nav_start": 10.0,
+  "nav_end": 9.9919,
+  "return_pct": -0.08,
+  "nepse_return_pct": 1.45,
+  "alpha_pct": -1.53,
+  "balance_sheet": {
+    "total_assets": 82842159.91,
+    "cash": 65845785.38,
+    "equity_investments": 16996374.53,
+    "shareholder_equity": 82842159.91
+  },
+  "financial_performance": {
+    "gross_income": -80732.78,
+    "dividend_income": 0.0,
+    "realized_gains": 0.0,
+    "unrealized_gains": -80732.78,
+    "transaction_costs": 80732.78,
+    "net_profit": -161465.56,
+    "net_margin_pct": -16146556.0
+  },
+  "ai_decisions_summary": {
+    "total_decisions": 15,
+    "buy_orders": 2,
+    "sell_orders": 0,
+    "hold_orders": 13,
+    "transactions_executed": 2
+  },
+  "strategy_compliance_score": 100.0,
+  "risk_assessment": "MODERATE \u2014 Volatility controlled within 20% annual constraint",
+  "management_outlook": "Operating with disciplined cash buffers and targeting undervalued essential infrastructure."
+}

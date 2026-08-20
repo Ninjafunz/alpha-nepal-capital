@@ -1,0 +1,211 @@
+# Universe of Key NEPSE Listed Companies with Baseline Structural Metadata
+securities:
+  - symbol: "NABIL"
+    name: "Nabil Bank Limited"
+    sector: "Commercial Bank"
+    category: "A"
+    paid_up_capital_cr: 2705.69
+    baseline_pe: 16.4
+    baseline_pb: 1.82
+    baseline_roe: 12.8
+    debt_to_equity: 6.8
+    route_eligibility: ["Route Alpha", "Route Gamma"]
+    bottleneck_score: 88.0
+    elite_alignment: 85.0
+    governance_score: 92.0
+
+  - symbol: "GBIME"
+    name: "Global IME Bank Limited"
+    sector: "Commercial Bank"
+    category: "A"
+    paid_up_capital_cr: 3612.87
+    baseline_pe: 14.2
+    baseline_pb: 1.45
+    baseline_roe: 11.2
+    debt_to_equity: 7.2
+    route_eligibility: ["Route Alpha"]
+    bottleneck_score: 84.0
+    elite_alignment: 80.0
+    governance_score: 86.0
+
+  - symbol: "NICA"
+    name: "NIC Asia Bank Limited"
+    sector: "Commercial Bank"
+    category: "A"
+    paid_up_capital_cr: 1491.75
+    baseline_pe: 13.8
+    baseline_pb: 1.55
+    baseline_roe: 13.5
+    debt_to_equity: 7.8
+    route_eligibility: ["Route Alpha", "Route Beta"]
+    bottleneck_score: 80.0
+    elite_alignment: 75.0
+    governance_score: 82.0
+
+  - symbol: "SCB"
+    name: "Standard Chartered Bank Nepal"
+    sector: "Commercial Bank"
+    category: "A"
+    paid_up_capital_cr: 942.94
+    baseline_pe: 17.5
+    baseline_pb: 2.10
+    baseline_roe: 14.1
+    debt_to_equity: 5.5
+    route_eligibility: ["Route Alpha", "Route Gamma"]
+    bottleneck_score: 90.0
+    elite_alignment: 88.0
+    governance_score: 95.0
+
+  - symbol: "CHCL"
+    name: "Chilime Hydropower Company Limited"
+    sector: "Hydropower"
+    category: "A"
+    paid_up_capital_cr: 798.89
+    baseline_pe: 19.2
+    baseline_pb: 2.30
+    baseline_roe: 13.0
+    debt_to_equity: 0.45
+    route_eligibility: ["Route Alpha", "Route Gamma"]
+    bottleneck_score: 92.0
+    elite_alignment: 90.0
+    governance_score: 91.0
+
+  - symbol: "SHPC"
+    name: "Sanima Mai Hydropower Limited"
+    sector: "Hydropower"
+    category: "A"
+    paid_up_capital_cr: 308.92
+    baseline_pe: 18.0
+    baseline_pb: 1.95
+    baseline_roe: 11.8
+    debt_to_equity: 0.65
+    route_eligibility: ["Route Alpha"]
+    bottleneck_score: 82.0
+    elite_alignment: 84.0
+    governance_score: 87.0
+
+  - symbol: "UPPER"
+    name: "Upper Tamakoshi Hydropower Limited"
+    sector: "Hydropower"
+    category: "B"
+    paid_up_capital_cr: 2118.00
+    baseline_pe: 28.5
+    baseline_pb: 2.70
+    baseline_roe: 8.5
+    debt_to_equity: 2.80
+    route_eligibility: ["Route Beta"]
+    bottleneck_score: 95.0
+    elite_alignment: 94.0
+    governance_score: 79.0
+
+  - symbol: "BPCL"
+    name: "Butwal Power Company Limited"
+    sector: "Hydropower"
+    category: "A"
+    paid_up_capital_cr: 340.90
+    baseline_pe: 21.0
+    baseline_pb: 1.70
+    baseline_roe: 9.8
+    debt_to_equity: 0.30
+    route_eligibility: ["Route Alpha", "Route Gamma"]
+    bottleneck_score: 89.0
+    elite_alignment: 87.0
+    governance_score: 93.0
+
+  - symbol: "HDL"
+    name: "Himalayan Distillery Limited"
+    sector: "Manufacturing and Processing"
+    category: "A"
+    paid_up_capital_cr: 267.27
+    baseline_pe: 29.0
+    baseline_pb: 4.80
+    baseline_roe: 22.0
+    debt_to_equity: 0.15
+    route_eligibility: ["Route Alpha", "Route Beta"]
+    bottleneck_score: 85.0
+    elite_alignment: 78.0
+    governance_score: 84.0
+
+  - symbol: "UNL"
+    name: "Unilever Nepal Limited"
+    sector: "Manufacturing and Processing"
+    category: "A"
+    paid_up_capital_cr: 9.21
+    baseline_pe: 42.0
+    baseline_pb: 12.50
+    baseline_roe: 38.0
+    debt_to_equity: 0.05
+    route_eligibility: ["Route Alpha", "Route Gamma"]
+    bottleneck_score: 96.0
+    elite_alignment: 85.0
+    governance_score: 96.0
+
+  - symbol: "CIT"
+    name: "Citizen Investment Trust"
+    sector: "Investment"
+    category: "A"
+    paid_up_capital_cr: 531.37
+    baseline_pe: 26.5
+    baseline_pb: 3.10
+    baseline_roe: 14.5
+    debt_to_equity: 0.20
+    route_eligibility: ["Route Alpha", "Route Gamma"]
+    bottleneck_score: 94.0
+    elite_alignment: 95.0
+    governance_score: 94.0
+
+  - symbol: "NTC"
+    name: "Nepal Telecom (Nepal Doorsanchar Company Limited)"
+    sector: "Others"
+    category: "A"
+    paid_up_capital_cr: 1800.00
+    baseline_pe: 18.5
+    baseline_pb: 2.25
+    baseline_roe: 15.2
+    debt_to_equity: 0.10
+    route_eligibility: ["Route Alpha", "Route Gamma"]
+    bottleneck_score: 98.0
+    elite_alignment: 96.0
+    governance_score: 92.0
+
+  - symbol: "NLIC"
+    name: "Nepal Life Insurance Company Limited"
+    sector: "Life Insurance"
+    category: "A"
+    paid_up_capital_cr: 820.79
+    baseline_pe: 27.0
+    baseline_pb: 3.40
+    baseline_roe: 12.0
+    debt_to_equity: 1.10
+    route_eligibility: ["Route Alpha", "Route Beta"]
+    bottleneck_score: 88.0
+    elite_alignment: 82.0
+    governance_score: 85.0
+
+  - symbol: "NIL"
+    name: "Neco Insurance Limited"
+    sector: "Non-Life Insurance"
+    category: "A"
+    paid_up_capital_cr: 201.23
+    baseline_pe: 19.5
+    baseline_pb: 2.15
+    baseline_roe: 13.8
+    debt_to_equity: 0.85
+    route_eligibility: ["Route Alpha"]
+    bottleneck_score: 79.0
+    elite_alignment: 76.0
+    governance_score: 84.0
+
+  - symbol: "SHIVM"
+    name: "Shivam Cements Limited"
+    sector: "Manufacturing and Processing"
+    category: "A"
+    paid_up_capital_cr: 502.70
+    baseline_pe: 24.5
+    baseline_pb: 2.40
+    baseline_roe: 10.5
+    debt_to_equity: 0.70
+    route_eligibility: ["Route Beta"]
+    bottleneck_score: 83.0
+    elite_alignment: 80.0
+    governance_score: 81.0

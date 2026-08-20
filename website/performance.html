@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance & Benchmarks — Alpha Nepal Capital</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="clocks-bar">
+    <div class="clocks-container">
+      <div class="clock-item"><span>Market Clock:</span><span id="market-clock" class="mono">--:--:--</span></div>
+      <div class="clock-item"><span>AI Cycle:</span><span id="ai-clock" class="mono">--:--:--</span></div>
+      <div class="clock-item"><span>Data Status:</span><span id="data-status-tag" class="status-tag status-live"><span class="pulse-dot"></span> LIVE</span></div>
+    </div>
+  </div>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">ANC</div>
+        <div class="brand-text">
+          <h1>Alpha Nepal Capital</h1>
+          <span>AI-Managed Virtual Investment Company</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="performance.html" class="active">Performance</a></li>
+          <li><a href="decisions.html">Decisions</a></li>
+          <li><a href="strategy.html">Strategy & Rules</a></li>
+          <li><a href="financials.html">Financials</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a href="about.html">About & Governance</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="card-header" style="border: none; margin-bottom: 1.5rem; padding-bottom: 0;">
+      <div>
+        <h2>Four-Portfolio Comparative Benchmark Center</h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">Empirical validation: Isolating whether autonomous AI execution adds alpha to the human strategy.</p>
+      </div>
+    </div>
+
+    <!-- Main Large NAV Chart -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Comparative Net Asset Value (NAV) Trajectory</h3>
+      </div>
+      <div style="height: 420px; position: relative;">
+        <canvas id="performanceMainChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Summary Comparison Table -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Experimental Control Group Comparison</h3>
+      </div>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Portfolio</th>
+              <th>Strategy Designation</th>
+              <th>Total Return</th>
+              <th>Annualized Volatility</th>
+              <th>Sharpe Ratio</th>
+              <th>Max Drawdown</th>
+            </tr>
+          </thead>
+          <tbody id="benchmarks-tbody">
+            <tr><td colspan="6" style="text-align: center; color: var(--text-muted);">Loading benchmark statistics...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div><strong>Alpha Nepal Capital</strong> — Autonomous Virtual Investment Company</div>
+      <div><span style="font-family: var(--font-mono); font-size: 0.8rem;">Governing Philosophy: ASA-V1.ethics</span></div>
+    </div>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
