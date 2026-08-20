@@ -2,7 +2,7 @@
   "count": 18,
   "decisions": [
     {
-      "id": "9cad6880-3d56-4dc6-902c-0deee9e5c02b",
+      "id": "ef75303d-43d6-48da-819e-9c3d892d8db7",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "NABIL",
@@ -24,7 +24,7 @@
       "executed": false
     },
     {
-      "id": "34f22f8c-19da-4a74-a84c-f00fda589bb8",
+      "id": "69f5f5da-b285-4717-affd-9c55c222861b",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "GBIME",
@@ -46,7 +46,7 @@
       "executed": false
     },
     {
-      "id": "1c94ffb0-8978-496d-83ab-b517deae3dc5",
+      "id": "6e4624c9-81b4-4e04-b3ae-c0a37818fec9",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "NICA",
@@ -68,7 +68,7 @@
       "executed": false
     },
     {
-      "id": "c403ef25-0575-4345-96c7-d836478c00a1",
+      "id": "6ebea313-6e67-4ca4-b675-73f1b2eca8be",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "SCB",
@@ -90,7 +90,7 @@
       "executed": false
     },
     {
-      "id": "8c572f35-a984-449b-866b-27bcd6f9a698",
+      "id": "a184c556-d0bb-45b8-8089-2198f127102c",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "CHCL",
@@ -112,7 +112,7 @@
       "executed": false
     },
     {
-      "id": "5ac73484-1a9e-49bd-a044-ca7056695a48",
+      "id": "6163fb0f-3f58-47da-9b36-127e456cb5a0",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "SHPC",
@@ -134,7 +134,7 @@
       "executed": false
     },
     {
-      "id": "9f956c49-cceb-4e90-9dde-57c2628578a9",
+      "id": "5fd3d7ee-194b-4ded-9198-a3ae4db9dffc",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "UPPER",
@@ -156,7 +156,7 @@
       "executed": false
     },
     {
-      "id": "07d9b2a6-2492-4abf-9fe8-90850e268f25",
+      "id": "cf0e8483-556c-4467-b178-828b25c971c3",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "BPCL",
@@ -178,7 +178,7 @@
       "executed": false
     },
     {
-      "id": "acb82cc3-5fbb-4049-b8e8-29b0348b3df8",
+      "id": "80f59e51-c8be-4c4c-9d20-858d18610d9c",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "HDL",
@@ -200,7 +200,7 @@
       "executed": false
     },
     {
-      "id": "4d60219c-d213-4515-80ad-95661b4f830d",
+      "id": "ef5782b4-a76a-4464-b8cf-30ad5ead80e9",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "UNL",
@@ -222,7 +222,7 @@
       "executed": false
     },
     {
-      "id": "6f289a36-cbb5-4aba-911d-c7a762de6208",
+      "id": "a6e7bdbc-ef75-4e35-b9d0-afc3e0892a8b",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "CIT",
@@ -244,7 +244,7 @@
       "executed": false
     },
     {
-      "id": "70a962c1-f392-4788-9438-c5b1c17adc8e",
+      "id": "5ab2bf08-8f52-4f34-9a9f-eed8993a6701",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "NTC",
@@ -266,7 +266,7 @@
       "executed": false
     },
     {
-      "id": "52d3fbfd-5212-415c-93d2-a9f4ccf7ec6e",
+      "id": "bc81257e-0769-42f9-8bc3-50adcfa9f2d0",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "NLIC",
@@ -288,7 +288,7 @@
       "executed": false
     },
     {
-      "id": "ac53580b-42fe-4317-af56-e6bd328e6131",
+      "id": "84719afb-4260-4864-8e5b-ceb4a77a51b4",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "NIL",
@@ -310,7 +310,7 @@
       "executed": false
     },
     {
-      "id": "1d8e46fd-5157-40ce-994e-2fe23eeb5b45",
+      "id": "d0a072ea-94c8-463d-b3f3-22bbe5af704d",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "SHIVM",
@@ -332,7 +332,7 @@
       "executed": false
     },
     {
-      "id": "25ccc9e8-7221-4220-8823-2402195743fe",
+      "id": "0f35109b-3faa-4297-91a6-edb1849eed30",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "AAPL",
@@ -354,7 +354,7 @@
       "executed": false
     },
     {
-      "id": "324383d4-cc2c-4013-9bf3-71855e24b3fa",
+      "id": "dd83aaac-bdf9-4749-9528-795a17d1acc4",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "GC=F",
@@ -376,7 +376,7 @@
       "executed": false
     },
     {
-      "id": "de16c36c-e324-46cd-b11d-527c1bc509b9",
+      "id": "2c294ade-03f9-4efa-ba81-6565a8c57a84",
       "timestamp": "",
       "trade_date": "2026-08-20",
       "symbol": "BTC-USD",
@@ -398,5 +398,5 @@
       "executed": false
     }
   ],
-  "last_updated": "2026-08-20T10:11:43.082783"
+  "last_updated": "2026-08-20T10:36:46.232847"
 }
